@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Проекты и мероприятия - Музей философии</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
+          <span class="brand__text">Музей философии</span>
+        </div>
+        <nav class="nav">
+          <a href="index.html" class="nav__link">Главная</a>
+          <a href="about.html" class="nav__link">О музее</a>
+          <a href="exhibitions.html" class="nav__link">Экспозиции</a>
+          <a href="events.html" class="nav__link is-active">Проекты и мероприятия</a>
+          <a href="contacts.html" class="nav__link">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="container">
+          <h1 class="page-title">Проекты и мероприятия</h1>
+          <p class="lead">Лекции, конференции, фестивали и долгосрочные проекты</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="events-filter">
+            <button class="filter-btn active" data-filter="all">Все мероприятия</button>
+            <button class="filter-btn" data-filter="lectures">Лекции</button>
+            <button class="filter-btn" data-filter="discussions">Дискуссии</button>
+            <button class="filter-btn" data-filter="workshops">Мастер-классы</button>
+            <button class="filter-btn" data-filter="festivals">Фестивали</button>
+            <button class="filter-btn" data-filter="projects">Проекты</button>
+          </div>
+
+          <div class="events-grid">
+            
+            <div class="event-card large slide-up" data-category="festivals">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800&auto=format&fit=crop" alt="Фестиваль философии" />
+              <div class="event-card__body">
+                <span class="event-category">Фестиваль</span>
+                <h3>Московский фестиваль философии</h3>
+                <p class="event-date">15-17 октября 2024</p>
+                <p class="event-time">Весь день</p>
+                <p>
+                  Трёхдневный фестиваль с участием ведущих философов России и мира. Лекции, дискуссии, перформансы и философские прогулки по городу.
+                </p>
+                <div class="event-speakers">
+                  <strong>Участники:</strong> В.А. Подорога, А.М. Руткевич, Б.В. Марков и другие
+                </div>
+                <a class="btn" href="#">Купить билет — от 500 ₽</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-1" data-category="lectures">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=400&auto=format&fit=crop" alt="Лекция о Платоне" />
+              <div class="event-card__body">
+                <span class="event-category">Лекция</span>
+                <h3>«Пещера Платона в эпоху цифровых технологий»</h3>
+                <p class="event-date">22 октября 2024</p>
+                <p class="event-time">19:00</p>
+                <p>
+                  Как древняя аллегория Платона помогает понять современные медиа и виртуальную реальность.
+                </p>
+                <div class="event-speakers">
+                  <strong>Лектор:</strong> Профессор И.И. Философов
+                </div>
+                <a class="btn" href="#">Зарегистрироваться — бесплатно</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-2" data-category="discussions">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=400&auto=format&fit=crop" alt="Философский клуб" />
+              <div class="event-card__body">
+                <span class="event-category">Дискуссия</span>
+                <h3>Философский клуб: «Что такое справедливость?»</h3>
+                <p class="event-date">25 октября 2024</p>
+                <p class="event-time">18:30</p>
+                <p>
+                  Открытая дискуссия о природе справедливости в современном обществе. Участвуют все желающие.
+                </p>
+                <div class="event-speakers">
+                  <strong>Модератор:</strong> Д.ф.н. Анна Этикова
+                </div>
+                <a class="btn" href="#">Участвовать — 200 ₽</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-3" data-category="workshops">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&auto=format&fit=crop" alt="Мастер-класс по критическому мышлению" />
+              <div class="event-card__body">
+                <span class="event-category">Мастер-класс</span>
+                <h3>Критическое мышление в повседневной жизни</h3>
+                <p class="event-date">28 октября 2024</p>
+                <p class="event-time">14:00</p>
+                <p>
+                  Практический мастер-класс по развитию навыков критического анализа информации и аргументации.
+                </p>
+                <div class="event-speakers">
+                  <strong>Ведущий:</strong> К.ф.н. Михаил Логиков
+                </div>
+                <a class="btn" href="#">Записаться — 800 ₽</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-4" data-category="lectures">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=400&auto=format&fit=crop" alt="Лекция о Ницше" />
+              <div class="event-card__body">
+                <span class="event-category">Лекция</span>
+                <h3>«Ницше и современность: переоценка ценностей»</h3>
+                <p class="event-date">5 ноября 2024</p>
+                <p class="event-time">19:00</p>
+                <p>
+                  Актуальность философии Ницше в контексте современных вызовов и кризисов.
+                </p>
+                <div class="event-speakers">
+                  <strong>Лектор:</strong> Профессор Е.В. Германова
+                </div>
+                <a class="btn" href="#">Зарегистрироваться — бесплатно</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-5" data-category="workshops">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=400&auto=format&fit=crop" alt="Философия для детей" />
+              <div class="event-card__body">
+                <span class="event-category">Детская программа</span>
+                <h3>Философия для детей: «Что такое дружба?»</h3>
+                <p class="event-date">10 ноября 2024</p>
+                <p class="event-time">11:00</p>
+                <p>
+                  Интерактивное занятие для детей 7-12 лет, где мы вместе размышляем о важных жизненных вопросах.
+                </p>
+                <div class="event-speakers">
+                  <strong>Ведущая:</strong> Педагог-философ Мария Детская
+                </div>
+                <a class="btn" href="#">Записать ребёнка — 400 ₽</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-6" data-category="projects">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&auto=format&fit=crop" alt="Проект Философия в школах" />
+              <div class="event-card__body">
+                <span class="event-category">Проект</span>
+                <h3>«Философия в школах»</h3>
+                <p class="event-date">Сентябрь 2024 — Май 2025</p>
+                <p class="event-time">Долгосрочный проект</p>
+                <p>
+                  Образовательная программа для школьников 14-17 лет. Введение в философское мышление через интерактивные занятия и дискуссии.
+                </p>
+                <div class="event-speakers">
+                  <strong>Участвуют:</strong> 15 школ Москвы, более 500 учеников
+                </div>
+                <a class="btn" href="#">Подробнее о проекте</a>
+              </div>
+            </div>
+
+            <div class="event-card slide-up delay-7" data-category="projects">
+              <img class="event-card__poster" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=400&auto=format&fit=crop" alt="Цифровой архив" />
+              <div class="event-card__body">
+                <span class="event-category">Проект</span>
+                <h3>«Цифровой архив русской философии»</h3>
+                <p class="event-date">2024 — 2026</p>
+                <p class="event-time">Исследовательский проект</p>
+                <p>
+                  Создание открытого цифрового архива текстов русских философов XIX-XX веков с современными инструментами поиска и анализа.
+                </p>
+                <div class="event-speakers">
+                  <strong>Партнёры:</strong> РГБ, МГУ, СПбГУ
+                </div>
+                <a class="btn" href="#">Принять участие</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Регулярные программы</h2>
+          <div class="regular-programs">
+            <div class="program-card">
+              <h3>🎭 Философский театр</h3>
+              <p class="schedule">Каждую пятницу, 20:00</p>
+              <p>Спектакли по мотивам философских текстов. Платон, Сартр, Камю на сцене нашего камерного театра.</p>
+            </div>
+            <div class="program-card">
+              <h3>📚 Читательский клуб</h3>
+              <p class="schedule">Каждый вторник, 18:00</p>
+              <p>Совместное чтение и обсуждение классических и современных философских текстов.</p>
+            </div>
+            <div class="program-card">
+              <h3>🧘 Философская медитация</h3>
+              <p class="schedule">Каждое воскресенье, 10:00</p>
+              <p>Практики осознанности в сочетании с философскими размышлениями о природе сознания.</p>
+            </div>
+            <div class="program-card">
+              <h3>🎨 Философия и искусство</h3>
+              <p class="schedule">Первая суббота месяца, 16:00</p>
+              <p>Исследуем связи между философией и различными видами искусства через практические занятия.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
+          <span class="brand__text">Музей философии</span>
+        </div>
+        <div class="footer-right">
+          <span class="muted"></span>
+          <div class="socials">
+            <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank" rel="noopener">vk</a>
+            <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank" rel="noopener">dzen</a>
+            <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Фильтрация мероприятий
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const eventCards = document.querySelectorAll('.event-card');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          
+          // Активная кнопка
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Фильтрация карточек
+          eventCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Плавное проявление блоков
+      const animated = document.querySelectorAll('.fade-in, .slide-up');
+      const reveal = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add('in');
+        });
+      }, { threshold: 0.2 });
+      animated.forEach((el) => reveal.observe(el));
+    </script>
+  </body>
+</html>
