@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Новость №1 — Музей философии</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
+                <span class="brand__text">Музей философии</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav__link">Главная</a>
+                <a href="about.html" class="nav__link">О музее</a>
+                <a href="exhibitions.html" class="nav__link">Экспозиции</a>
+                <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+                <a href="contacts.html" class="nav__link">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container article-container">
+                <a href="index.html#news" class="back-link">← Назад к новостям</a>
+
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="article-meta-item">10 июля 2025</span>
+                        <span class="article-meta-item">3 мин чтения</span>
+                    </div>
+                    <h1 class="article-title">В Петербурге состоялось учредительное собрание первого в России музея
+                        философии</h1>
+                    <p class="article-subtitle">Круглый стол и создание инициативной группы для запуска культурного
+                        проекта города</p>
+                </header>
+
+                <div class="article-layout">
+                    <article class="article-content">
+                        <p id="intro">8 июля 2025 года в 17:00 в музейно-выставочном центре «Петербургский художник»
+                            состоялось важное событие для культурной жизни города — круглый стол и учредительное
+                            собрание первого в России музея философии.</p>
+
+                        <h2 id="why">Почему Петербургу понадобился музей философии?</h2>
+                        <p>Петербург — одна из интеллектуальных столиц России. Создание устойчивой площадки,
+                            объединяющей исследователей, художников, кураторов и горожан, позволит развивать
+                            просветительские программы и выставочные проекты, посвящённые истории и практике философии.
+                        </p>
+
+                        <blockquote>Мы верим, что философия — это практика осмысления, которая делает жизнь более
+                            осознанной.</blockquote>
+
+                        <h2 id="city">Петербург как философская столица</h2>
+                        <p>Горожане давно привыкли к насыщенной культурной повестке. Новый музей предложит публичные
+                            лекции, дискуссии, кинопоказы и тематические выставки, а также станет координационным
+                            центром для образовательных инициатив.</p>
+
+                        <p>Следите за новостями на наших площадках — скоро мы объявим о ближайших мероприятиях и
+                            партнёрах проекта.</p>
+                    </article>
+
+                    <aside class="article-toc">
+                        <h3>Оглавление</h3>
+                        <ul>
+                            <li><a href="#intro">В Петербурге состоялось учредительное собрание</a></li>
+                            <li><a href="#why">Почему Петербургу понадобился музей философии?</a></li>
+                            <li><a href="#city">Петербург как философская столица</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacts" class="site-footer">
+        <div class="container footer-inner">
+            <div class="brand">
+                <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
+                <span class="brand__text">Музей философии</span>
+            </div>
+            <div class="footer-right">
+                <span class="muted"></span>
+                <div class="socials">
+                    <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
+                        rel="noopener">vk</a>
+                    <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен"
+                        target="_blank" rel="noopener">dzen</a>
+                    <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank"
+                        rel="noopener">tg</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const animated = document.querySelectorAll('.fade-in, .slide-up');
+        const reveal = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) e.target.classList.add('in');
+            });
+        }, { threshold: 0.2 });
+        animated.forEach((el) => reveal.observe(el));
+    </script>
+</body>
+
+</html>
