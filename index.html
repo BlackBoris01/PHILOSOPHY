@@ -10,7 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages/home/home.css" />
 </head>
 
 <body>
@@ -20,6 +21,11 @@
         <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
         <span class="brand__text">Музей философии</span>
       </div>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav">
         <a href="index.html" class="nav__link is-active">Главная</a>
         <a href="about.html" class="nav__link">О музее</a>
@@ -35,14 +41,13 @@
     <section id="hero" class="hero section fade-in">
       <div class="container hero__grid">
         <div class="hero__text">
-          <p class="eyebrow">Музей философии</p>
-          <h1>Какой‑нибудь заумный слоган</h1>
+          <p class="eyebrow">Первая философская институция музейного типа</p>
+          <h1>Маршрут к бытию построен</h1>
           <p class="lead">
-            А вот здесь заумное описание. Например: мы очень классные ребята, делаем очень классный музей и вообще, у
-            нас проходит куча
-            классных встреч с удивительными персоналиями, в них вы можете влюбиться, вдохновиться, но, строго говоря, не
-            обязаны.
+            Музей философии — это пространство, где мысль обретает форму, а вопросы оказываются важнее ответов. 
+            Мы стремимся сделать философию доступной и живой, показать её как часть культуры и повседневности.
           </p>
+          <a href="#about" class="btn">Узнать больше</a>
         </div>
         <div class="hero__media">
           <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&auto=format&fit=crop"
@@ -94,27 +99,30 @@
     <!-- Краткие сведения -->
     <section id="about" class="section facts section-alt">
       <div class="container">
-        <h2 class="section-title">Краткие сведения о музее</h2>
+        <h2 class="section-title">Наша миссия</h2>
+        <p class="lead" style="text-align: center; margin-bottom: 40px;">
+          Создание новой культурной институции, где философия становится доступной, понятной и живой частью общественной жизни.
+        </p>
         <div class="facts__grid">
           <div class="fact fade-in">
-            <div class="fact__icon">🏛️</div>
-            <h3>Экспозиции</h3>
-            <p>В нашем музее проходят регулярные выставки.</p>
+            <div class="fact__icon">💭</div>
+            <h3>Философия как диалог</h3>
+            <p>Создаём площадку для общения философов, студентов, школьников и широкой аудитории.</p>
           </div>
           <div class="fact fade-in delay-1">
-            <div class="fact__icon">🎧</div>
-            <h3>Экскурсии</h3>
-            <p>Мы проводим авторские экскурсии по философии.</p>
+            <div class="fact__icon">🎯</div>
+            <h3>Философия как практика</h3>
+            <p>Лекции, дискуссии, квесты и мультимедийные проекты позволяют проживать философские идеи.</p>
           </div>
           <div class="fact fade-in delay-2">
-            <div class="fact__icon">📚</div>
-            <h3>Лекторий</h3>
-            <p>Лекции и встречи с исследователями мысли.</p>
+            <div class="fact__icon">🌉</div>
+            <h3>Философия как культурный мост</h3>
+            <p>Соединяем русскую философскую традицию с современными гуманитарными технологиями.</p>
           </div>
           <div class="fact fade-in delay-3">
-            <div class="fact__icon">☕</div>
-            <h3>Коворкинг</h3>
-            <p>Уютное пространство для мыслителей и студентов.</p>
+            <div class="fact__icon">🏛️</div>
+            <h3>Философия как память</h3>
+            <p>Увековечиваем имена мыслителей через таблички, маршруты и мультимедийные проекты.</p>
           </div>
         </div>
       </div>
@@ -168,27 +176,23 @@
       </div>
     </section>
 
-    <!-- Мы на других платформах -->
+    <!-- Наши проекты -->
     <section class="section platforms section-alt">
       <div class="container">
-        <h2 class="section-title">Мы на других платформах</h2>
-        <p class="muted">Найдите нас по следующим ссылкам</p>
+        <h2 class="section-title">Наши проекты</h2>
+        <p class="muted">Философия в современных форматах</p>
         <div class="cards">
-          <a class="card hover-lift" href="https://dzen.ru/profile/editor/filosofskiy_marshrut" target="_blank"
-            rel="noopener">
-            <img src="https://rdegroup.ru/upload/iblock/1af/fm72388dkns2w3ug9hjxvehid07fvisl/1.jpg" alt="Яндекс Дзен" />
-            <span class="card__label">Яндекс Дзен</span>
-          </a>
-          <a class="card hover-lift" href="https://vk.com/philosophical_museum?from=groups" target="_blank"
-            rel="noopener">
-            <img
-              src="https://habrastorage.org/getpro/habr/upload_files/e53/2c0/20e/e532c020ef110b0a27560ba7f9fe5cb7.png"
-              alt="VK" />
-            <span class="card__label">VK</span>
-          </a>
-          <a class="card hover-lift" href="https://t.me/MuseumofPhilosophy" target="_blank" rel="noopener">
-            <img src="https://static34.tgcnt.ru/posts/_0/ce/ce563528c3fafd881e5535fb79233f1c.jpg" alt="Telegram" />
-            <span class="card__label">Telegram</span>
+          <div class="card hover-lift">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=400&auto=format&fit=crop" alt="Комиксы о философах" />
+            <span class="card__label">Комиксы о русских философах</span>
+          </div>
+          <div class="card hover-lift">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400&auto=format&fit=crop" alt="QR-боты" />
+            <span class="card__label">QR-боты на мемориальных табличках</span>
+          </div>
+          <a class="card hover-lift" href="https://dzen.ru/profile/editor/filosofskiy_marshrut" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Медиаплатформа" />
+            <span class="card__label">Медиаплатформа «Философский маршрут»</span>
           </a>
         </div>
       </div>
@@ -214,30 +218,10 @@
     </div>
   </footer>
 
-  <script>
-    // Активная ссылка меню при прокрутке
-    const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav__link');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const id = entry.target.getAttribute('id');
-        const link = document.querySelector(`.nav__link[href="#${id}"]`);
-        if (link) {
-          entry.isIntersecting ? link.classList.add('is-active') : link.classList.remove('is-active');
-        }
-      });
-    }, { rootMargin: '-50% 0px -40% 0px', threshold: 0.01 });
-    sections.forEach((s) => io.observe(s));
-
-    // Плавное проявление блоков
-    const animated = document.querySelectorAll('.fade-in, .slide-up');
-    const reveal = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add('in');
-      });
-    }, { threshold: 0.2 });
-    animated.forEach((el) => reveal.observe(el));
-  </script>
+  <!-- JavaScript Files -->
+  <script src="js/mobile-menu.js"></script>
+  <script src="js/home-navigation.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 
 </html>

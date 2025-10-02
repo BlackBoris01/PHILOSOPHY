@@ -1,0 +1,164 @@
+/* Exhibitions Page Styles */
+
+/* Exhibitions Grid */
+.exhibitions-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.exhibition-card {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.exhibition-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.exhibition-status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.exhibition-status.permanent {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.exhibition-status.temporary {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.exhibition-status.special {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.exhibition-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.exhibition-highlights li {
+  padding: 4px 0;
+  position: relative;
+  padding-left: 16px;
+}
+
+.exhibition-highlights li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* Visit Info */
+.visit-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.visit-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+/* Photo Galleries */
+.gallery-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.gallery-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.gallery-tab:hover,
+.gallery-tab.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.gallery-content {
+  position: relative;
+}
+
+.gallery {
+  display: none;
+}
+
+.gallery.active {
+  display: block;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.photo-grid img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .2s ease;
+  display: block;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Exhibitions Page Responsive Styles */
+@media (max-width: 1024px) {
+  .exhibition-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .visit-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}

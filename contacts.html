@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages/contacts/contacts.css" />
   </head>
   <body>
     <header class="site-header">
@@ -16,6 +17,11 @@
           <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
           <span class="brand__text">Музей философии</span>
         </div>
+        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav class="nav">
           <a href="index.html" class="nav__link">Главная</a>
           <a href="about.html" class="nav__link">О музее</a>
@@ -332,15 +338,10 @@
         alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
         form.reset();
       });
-
-      // Плавное проявление блоков
-      const animated = document.querySelectorAll('.fade-in, .slide-up');
-      const reveal = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add('in');
-        });
-      }, { threshold: 0.2 });
-      animated.forEach((el) => reveal.observe(el));
     </script>
+    
+    <!-- JavaScript Files -->
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/animations.js"></script>
   </body>
 </html>
