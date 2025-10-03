@@ -24,3 +24,5 @@ document.addEventListener('DOMContentLoaded', function() {
     sections.forEach((s) => io.observe(s));
   }
 });
+
+

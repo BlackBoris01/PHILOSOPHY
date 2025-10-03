@@ -81,3 +81,5 @@ JavaScript functionality is organized into modular files for better maintainabil
 2. Wrap code in `DOMContentLoaded` event listener
 3. Include the script in relevant HTML pages
 4. Update this README with the new file information
+
+

@@ -1,18 +1,5 @@
 /* About Page Styles */
 
-/* Page Hero */
-.page-hero {
-  padding: 40px 0 20px;
-  background: var(--surface);
-}
-
-.page-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  margin: 0 0 12px;
-  font-weight: 600;
-}
-
 /* Content Grid */
 .content-grid {
   display: grid;
@@ -20,14 +7,8 @@
   gap: 40px;
 }
 
-.content-main h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
-  margin: 32px 0 16px 0;
-  font-weight: 600;
-}
 
-.content-main h2:first-child {
+.content-main .section-title:first-child {
   margin-top: 0;
 }
 
@@ -68,11 +49,36 @@
 .info-card h3 {
   margin: 0 0 8px;
   font-size: 16px;
+  font-family: "Crimson Text", Georgia, serif;
+  font-weight: 600;
 }
 
 .content-sidebar {
   position: sticky;
   top: 100px;
+}
+
+/* Leadership Grid */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.leadership-member {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.leadership-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Team Grid */
@@ -99,15 +105,70 @@
   margin: 0 auto 12px;
 }
 
+.avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
 .team-member h3 {
   margin: 0 0 4px;
   font-size: 18px;
+  font-family: "Crimson Text", Georgia, serif;
+  font-weight: 600;
 }
 
 .role {
   color: var(--primary);
   font-weight: 600;
   margin: 0 0 8px;
+}
+
+/* Partners Grid */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.partner-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.partner-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+}
+
+.partner-card h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-family: "Crimson Text", Georgia, serif;
+  font-weight: 600;
+}
+
+.partner-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 /* About Page Responsive Styles */
@@ -117,13 +178,35 @@
     gap: 24px;
   }
   
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
   .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .partners-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
+  .leadership-grid {
+    gap: 20px;
+  }
+  
+  .leadership-member {
+    padding: 20px;
+  }
+  
   .team-grid {
     grid-template-columns: 1fr;
   }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
 }
+

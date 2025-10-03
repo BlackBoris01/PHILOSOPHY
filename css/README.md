@@ -36,3 +36,4 @@ Each page loads only what it needs:
 3. Link in HTML: `<link rel="stylesheet" href="css/pages/new-page/new-page.css" />`
 
 See `CSS-STRUCTURE.md` for detailed documentation.
+

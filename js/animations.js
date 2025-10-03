@@ -17,3 +17,4 @@ document.addEventListener('DOMContentLoaded', function() {
     animated.forEach((el) => reveal.observe(el));
   }
 });
+
