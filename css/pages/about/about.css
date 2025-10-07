@@ -37,6 +37,49 @@
   padding-left: 0;
 }
 
+/* Activities Grid */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.activity-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.activity-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  text-align: left;
+  line-height: 1;
+}
+
+.activity-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.activity-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .info-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -95,6 +138,12 @@
   border-radius: 16px;
   text-align: center;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .team-member img {
@@ -148,19 +197,26 @@
   border-radius: 16px;
   text-align: center;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
-.partner-card img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 0 auto 12px;
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Отдельный цвет для аватаров партнёров */
+.partner-avatar {
+  background: #ffffff;
+  color: var(--primary);
+  border: 3px solid var(--primary);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  font-size: 28px;
 }
 
 .partner-card h3 {
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Crimson Text", Georgia, serif;
   font-weight: 600;
 }
@@ -168,7 +224,7 @@
 .partner-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* About Page Responsive Styles */
@@ -189,6 +245,10 @@
   
   .partners-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .activities-grid {
+    grid-template-columns: 1fr;
   }
 }
 
