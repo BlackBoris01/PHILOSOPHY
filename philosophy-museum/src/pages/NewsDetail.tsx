@@ -14,6 +14,10 @@ const NewsDetail: React.FC = () => {
       
       try {
         const newsData = await newsService.getNewsById(parseInt(id));
+        if (newsData) {
+          // Обрабатываем специальный синтаксис изображений
+          newsData.content = newsService.processImageSyntax(newsData.content);
+        }
         setNews(newsData);
       } catch (error) {
         console.error('Error fetching news:', error);
@@ -71,14 +75,18 @@ const NewsDetail: React.FC = () => {
             <div dangerouslySetInnerHTML={{ __html: news.content }} />
           </article>
 
-          <aside className="article-toc">
-            <h3>Оглавление</h3>
-            <ul>
-              <li><a href="#intro">В Петербурге состоялось учредительное собрание</a></li>
-              <li><a href="#why">Почему Петербургу понадобился музей философии?</a></li>
-              <li><a href="#city">Петербург как философская столица</a></li>
-            </ul>
-          </aside>
+          {news.tableOfContents && news.tableOfContents.length > 0 && (
+            <aside className="article-toc">
+              <h3>Оглавление</h3>
+              <ul>
+                {news.tableOfContents.map((item) => (
+                  <li key={item.id} style={{ marginLeft: `${(item.level - 1) * 12}px` }}>
+                    <a href={`#${item.id}`}>{item.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
         </div>
       </div>
     </section>

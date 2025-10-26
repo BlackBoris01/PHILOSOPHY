@@ -67,6 +67,15 @@ module.exports = {
     historyApiFallback: {
       index: '/index.html',
       disableDotRule: true,
+      rewrites: [
+        { from: /^\/admin/, to: '/index.html' },
+        { from: /^\/login/, to: '/index.html' },
+        { from: /^\/news/, to: '/index.html' },
+        { from: /^\/about/, to: '/index.html' },
+        { from: /^\/events/, to: '/index.html' },
+        { from: /^\/exhibitions/, to: '/index.html' },
+        { from: /^\/contacts/, to: '/index.html' },
+      ],
     },
     compress: true,
     open: false,

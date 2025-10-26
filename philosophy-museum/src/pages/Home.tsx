@@ -1,11 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import backgroundHome from '../assets/backgroundHome.jfif';
-import discusThrower from '../assets/discus-thrower-sculpture.jpg';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import newsService from '../services/newsService';
+import { NewsItem } from '../types/news';
 
 const Home: React.FC = () => {
   useScrollAnimation();
+  const [latestNews, setLatestNews] = useState<NewsItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLatestNews = async () => {
+      try {
+        const news = await newsService.getLatestNews(3);
+        setLatestNews(news);
+      } catch (error) {
+        console.error('Error fetching latest news:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLatestNews();
+  }, []);
+
+  // Повторно инициализируем анимации после загрузки новостей
+  useEffect(() => {
+    if (!loading && latestNews.length > 0) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+          }
+        });
+      }, observerOptions);
+
+      // Наблюдаем за новыми элементами новостей
+      const newsElements = document.querySelectorAll('.news-card.slide-up');
+      newsElements.forEach(el => observer.observe(el));
+
+      return () => {
+        newsElements.forEach(el => observer.unobserve(el));
+      };
+    }
+  }, [loading, latestNews]);
   
   return (
     <>
@@ -32,42 +76,47 @@ const Home: React.FC = () => {
         <div className="container">
           <h2 className="section-title">Последние новости</h2>
 
-          <article className="news-card slide-up">
-            <h3>В Петербурге состоялось учредительное собрание первого в России музея философии <span className="meta">— 10 июля</span></h3>
-            <p>
-              8 июля 2025 года в музейно-выставочном центре «Петербургский художник» состоялось важное событие для
-              культурной жизни города — круглый стол и учредительное собрание первого в России музея философии.
-            </p>
-            <p>
-              Петербург — одна из интеллектуальных столиц России. Создание устойчивой площадки, объединяющей
-              исследователей, художников, кураторов и горожан, позволит развивать просветительские программы и выставочные
-              проекты.
-            </p>
-            <Link to="/news/1" className="btn btn-small">Читать далее</Link>
-          </article>
-
-          <article className="news-card with-image slide-up delay-1">
-            <h3>Новый экспонат в коллекции — античная скульптура дисконоса <span className="meta">— 8 сентября</span></h3>
-            <div className="news-card__grid">
-              <div>
-                <p>
-                  В фондах музея появился значимый экспонат — копия знаменитой древнегреческой скульптуры
-                  атлета‑дисконоса. Он будет представлен в рамках специальной экспозиции, посвящённой эстетике античности.
-                </p>
-                <p>
-                  Образ атлета стал символом гармонии телесного и духовного. Мы готовим цикл публичных лекций и экскурсии
-                  о роли спорта и состязаний в античном мире, а также специальные занятия для школьников и студентов.
-                </p>
-                <Link to="/news/2" className="btn btn-small">Читать далее</Link>
-              </div>
-              <figure className="news-card__media">
-                <img
-                  src={discusThrower}
-                  alt="Античная скульптура дисконоса" />
-                <figcaption>Новый экспонат в музее</figcaption>
-              </figure>
-            </div>
-          </article>
+          {loading ? (
+            <p className="lead" style={{ textAlign: 'center' }}>Загрузка новостей...</p>
+          ) : latestNews.length === 0 ? (
+            <p className="lead" style={{ textAlign: 'center' }}>Новостей пока нет</p>
+          ) : (
+            <>
+              {latestNews.map((item, index) => (
+                <article 
+                  key={item.id} 
+                  className={`news-card ${item.imageUrl ? 'with-image' : ''} slide-up ${index > 0 ? `delay-${index}` : ''}`}
+                >
+                  <h3>
+                    {item.title} 
+                    <span className="meta">— {item.date}</span>
+                  </h3>
+                  
+                  {item.imageUrl ? (
+                    <div className="news-card__grid">
+                      <div>
+                        <p>{item.excerpt}</p>
+                        <Link to={`/news/${item.id}`} className="btn btn-small">Читать далее</Link>
+                      </div>
+                      <figure className="news-card__media">
+                        <img src={item.imageUrl} alt={item.title} />
+                        {item.subtitle && <figcaption>{item.subtitle}</figcaption>}
+                      </figure>
+                    </div>
+                  ) : (
+                    <>
+                      <p>{item.excerpt}</p>
+                      <Link to={`/news/${item.id}`} className="btn btn-small">Читать далее</Link>
+                    </>
+                  )}
+                </article>
+              ))}
+            </>
+          )}
+          
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <Link to="/news" className="btn">Все новости</Link>
+          </div>
         </div>
       </section>
 

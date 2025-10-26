@@ -10,6 +10,10 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   const isActive = (path: string) => {
     return location.pathname === path ? 'is-active' : '';
   };
@@ -33,12 +37,12 @@ const Header: React.FC = () => {
         </button>
         
         <nav className={`nav ${isMobileMenuOpen ? 'nav--open' : ''}`}>
-          <Link to="/" className={`nav__link ${isActive('/')}`}>Главная</Link>
-          <Link to="/about" className={`nav__link ${isActive('/about')}`}>О музее</Link>
-          <Link to="/exhibitions" className={`nav__link ${isActive('/exhibitions')}`}>Экспозиции</Link>
-          <Link to="/events" className={`nav__link ${isActive('/events')}`}>Проекты и мероприятия</Link>
-          <Link to="/news" className={`nav__link ${isActive('/news')}`}>Новости</Link>
-          <Link to="/contacts" className={`nav__link ${isActive('/contacts')}`}>Контакты</Link>
+          <Link to="/" className={`nav__link ${isActive('/')}`} onClick={closeMobileMenu}>Главная</Link>
+          <Link to="/about" className={`nav__link ${isActive('/about')}`} onClick={closeMobileMenu}>О музее</Link>
+          <Link to="/exhibitions" className={`nav__link ${isActive('/exhibitions')}`} onClick={closeMobileMenu}>Экспозиции</Link>
+          <Link to="/events" className={`nav__link ${isActive('/events')}`} onClick={closeMobileMenu}>Проекты и мероприятия</Link>
+          <Link to="/news" className={`nav__link ${isActive('/news')}`} onClick={closeMobileMenu}>Новости</Link>
+          <Link to="/contacts" className={`nav__link ${isActive('/contacts')}`} onClick={closeMobileMenu}>Контакты</Link>
         </nav>
       </div>
     </header>

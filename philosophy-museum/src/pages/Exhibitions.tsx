@@ -13,7 +13,7 @@ const Exhibitions: React.FC = () => {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" style={{ minHeight: '60vh' }}>
         <div className="container">
           {/* Coming Soon Section */}
           <div className="coming-soon-simple">

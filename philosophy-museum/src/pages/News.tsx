@@ -22,6 +22,30 @@ const News: React.FC = () => {
     fetchNews();
   }, []);
 
+  const formatDate = (dateString: string) => {
+    // Если дата уже в русском формате, просто возвращаем её части
+    if (dateString.includes(' ')) {
+      const parts = dateString.split(' ');
+      if (parts.length >= 3) {
+        return {
+          day: parts[0],
+          month: parts[1],
+          year: parts[2]
+        };
+      }
+    }
+    
+    // Если дата в формате ISO или другом, парсим как Date
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 
+                   'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    
+    return { day, month, year };
+  };
+
   return (
     <>
       <section className="section page-hero">
@@ -33,36 +57,39 @@ const News: React.FC = () => {
 
       <section className="section" style={{ minHeight: '60vh' }}>
         <div className="container">
-          {loading ? (
-            <p className="lead" style={{ textAlign: 'center' }}>Загрузка...</p>
-          ) : (
-            <>
-              {news.map((item) => (
-                <article key={item.id} className="news-card hover-lift" style={{ marginBottom: '24px' }}>
-                  {item.imageUrl ? (
-                    <div className="news-card__grid">
-                      <div>
-                        <h3>{item.title}</h3>
-                        <div className="meta">{item.date} • {item.readTime}</div>
+          <div className="news-archive">
+            {loading ? (
+              <p className="lead" style={{ textAlign: 'center' }}>Загрузка...</p>
+            ) : (
+              <>
+                {news.map((item) => {
+                  const { day, month, year } = formatDate(item.date);
+                  return (
+                    <article key={item.id} className="news-archive-item">
+                      <div className="news-archive__date">
+                        <span className="day">{day}</span>
+                        <span className="month">{month}</span>
+                        <span className="year">{year}</span>
+                      </div>
+                      <div className="news-archive__content">
+                        {item.imageUrl && (
+                          <div className="news-archive__image">
+                            <img src={item.imageUrl} alt={item.title} />
+                          </div>
+                        )}
+                        <h2>
+                          <Link to={`/news/${item.id}`}>{item.title}</Link>
+                        </h2>
+                        <p className="news-archive__meta">{item.readTime}</p>
                         <p>{item.excerpt}</p>
                         <Link to={`/news/${item.id}`} className="btn btn-small">Читать далее</Link>
                       </div>
-                      <figure className="news-card__media">
-                        <img src={item.imageUrl} alt={item.title} />
-                      </figure>
-                    </div>
-                  ) : (
-                    <>
-                      <h3>{item.title}</h3>
-                      <div className="meta">{item.date} • {item.readTime}</div>
-                      <p>{item.excerpt}</p>
-                      <Link to={`/news/${item.id}`} className="btn btn-small">Читать далее</Link>
-                    </>
-                  )}
-                </article>
-              ))}
-            </>
-          )}
+                    </article>
+                  );
+                })}
+              </>
+            )}
+          </div>
         </div>
       </section>
     </>

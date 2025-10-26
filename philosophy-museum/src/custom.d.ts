@@ -33,3 +33,4 @@ declare module '*.ico' {
   export default value;
 }
 
+

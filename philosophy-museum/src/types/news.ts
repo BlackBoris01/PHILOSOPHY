@@ -7,8 +7,15 @@ export interface NewsItem {
   date: string;
   readTime: string;
   imageUrl?: string;
+  tableOfContents?: TableOfContentsItem[];
   createdAt: string;
   updatedAt: string;
+}
+
+export interface TableOfContentsItem {
+  id: string;
+  title: string;
+  level: number;
 }
 
 export interface CreateNewsRequest {
@@ -19,6 +26,7 @@ export interface CreateNewsRequest {
   date: string;
   readTime: string;
   imageUrl?: string;
+  tableOfContents?: TableOfContentsItem[];
 }
 
 export interface UpdateNewsRequest extends Partial<CreateNewsRequest> {
