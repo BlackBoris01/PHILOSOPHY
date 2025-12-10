@@ -45,6 +45,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     clean: true,
   },
   plugins: [
@@ -64,19 +65,7 @@ module.exports = {
     ],
     port: 3000,
     hot: true,
-    historyApiFallback: {
-      index: '/index.html',
-      disableDotRule: true,
-      rewrites: [
-        { from: /^\/admin/, to: '/index.html' },
-        { from: /^\/login/, to: '/index.html' },
-        { from: /^\/news/, to: '/index.html' },
-        { from: /^\/about/, to: '/index.html' },
-        { from: /^\/events/, to: '/index.html' },
-        { from: /^\/exhibitions/, to: '/index.html' },
-        { from: /^\/contacts/, to: '/index.html' },
-      ],
-    },
+    historyApiFallback: true,
     compress: true,
     open: false,
     liveReload: false,

@@ -24,7 +24,6 @@ function App() {
   const [displayLocation, setDisplayLocation] = React.useState(location);
   const [transitionStage, setTransitionStage] = React.useState('fadeIn');
 
-
   React.useEffect(() => {
     if (location !== displayLocation) {
       setTransitionStage('fadeOut');
@@ -45,6 +44,7 @@ function App() {
         }}
       >
         <Routes location={displayLocation}>
+          {/* Публичные маршруты */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/news" element={<News />} />
@@ -57,54 +57,76 @@ function App() {
           <Route path="/login" element={<Login />} />
           
           {/* Защищенные админ маршруты */}
-          <Route path="/admin" element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/news" element={
-            <ProtectedRoute>
-              <AdminPanel />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/contacts" element={
-            <ProtectedRoute>
-              <AdminContacts />
-            </ProtectedRoute>
-          } />
+          <Route 
+            path="/admin" 
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/news" 
+            element={
+              <ProtectedRoute>
+                <AdminPanel />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/contacts" 
+            element={
+              <ProtectedRoute>
+                <AdminContacts />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/home" 
+            element={
+              <ProtectedRoute>
+                <AdminHome />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/about" 
+            element={
+              <ProtectedRoute>
+                <AdminAbout />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/exhibitions" 
+            element={
+              <ProtectedRoute>
+                <AdminExhibitions />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/events" 
+            element={
+              <ProtectedRoute>
+                <AdminEvents />
+              </ProtectedRoute>
+            } 
+          />
           
-          {/* Временные маршруты для других разделов */}
-          <Route path="/admin/home" element={
-            <ProtectedRoute>
-              <AdminHome />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/about" element={
-            <ProtectedRoute>
-              <AdminAbout />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/exhibitions" element={
-            <ProtectedRoute>
-              <AdminExhibitions />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/events" element={
-            <ProtectedRoute>
-              <AdminEvents />
-            </ProtectedRoute>
-          } />
-          
-          {/* Fallback для несуществующих маршрутов */}
-          <Route path="*" element={
-            <div className="section page-hero">
-              <div className="container">
-                <h1 className="page-title">Страница не найдена</h1>
-                <p className="lead">Запрашиваемая страница не существует</p>
-                <a href="/" className="btn">Вернуться на главную</a>
+          {/* 404 страница */}
+          <Route 
+            path="*" 
+            element={
+              <div className="section page-hero">
+                <div className="container">
+                  <h1 className="page-title">Страница не найдена</h1>
+                  <p className="lead">Запрашиваемая страница не существует</p>
+                  <a className="btn" href="/">Вернуться на главную</a>
+                </div>
               </div>
-            </div>
-          } />
+            } 
+          />
         </Routes>
       </main>
       <Footer />
@@ -113,6 +135,3 @@ function App() {
 }
 
 export default App;
-
-
-

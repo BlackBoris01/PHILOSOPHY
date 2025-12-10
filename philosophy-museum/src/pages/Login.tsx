@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
@@ -9,27 +9,60 @@ const Login: React.FC = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setCredentials(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const MAX_ATTEMPTS = 5;
+  const LOCKOUT_TIME = 15 * 60 * 1000; // 15 минут
+
+  // Проверяем блокировку при загрузке
+  useEffect(() => {
+    const lockoutUntil = localStorage.getItem('loginLockoutUntil');
+    if (lockoutUntil && Date.now() < parseInt(lockoutUntil, 10)) {
+      const minutesLeft = Math.ceil((parseInt(lockoutUntil, 10) - Date.now()) / 60000);
+      setError(`Слишком много попыток входа. Попробуйте снова через ${minutesLeft} минут`);
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Простая проверка (в реальном приложении будет API)
-    if (credentials.username === 'admin' && credentials.password === 'admin') {
-      // Сохраняем состояние авторизации в localStorage
+    // Проверка блокировки
+    const lockoutUntil = localStorage.getItem('loginLockoutUntil');
+    if (lockoutUntil && Date.now() < parseInt(lockoutUntil, 10)) {
+      const minutesLeft = Math.ceil((parseInt(lockoutUntil, 10) - Date.now()) / 60000);
+      setError(`Попробуйте снова через ${minutesLeft} минут`);
+      return;
+    }
+    
+    // Проверка учетных данных
+    if (credentials.username === 'admin' && credentials.password === 'admin123') {
+      console.log('[Login] Valid credentials, creating session');
+      
+      // Успешный вход
+      localStorage.removeItem('loginAttempts');
+      localStorage.removeItem('loginLockoutUntil');
+      
+      // Генерируем сессию
+      const sessionToken = `token_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+      const sessionExpiry = Date.now() + (24 * 60 * 60 * 1000);
+      
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('adminUser', credentials.username);
+      localStorage.setItem('sessionToken', sessionToken);
+      localStorage.setItem('sessionExpiry', sessionExpiry.toString());
       
-      // Перенаправляем в админ панель
+      console.log('[Login] Session created, redirecting to /admin');
       navigate('/admin');
     } else {
-      setError('Неверные учетные данные');
+      // Неверные учетные данные
+      const currentAttempts = parseInt(localStorage.getItem('loginAttempts') || '0', 10) + 1;
+      localStorage.setItem('loginAttempts', currentAttempts.toString());
+      
+      if (currentAttempts >= MAX_ATTEMPTS) {
+        const lockoutUntil = Date.now() + LOCKOUT_TIME;
+        localStorage.setItem('loginLockoutUntil', lockoutUntil.toString());
+        setError('Слишком много неверных попыток. Доступ заблокирован на 15 минут.');
+      } else {
+        setError(`Неверные учетные данные. Попыток осталось: ${MAX_ATTEMPTS - currentAttempts}`);
+      }
     }
   };
 
@@ -63,7 +96,7 @@ const Login: React.FC = () => {
                     id="username"
                     name="username"
                     value={credentials.username}
-                    onChange={handleInputChange}
+                    onChange={(e) => setCredentials({...credentials, username: e.target.value})}
                     placeholder="admin"
                     required
                   />
@@ -76,8 +109,8 @@ const Login: React.FC = () => {
                     id="password"
                     name="password"
                     value={credentials.password}
-                    onChange={handleInputChange}
-                    placeholder="admin"
+                    onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+                    placeholder="Введите пароль"
                     required
                   />
                 </div>
@@ -90,7 +123,10 @@ const Login: React.FC = () => {
               <div className="login-info">
                 <h3>Тестовые данные:</h3>
                 <p><strong>Логин:</strong> admin</p>
-                <p><strong>Пароль:</strong> admin</p>
+                <p><strong>Пароль:</strong> admin123</p>
+                <p style={{ fontSize: '12px', color: '#ef4444', marginTop: '8px' }}>
+                  ⚠️ После 5 неверных попыток доступ будет заблокирован на 15 минут
+                </p>
               </div>
             </div>
           </div>
@@ -101,4 +137,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-

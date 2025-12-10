@@ -54,8 +54,13 @@ const AdminDashboard: React.FC = () => {
   ];
 
   const handleLogout = () => {
+    // Полная очистка всех данных аутентификации
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('adminUser');
+    localStorage.removeItem('sessionToken');
+    localStorage.removeItem('sessionExpiry');
+    localStorage.removeItem('loginAttempts');
+    localStorage.removeItem('loginLockoutUntil');
     window.location.href = '/login';
   };
 

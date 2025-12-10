@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 interface ProtectedRouteProps {
@@ -6,31 +6,48 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Проверяем аутентификацию после монтирования компонента
-    const authStatus = localStorage.getItem('isAuthenticated') === 'true';
-    setIsAuthenticated(authStatus);
-    setIsLoading(false);
-  }, []);
-
-  // Показываем загрузку пока проверяем аутентификацию
-  if (isLoading) {
-    return (
-      <div style={{ padding: '20px', textAlign: 'center' }}>
-        <h1>Загрузка...</h1>
-        <p>Проверка авторизации...</p>
-      </div>
-    );
-  }
+  console.log('[ProtectedRoute] Checking authentication...');
   
-  if (!isAuthenticated) {
+  // Проверяем все необходимые данные
+  const isAuth = localStorage.getItem('isAuthenticated') === 'true';
+  const sessionToken = localStorage.getItem('sessionToken');
+  const sessionExpiry = localStorage.getItem('sessionExpiry');
+
+  console.log('[ProtectedRoute] Auth status:', { isAuth, hasToken: !!sessionToken, hasExpiry: !!sessionExpiry });
+
+  // Если нет авторизации
+  if (!isAuth || !sessionToken) {
+    console.log('[ProtectedRoute] Not authenticated, redirecting to login');
     return <Navigate to="/login" replace />;
   }
-  
+
+  // Проверяем срок действия сессии
+  if (sessionExpiry) {
+    const expiryTime = parseInt(sessionExpiry, 10);
+    if (Date.now() > expiryTime) {
+      console.log('[ProtectedRoute] Session expired');
+      clearAuth();
+      return <Navigate to="/login" replace />;
+    }
+  }
+
+  // Проверяем формат токена
+  if (!sessionToken.startsWith('token_')) {
+    console.log('[ProtectedRoute] Invalid token format');
+    clearAuth();
+    return <Navigate to="/login" replace />;
+  }
+
+  console.log('[ProtectedRoute] Authenticated successfully, rendering children');
   return <>{children}</>;
 };
+
+// Функция очистки данных аутентификации
+function clearAuth() {
+  localStorage.removeItem('isAuthenticated');
+  localStorage.removeItem('adminUser');
+  localStorage.removeItem('sessionToken');
+  localStorage.removeItem('sessionExpiry');
+}
 
 export default ProtectedRoute;
