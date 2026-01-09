@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
+
+  <!-- SEO Meta Tags -->
+  <title>Экспозиции — Музей философии</title>
+  <meta name="description"
+    content="Постоянные и временные экспозиции Музея философии: античная философия, русская философская мысль, современные философские течения. Интерактивные и мультимедийные инсталляции." />
+  <meta name="keywords"
+    content="экспозиции музея, античная философия, русская философия, философские выставки, мультимедийные инсталляции, 12 месяцев русской философии" />
+  <meta name="author" content="Музей философии, АНО Центр философских институций" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="about.html" class="nav__link">О музее</a>
+        <a href="exhibitions.html" class="nav__link is-active">Экспозиции</a>
+        <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="news.html" class="nav__link">Новости</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <h1 class="page-title">Экспозиции</h1>
+        <p class="lead">Путешествие через века философской мысли</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Coming Soon Section -->
+        <div class="coming-soon-simple">
+          <h2 class="section-title">Экспозиции в разработке</h2>
+          <p class="lead">
+            Мы работаем над созданием уникальных экспозиций, которые представят философскую мысль через века и культуры.
+            Следите за обновлениями на сайте и в наших социальных сетях.
+          </p>
+          <div class="coming-soon-info">
+            <div class="info-item">
+              <h3 class="info-item__title">Что нас ждёт</h3>
+              <ul>
+                <li>Интерактивные экспозиции по истории философии</li>
+                <li>Мультимедийные инсталляции</li>
+                <li>Тематические выставки</li>
+                <li>Образовательные программы</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <div class="footer-right">
+        <span class="muted"></span>
+        <div class="socials">
+          <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
+            rel="noopener">vk</a>
+          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
+            rel="noopener">dzen</a>
+          <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+
+</html>

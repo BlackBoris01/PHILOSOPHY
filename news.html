@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
+
+  <!-- SEO Meta Tags -->
+  <title>Новости — Музей философии</title>
+  <meta name="description"
+    content="Актуальные новости Музея философии: новые экспозиции, анонсы мероприятий, интервью с философами, культурные проекты и события." />
+  <meta name="keywords"
+    content="новости музея, события музея философии, философские новости, анонсы мероприятий, культурные события" />
+  <meta name="author" content="Музей философии, АНО Центр философских институций" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="about.html" class="nav__link">О музее</a>
+        <a href="exhibitions.html" class="nav__link">Экспозиции</a>
+        <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="news.html" class="nav__link is-active">Новости</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <h1 class="page-title">Новости</h1>
+        <p class="lead">Следите за развитием проекта и культурными событиями</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="news-archive">
+
+          <!-- Новость о церемонии 12 января -->
+          <article class="news-archive-item news-archive-item--featured">
+            <div class="news-archive__date">
+              <span class="day">12</span>
+              <span class="month">января</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <span class="badge badge--primary">🏆 Церемония</span>
+              <h2><a href="news-ceremony-2025.html">12 января назовут «Философа года — 2025»</a></h2>
+              <p class="news-archive__meta">3 мин чтения</p>
+              <p>
+                12 января в 18:00 в пространстве Doctrina et Nobiles состоится первая торжественная церемония вручения премии «Философ года — 2025». Событие призвано закрепить статус Петербурга как интеллектуальной столицы.
+              </p>
+              <p>
+                <strong>Программа:</strong> Welcome-кофе, кинопоказ, церемония награждения, слово лауреата, фуршет.
+              </p>
+              <a href="news-ceremony-2025.html" class="btn btn-small">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Новость о финалистах -->
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">08</span>
+              <span class="month">января</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <div class="news-archive__image">
+                <img src="media/photo_1_2026-01-08_20-24-49.jpg" alt="Пресс-конференция премии «Философ года — 2025»" width="600" height="338" loading="lazy" />
+              </div>
+              <span class="badge badge--primary">🏆 Премия</span>
+              <h2><a href="news-philosopher-finalists.html">«Философ года — 2025»: определены финалисты премии</a></h2>
+              <p class="news-archive__meta">4 мин чтения</p>
+              <p>
+                В музейно-выставочном центре «Петербургский художник» прошла пресс-конференция. Члены жюри представили шорт-лист из пяти финалистов. До 11 января открыто голосование.
+              </p>
+              <a href="news-philosopher-finalists.html" class="btn btn-small">Читать далее</a>
+            </div>
+          </article>
+
+          <!-- Архивная новость о конкурсе -->
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">23</span>
+              <span class="month">декабря</span>
+              <span class="year">2025</span>
+            </div>
+            <div class="news-archive__content">
+              <span class="badge badge--primary">🏆 Конкурс</span>
+              <h2><a href="news-philosopher-year.html">Объявлен конкурс на соискание премии «Философ года – 2025»</a></h2>
+              <p class="news-archive__meta">5 мин чтения</p>
+              <p>
+                Санкт-Петербургский Музей философии объявляет открытый конкурс на звание «Философ года – 2025», 
+                призванный актуализировать фигуру философа как активного деятеля культурного полиса.
+              </p>
+              <a href="news-philosopher-year.html" class="btn btn-small">Читать далее</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Пагинация -->
+        <div class="pagination">
+          <a href="#" class="pagination__link pagination__link--disabled">← Предыдущая</a>
+          <span class="pagination__current">Страница 1 из 1</span>
+          <a href="#" class="pagination__link pagination__link--disabled">Следующая →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <div class="footer-right">
+        <span class="muted"></span>
+        <div class="socials">
+          <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
+            rel="noopener">vk</a>
+          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
+            rel="noopener">dzen</a>
+          <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+
+</html>

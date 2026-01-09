@@ -1,0 +1,468 @@
+/* ==========================================================================
+   CARDS COMPONENT - BEM
+   ========================================================================== */
+
+/**
+ * Base card styles
+ * .card - базовый блок карточки
+ * .card__* - элементы карточки
+ * .card--* - модификаторы карточки
+ */
+
+/* Base Card
+   ========================================================================== */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Elements
+   ========================================================================== */
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card__title {
+  margin: 0 0 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.card__subtitle {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card__content {
+  line-height: 1.6;
+}
+
+.card__content p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card__icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.card__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card__role {
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.card__media {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.card__media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card__meta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.card__footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Card Modifiers
+   ========================================================================== */
+
+/* Team/Person Card */
+.card--team {
+  padding: 24px;
+  text-align: center;
+}
+
+.card--team .card__title {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 18px;
+}
+
+/* Partner Card */
+.card--partner {
+  padding: 20px;
+  text-align: center;
+}
+
+.card--partner .card__avatar {
+  background: #ffffff;
+  color: var(--primary);
+  border: 3px solid var(--primary);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  font-size: 28px;
+}
+
+.card--partner .card__title {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 18px;
+}
+
+.card--partner .card__content p {
+  font-size: 15px;
+}
+
+/* Activity/Feature Card */
+.card--activity {
+  padding: 24px;
+}
+
+.card--activity .card__icon {
+  text-align: left;
+}
+
+.card--activity .card__title {
+  margin: 0 0 12px;
+}
+
+/* Fact Card (Mission Section) */
+.card--fact {
+  padding: 20px;
+  text-align: center;
+}
+
+.card--fact .card__icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.card--fact .card__title {
+  font-size: 24px;
+  margin: 24px 0 12px;
+}
+
+/* Info Card (Sidebar) */
+.card--info {
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.card--info:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.card--info .card__title {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+/* News Card */
+.card--news {
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.card--news .card__title {
+  font-size: 24px;
+  margin: 0 0 6px;
+}
+
+.card--news:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+/* Featured News Card */
+.card--featured {
+  padding: 32px;
+  background: linear-gradient(135deg, #fafbfc 0%, #fff 100%);
+}
+
+.card--featured .card__title {
+  font-size: 28px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.card--featured:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+/* Event Card */
+.card--event {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  padding: 18px;
+}
+
+.card--event:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.card--event .card__media img {
+  height: 260px;
+}
+
+.card--event.card--large {
+  grid-template-columns: 400px 1fr;
+}
+
+/* Project Card */
+.card--project {
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.card--project:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.card--project .card__header {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.card--project .card__title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Social Link Card */
+.card--social {
+  padding: 24px;
+  text-align: center;
+}
+
+.card--social:hover {
+  border-color: var(--primary);
+}
+
+.card--social .card__icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card--social .card__title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card--social .card__content p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Transport Card */
+.card--transport {
+  padding: 24px;
+}
+
+.card--transport:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+/* Requisites Card */
+.card--requisites {
+  padding: 24px;
+}
+
+.card--requisites:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.card--requisites .card__title {
+  color: var(--primary);
+  margin: 0 0 16px;
+}
+
+/* Contact Form Card */
+.card--form {
+  padding: 32px;
+}
+
+.card--form:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+/* Bot Card */
+.card--bot {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.card--bot:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.card--bot .card__title {
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+}
+
+.card--bot .card__content p {
+  font-size: 14px;
+}
+
+/* Comic Preview Card */
+.card--comic {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.card--comic:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.card--comic .card__title {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin: 0 0 8px;
+}
+
+.card--comic .card__content p {
+  font-size: 14px;
+}
+
+/* Program Card */
+.card--program {
+  padding: 24px;
+}
+
+.card--program:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.card--program .card__title {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+/* Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .card--event {
+    grid-template-columns: 1fr;
+  }
+  
+  .card--event.card--large {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .card--team,
+  .card--partner {
+    padding: 20px;
+  }
+  
+  .card--news {
+    padding: 18px;
+  }
+  
+  .card--fact {
+    padding: 16px;
+  }
+  
+  .card--activity {
+    padding: 20px;
+  }
+  
+  .card--event .card__media img {
+    height: 200px;
+  }
+  
+  .card--project {
+    padding: 24px 20px;
+    margin-bottom: 24px;
+  }
+  
+  .card--project .card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .card--project .card__title {
+    font-size: 1.6rem;
+  }
+  
+  .card--social {
+    padding: 20px;
+  }
+  
+  .card--social .card__icon {
+    font-size: 28px;
+  }
+  
+  .card--form {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card--news {
+    padding: 16px;
+  }
+  
+  .card--event {
+    padding: 16px;
+  }
+}

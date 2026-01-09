@@ -1,0 +1,100 @@
+/* ==========================================================================
+   BADGES COMPONENT - BEM
+   ========================================================================== */
+
+/**
+ * Badge styles
+ * .badge - базовый блок бейджа
+ * .badge--* - модификаторы бейджа
+ */
+
+/* Base Badge
+   ========================================================================== */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Badge Modifiers
+   ========================================================================== */
+
+/* Primary Badge (default) */
+.badge--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Status Badges */
+.badge--status {
+  padding: 6px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge--active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge--pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge--inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Category Badge */
+.badge--category {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Outline Badges */
+.badge--outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.badge--outline-muted {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* Small Badge */
+.badge--small {
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+/* Large Badge */
+.badge--large {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+/* Responsive
+   ========================================================================== */
+@media (max-width: 480px) {
+  .badge {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
+  .badge--small {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

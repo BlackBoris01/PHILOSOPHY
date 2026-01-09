@@ -1,0 +1,418 @@
+/* ==========================================================================
+   BLOCKS COMPONENT - BEM
+   ========================================================================== */
+
+/**
+ * Content blocks and sections
+ * Various reusable content blocks
+ */
+
+/* News Detail Block
+   ========================================================================== */
+.block {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.block--accent {
+  border-left: 4px solid var(--primary);
+}
+
+.block--highlight {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+}
+
+.block__title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.block__content ul,
+.block__content ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.block__content li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.block__content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Dates Block
+   ========================================================================== */
+.dates-block {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+}
+
+.dates-block__item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.dates-block__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dates-block__item:first-child {
+  padding-top: 0;
+}
+
+.dates-block__item--full {
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.dates-block__label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dates-block__value {
+  color: var(--text);
+}
+
+/* Contacts Block
+   ========================================================================== */
+.contacts-block {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+}
+
+.contacts-block p {
+  margin: 8px 0;
+}
+
+.contacts-block a {
+  color: var(--primary);
+}
+
+/* Jury Section
+   ========================================================================== */
+.jury-chairman {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jury-chairman__label {
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.jury-chairman__name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.jury-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jury-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+}
+
+.jury-list li:last-child {
+  border-bottom: none;
+}
+
+/* Quote Block
+   ========================================================================== */
+.quote {
+  background: var(--surface);
+  border-left: 4px solid var(--primary);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-style: italic;
+}
+
+.quote__text {
+  margin: 0;
+}
+
+.quote__cite {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* Feature List
+   ========================================================================== */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.feature-list li {
+  margin: 12px 0;
+  padding-left: 0;
+  line-height: 1.6;
+}
+
+/* Process Steps
+   ========================================================================== */
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step__number {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.step__content h4 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.step__content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Info Item (Coming Soon)
+   ========================================================================== */
+.info-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.info-item__title {
+  margin: 0 0 20px;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.info-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-item li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.info-item li:last-child {
+  border-bottom: none;
+}
+
+/* Project Note
+   ========================================================================== */
+.project-note {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1px solid #bae6fd;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 24px;
+}
+
+.project-note__title {
+  margin: 0 0 8px;
+  color: #0369a1;
+  font-size: 1.1rem;
+}
+
+.project-note__text {
+  margin: 0;
+  color: #0c4a6e;
+  line-height: 1.6;
+}
+
+/* Schedule/Price Tables
+   ========================================================================== */
+.table {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table__row:last-child {
+  border-bottom: none;
+}
+
+.table__row:nth-child(even) {
+  background: var(--surface);
+}
+
+/* Contact Item
+   ========================================================================== */
+.contact-item {
+  margin: 24px 0;
+}
+
+.contact-item__title {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+/* Map Container
+   ========================================================================== */
+.map-container {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.map-container__title {
+  margin: 0 0 16px;
+}
+
+.map-container__map {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.map-container__links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Map Placeholder */
+.map-placeholder {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  padding: 60px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+/* Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  .dates-block {
+    padding: 16px;
+  }
+  
+  .dates-block__item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  
+  .dates-block__label {
+    font-size: 14px;
+  }
+  
+  .dates-block__value {
+    font-size: 15px;
+  }
+  
+  .jury-chairman {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 14px 16px;
+  }
+  
+  .jury-chairman__name {
+    font-size: 17px;
+  }
+  
+  .contacts-block {
+    padding: 16px;
+  }
+  
+  .contacts-block p {
+    font-size: 14px;
+    word-break: break-word;
+  }
+  
+  .contacts-block a {
+    word-break: break-all;
+  }
+  
+  .info-item {
+    padding: 24px 20px;
+  }
+  
+  .step {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dates-block {
+    padding: 12px;
+  }
+  
+  .dates-block__item {
+    padding: 10px 0;
+  }
+  
+  .dates-block__label {
+    font-size: 13px;
+  }
+  
+  .dates-block__value {
+    font-size: 14px;
+  }
+  
+  .contacts-block {
+    padding: 12px;
+  }
+  
+  .info-item {
+    padding: 20px 16px;
+  }
+}

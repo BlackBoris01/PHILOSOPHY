@@ -1,0 +1,23 @@
+/* ==========================================================================
+   ABOUT PAGE STYLES
+   Only page-specific styles, components are in /components/
+   ========================================================================== */
+
+/* Content Layout
+   ========================================================================== */
+.content-main .section-title:first-child {
+  margin-top: 0;
+}
+
+.content-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+/* About Page Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .content-sidebar {
+    position: static;
+  }
+}

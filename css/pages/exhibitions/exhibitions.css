@@ -1,0 +1,24 @@
+/* ==========================================================================
+   EXHIBITIONS PAGE STYLES
+   Only page-specific styles, components are in /components/
+   ========================================================================== */
+
+/* Coming Soon Section - Simple
+   ========================================================================== */
+.coming-soon-simple {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.coming-soon-info {
+  margin-top: 40px;
+}
+
+/* Exhibitions Page Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  .coming-soon-simple {
+    padding: 0 20px;
+  }
+}

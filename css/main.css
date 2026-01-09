@@ -1,0 +1,27 @@
+/* ==========================================================================
+   MAIN CSS - Philosophy Museum
+   ========================================================================== */
+
+/**
+ * This file imports all CSS modules for the website
+ * Order matters: base → components → pages
+ */
+
+/* Base styles - variables, reset, typography, header/footer */
+@import url('./base.css');
+
+/* Components - reusable BEM components */
+@import url('./components/cards.css');
+@import url('./components/banners.css');
+@import url('./components/badges.css');
+@import url('./components/grids.css');
+@import url('./components/blocks.css');
+@import url('./components/links.css');
+
+/* Page-specific styles */
+@import url('./pages/home/home.css');
+@import url('./pages/about/about.css');
+@import url('./pages/exhibitions/exhibitions.css');
+@import url('./pages/events/events.css');
+@import url('./pages/contacts/contacts.css');
+@import url('./pages/news/news.css');

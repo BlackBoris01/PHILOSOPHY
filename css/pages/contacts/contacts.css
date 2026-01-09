@@ -1,0 +1,22 @@
+/* ==========================================================================
+   CONTACTS PAGE STYLES
+   Only page-specific styles, components are in /components/
+   ========================================================================== */
+
+/* Contact Info Section
+   ========================================================================== */
+.contact-info {
+  /* Page-specific styles */
+}
+
+.contact-form-section h2 {
+  margin-bottom: 24px;
+}
+
+/* Contacts Page Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  .contact-form-section h2 {
+    font-size: 24px;
+  }
+}
