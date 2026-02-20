@@ -191,6 +191,15 @@
   display: block;
 }
 
+.news-article__hero figcaption,
+.news-article__hero-caption {
+  padding: 12px 16px;
+  background: var(--surface);
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
 .news-article__content {
   max-width: 800px;
   margin: 0 auto;

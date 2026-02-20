@@ -316,15 +316,14 @@ a {
   padding: 64px 0;
 }
 
-/* Page Hero */
+/* Page Hero — титульный блок внутренних страниц */
 .page-hero {
   padding: 64px 0;
   background: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
-.section-alt {
-  background: var(--surface);
-}
+
 
 .section-title {
   font-family: "Cormorant Garamond", serif;
@@ -337,6 +336,7 @@ a {
 .page-title {
   font-family: "Cormorant Garamond", serif;
   font-size: 42px;
+  line-height: 1.2;
   margin: 0 0 12px;
   font-weight: 800;
   max-width: 800px;
@@ -540,6 +540,11 @@ h4 {
     margin-bottom: 20px;
   }
   
+  .page-title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  
   .section {
     padding: 40px 0;
   }
@@ -560,6 +565,11 @@ h4 {
   
   .section-title {
     font-size: 24px;
+  }
+  
+  .page-title {
+    font-size: 26px;
+    line-height: 1.25;
   }
   
   .brand__text {

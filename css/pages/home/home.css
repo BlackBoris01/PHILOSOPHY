@@ -45,6 +45,43 @@
   color: var(--text);
 }
 
+/* News card with intro image (e.g. reading announcement) */
+.card--news__intro {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.card--news__intro img {
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+}
+
+.card--news__intro-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.card--news__intro-text h3 {
+  margin-top: 0;
+}
+
+.card--news__intro-text p {
+  margin-bottom: 0;
+}
+
+.card--news__photo-credit {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* News card signature */
 .card__signature {
   margin-top: 24px;
@@ -117,6 +154,27 @@
   .hero__media img {
     height: 280px;
   }
+  
+  /* News card intro: stack image above text, image full width */
+  .card--news__intro {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .card--news__intro img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .card--news__intro-text h3 {
+    font-size: 20px;
+    line-height: 1.35;
+  }
 }
 
 @media (max-width: 480px) {
@@ -126,5 +184,13 @@
   
   .hero__media img {
     height: 240px;
+  }
+  
+  .card--news__intro img {
+    max-width: 100%;
+  }
+  
+  .card--news__intro-text h3 {
+    font-size: 18px;
   }
 }
