@@ -71,7 +71,7 @@ a {
 }
 
 .container {
-  width: min(1120px, 98vw);
+  width: min(1320px, 98vw);
   margin: 0 auto;
 }
 
@@ -108,6 +108,11 @@ a {
   padding: 14px 0;
 }
 
+.header-inner__spacer {
+  flex: 1;
+  min-width: 0;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -116,6 +121,7 @@ a {
   text-decoration: none;
   color: var(--text);
   transition: opacity 0.2s ease;
+  flex-shrink: 0;
 }
 
 .brand:hover {
@@ -130,17 +136,21 @@ a {
 
 .brand__text {
   letter-spacing: .2px;
+  white-space: nowrap;
 }
 
 .nav {
   display: flex;
   gap: 18px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .nav__link {
   padding: 8px 10px;
   border-radius: 8px;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .nav__link:hover {
@@ -464,7 +474,7 @@ h4 {
 /* Base Responsive Styles */
 @media (max-width: 1200px) {
   .container {
-    width: min(1120px, 98vw);
+    width: min(1320px, 98vw);
   }
 }
 
@@ -479,6 +489,16 @@ h4 {
   right: 0 !important;
 }
 
+/* Компактное меню на средних экранах, чтобы длинные пункты не переносились */
+@media (min-width: 901px) and (max-width: 1150px) {
+  .header-inner .nav {
+    gap: 10px;
+  }
+  .header-inner .nav__link {
+    padding: 6px 8px;
+    font-size: 15px;
+  }
+}
 
 /* Mobile navigation */
 @media (max-width: 900px) {
@@ -490,11 +510,16 @@ h4 {
 
   }
   
+  .header-inner__spacer {
+    display: none;
+  }
+  
   /* Hide desktop navigation and show mobile navigation */
   .nav {
     /* Reset desktop styles */
     display: flex;
     gap: 0;
+    flex-shrink: unset;
     
     /* Mobile navigation styles - full screen */
     position: fixed;

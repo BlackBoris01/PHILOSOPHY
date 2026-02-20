@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
+
+  <title>Онлайн-трансляции — Музей философии</title>
+  <meta name="description"
+    content="Прямые трансляции лекций, риддингов и мероприятий Музея философии. Смотрите эфиры в реальном времени и в записи." />
+  <meta name="keywords"
+    content="трансляции, онлайн, лекции, риддинг, Музей философии, прямой эфир" />
+  <meta name="author" content="Музей философии, АНО Центр философских институций" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* Специфичные стили для страницы трансляций */
+    .stream-player {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+    .stream-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 16px;
+    }
+    .stream-player--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .stream-player--placeholder .stream-placeholder-inner {
+      text-align: center;
+      color: var(--muted);
+      max-width: 360px;
+    }
+    .stream-player--placeholder .stream-placeholder-inner strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .stream-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .stream-list__item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stream-list__item:last-child {
+      border-bottom: none;
+    }
+    .stream-list__date {
+      flex-shrink: 0;
+      font-weight: 600;
+      color: var(--primary);
+      min-width: 100px;
+    }
+    .stream-list__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+    }
+    .stream-list__meta {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .stream-list__link {
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .stream-list__item {
+        flex-wrap: wrap;
+      }
+      .stream-list__link {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="about.html" class="nav__link">О музее</a>
+        <a href="exhibitions.html" class="nav__link">Экспозиции</a>
+        <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link is-active">Трансляции</a>
+        <a href="news.html" class="nav__link">Новости</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <h1 class="page-title">Онлайн-трансляции</h1>
+        <p class="lead">Смотрите лекции, риддинги и мероприятия Музея философии в прямом эфире и в записи</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Сейчас в эфире</h2>
+        <p class="lead" style="margin-bottom: 24px;">
+          Когда мы ведём трансляцию, здесь появляется плеер. Подпишитесь на наши соцсети, чтобы не пропустить анонсы.
+        </p>
+
+        <!-- Плеер: при запуске трансляции замените блок ниже на iframe с вашей ссылкой -->
+        <!-- YouTube: вставьте код вида <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" ...></iframe> -->
+        <!-- VK Video / Rutube: вставьте embed-код площадки -->
+        <div class="stream-player stream-player--placeholder" id="live-player">
+          <div class="stream-placeholder-inner">
+            <strong>Сейчас трансляций нет</strong>
+            Следите за анонсами в <a href="https://vk.com/philosophical_museum" target="_blank" rel="noopener">ВКонтакте</a> и <a href="https://t.me/MuseumofPhilosophy" target="_blank" rel="noopener">Telegram</a> — мы сообщим о следующем эфире.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Ближайшие трансляции</h2>
+        <ul class="stream-list">
+          <li class="stream-list__item">
+            <span class="stream-list__date">2 марта 2026</span>
+            <div>
+              <h3 class="stream-list__title">Риддинг: «Философия музея в музее философии»</h3>
+              <p class="stream-list__meta">Константин Азаров. Старт весеннего цикла риддингов.</p>
+            </div>
+            <a href="news-reading-azarov.html" class="btn btn-small stream-list__link">Подробнее</a>
+          </li>
+          <!-- Добавляйте сюда новые пункты по мере анонсов -->
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Архив записей</h2>
+        <p class="lead" style="margin-bottom: 24px;">
+          Записи прошедших эфиров появятся здесь после мероприятий.
+        </p>
+        <ul class="stream-list">
+          <!-- Пример: когда будет запись, добавьте блок вида:
+          <li class="stream-list__item">
+            <span class="stream-list__date">12 янв 2026</span>
+            <div>
+              <h3 class="stream-list__title">Церемония «Философ года — 2025»</h3>
+              <p class="stream-list__meta">Фрагменты церемонии награждения.</p>
+            </div>
+            <a href="ССЫЛКА_НА_ЗАПИСЬ" class="btn btn-small stream-list__link" target="_blank" rel="noopener">Смотреть</a>
+          </li>
+          -->
+          <li class="stream-list__item">
+            <span class="stream-list__date">—</span>
+            <div>
+              <h3 class="stream-list__title">Пока записей нет</h3>
+              <p class="stream-list__meta">После первых трансляций здесь появятся ссылки на просмотр.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <div class="footer-right">
+        <span class="muted"></span>
+        <div class="socials">
+          <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank" rel="noopener">vk</a>
+          <a href="https://dzen.ru/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank" rel="noopener">dzen</a>
+          <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile-menu.js" defer></script>
+  <script>
+    (function() {
+      var player = document.getElementById('live-player');
+      if (!player) return;
+      fetch('api/stream.php')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.embed && data.embed.trim()) {
+            player.innerHTML = data.embed;
+            player.classList.remove('stream-player--placeholder');
+          }
+        })
+        .catch(function() {});
+    })();
+  </script>
+</body>
+
+</html>
