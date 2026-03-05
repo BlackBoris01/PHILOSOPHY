@@ -82,6 +82,12 @@
   margin-bottom: 0;
 }
 
+/* Align news buttons to left with slight indent */
+.news .card__footer {
+  text-align: left;
+  margin-top: 16px;
+}
+
 /* News card signature */
 .card__signature {
   margin-top: 24px;

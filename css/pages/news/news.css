@@ -132,7 +132,7 @@
 .news-archive-item--featured .news-archive__image img {
   height: 250px;
   object-fit: contain;
-  background: #4a9fd4;
+  background: transparent;
 }
 
 .news-archive__badge {
@@ -385,6 +385,15 @@
   margin: 32px 0;
   border-radius: 12px;
   overflow: hidden;
+}
+
+.article-figure--soft-blue {
+  background: rgba(74, 159, 212, 0.08);
+}
+
+.article-figure--narrow {
+  max-width: 420px;
+  margin: 24px auto;
 }
 
 .article-figure img {
