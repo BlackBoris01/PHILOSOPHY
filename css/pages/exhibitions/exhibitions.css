@@ -3,22 +3,48 @@
    Only page-specific styles, components are in /components/
    ========================================================================== */
 
-/* Coming Soon Section - Simple
+/* First Exhibition
    ========================================================================== */
-.coming-soon-simple {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+.exhibition {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+  gap: 32px;
+  align-items: flex-start;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow);
 }
 
-.coming-soon-info {
-  margin-top: 40px;
+.exhibition__media img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.exhibition__content p {
+  margin: 16px 0;
+}
+
+.exhibition__meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
 }
 
 /* Exhibitions Page Responsive
    ========================================================================== */
+@media (max-width: 900px) {
+  .exhibition {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
 @media (max-width: 768px) {
-  .coming-soon-simple {
-    padding: 0 20px;
+  .exhibition {
+    padding: 20px;
   }
 }
