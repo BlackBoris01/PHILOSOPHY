@@ -92,7 +92,7 @@
 /* Social Links Grid */
 .grid--social {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 

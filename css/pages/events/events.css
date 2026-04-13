@@ -221,8 +221,10 @@
 /* Project Details
    ========================================================================== */
 .project-details {
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* Status Badge

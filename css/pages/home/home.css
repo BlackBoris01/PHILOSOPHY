@@ -37,6 +37,7 @@
 
 /* News Section (on home page)
    ========================================================================== */
+
 .news .card--news .card__title {
   margin: 0 0 6px;
   font-family: "Cormorant Garamond", serif;
@@ -119,6 +120,10 @@
    ========================================================================== */
 .social-section {
   background: var(--surface);
+}
+
+.social-section .grid--social {
+  max-width: 1100px;
 }
 
 /* Home Page Responsive Styles

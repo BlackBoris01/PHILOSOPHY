@@ -2,129 +2,124 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
 
-    <!-- SEO Meta Tags -->
-    <title>[ЗАГОЛОВОК СТАТЬИ] — Музей философии</title>
-    <meta name="description" content="[КРАТКОЕ ОПИСАНИЕ НОВОСТИ ДЛЯ ПОИСКОВЫХ СИСТЕМ, 150-160 СИМВОЛОВ]" />
-    <meta name="keywords" content="[ключевые, слова, через, запятую]" />
-    <meta name="author" content="Музей философии, АНО Центр философских институций" />
+  <!-- SEO Meta Tags -->
+  <title>[ЗАГОЛОВОК НОВОСТИ] — Музей философии</title>
+  <meta name="description" content="[КРАТКОЕ ОПИСАНИЕ НОВОСТИ ДЛЯ ПОИСКОВЫХ СИСТЕМ, 150-160 СИМВОЛОВ]" />
+  <meta name="keywords" content="[ключевые, слова, через, запятую]" />
+  <meta name="author" content="Музей философии, АНО Центр философских институций" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="index.html" class="brand">
-                <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
-                <span class="brand__text">Музей философии</span>
-            </a>
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav">
-                <a href="index.html" class="nav__link">Главная</a>
-                <a href="about.html" class="nav__link">О музее</a>
-                <a href="exhibitions.html" class="nav__link">Экспозиции</a>
-                <a href="events.html" class="nav__link">Проекты и мероприятия</a>
-                <a href="contacts.html" class="nav__link">Контакты</a>
-            </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38"
+          fetchpriority="high">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="about.html" class="nav__link">О музее</a>
+        <a href="exhibitions.html" class="nav__link">Экспозиции</a>
+        <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
+        <a href="news.html" class="nav__link is-active">Новости</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <article class="news-article">
+      <div class="container">
+        <div class="news-article__header">
+          <a href="news.html" class="back-link">← Назад к новостям</a>
+          <div class="news-article__meta">
+            <span class="badge badge--primary">[МЕТКА / ТИП НОВОСТИ]</span>
+            <time datetime="[ГГГГ-ММ-ДД]">[ДАТА ПУБЛИКАЦИИ]</time>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <section class="section">
-            <div class="container article-container">
-                <a href="index.html#news" class="back-link">← Назад к новостям</a>
+        <h1 class="news-article__title">[ЗАГОЛОВОК НОВОСТИ]</h1>
 
-                <header class="article-header">
-                    <div class="article-meta">
-                        <span class="article-meta-item">[ДАТА]</span>
-                        <span class="article-meta-item">[ВРЕМЯ ЧТЕНИЯ] мин чтения</span>
-                    </div>
-                    <h1 class="article-title">[ЗАГОЛОВОК СТАТЬИ]</h1>
-                    <p class="article-subtitle">[ПОДЗАГОЛОВОК ИЛИ КРАТКОЕ ОПИСАНИЕ]</p>
-                </header>
+        <!-- Опционально: обложка новости -->
+        <!--
+        <figure class="news-article__hero">
+          <img src="[ПУТЬ К ОБЛОЖКЕ]" alt="[ОПИСАНИЕ ИЗОБРАЖЕНИЯ]" width="800" height="500" />
+          <figcaption class="news-article__hero-caption">[ПОДПИСЬ К ИЗОБРАЖЕНИЮ]</figcaption>
+        </figure>
+        -->
 
-                <div class="article-layout">
-                    <article class="article-content">
-                        <!-- Опционально: изображение статьи -->
-                        <!--
-                        <figure class="article-figure">
-                            <img src="[ПУТЬ К ИЗОБРАЖЕНИЮ]" alt="[ОПИСАНИЕ ИЗОБРАЖЕНИЯ]" />
-                            <figcaption>[ПОДПИСЬ К ИЗОБРАЖЕНИЮ]</figcaption>
-                        </figure>
-                        -->
+        <div class="news-article__content">
+          <p class="lead">
+            [КРАТКИЙ ВВОДНЫЙ АБЗАЦ — 1–2 ПРЕДЛОЖЕНИЯ, КОТОРЫЕ РАСШИРЯЮТ ЗАГОЛОВОК.]
+          </p>
 
-                        <p id="intro">[ВВЕДЕНИЕ - ПЕРВЫЙ АБЗАЦ СТАТЬИ]</p>
+          <p>
+            [ОСНОВНОЙ ТЕКСТ НОВОСТИ. МОЖНО ИСПОЛЬЗОВАТЬ НЕСКОЛЬКО АБЗАЦЕВ, ВЫДЕЛЕНИЯ <strong>ЖИРНЫМ</strong> И ССЫЛКИ.]
+          </p>
 
-                        <h2 id="section1">[ЗАГОЛОВОК ПЕРВОГО РАЗДЕЛА]</h2>
-                        <p>[СОДЕРЖАНИЕ ПЕРВОГО РАЗДЕЛА]</p>
-
-                        <!-- Опционально: цитата -->
-                        <!--
-                        <blockquote>
-                            [ЦИТАТА ИЛИ ВАЖНАЯ МЫСЛЬ]
-                        </blockquote>
-                        -->
-
-                        <h2 id="section2">[ЗАГОЛОВОК ВТОРОГО РАЗДЕЛА]</h2>
-                        <p>[СОДЕРЖАНИЕ ВТОРОГО РАЗДЕЛА]</p>
-
-                        <h2 id="section3">[ЗАГОЛОВОК ТРЕТЬЕГО РАЗДЕЛА]</h2>
-                        <p>[СОДЕРЖАНИЕ ТРЕТЬЕГО РАЗДЕЛА]</p>
-
-                        <p>[ЗАКЛЮЧЕНИЕ]</p>
-                    </article>
-
-                    <aside class="article-toc">
-                        <h3>Оглавление</h3>
-                        <ul>
-                            <li><a href="#intro">[НАЗВАНИЕ ВВЕДЕНИЯ]</a></li>
-                            <li><a href="#section1">[НАЗВАНИЕ ПЕРВОГО РАЗДЕЛА]</a></li>
-                            <li><a href="#section2">[НАЗВАНИЕ ВТОРОГО РАЗДЕЛА]</a></li>
-                            <li><a href="#section3">[НАЗВАНИЕ ТРЕТЬЕГО РАЗДЕЛА]</a></li>
-                        </ul>
-                    </aside>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contacts" class="site-footer">
-        <div class="container footer-inner">
-            <a href="index.html" class="brand">
-                <img src="photo_2025-09-05_09-27-42.png" alt="Логотип музея философии" class="brand__logo">
-                <span class="brand__text">Музей философии</span>
-            </a>
-            <div class="footer-right">
-                <span class="muted"></span>
-                <div class="socials">
-                    <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
-                        rel="noopener">vk</a>
-                    <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен"
-                        target="_blank" rel="noopener">dzen</a>
-                    <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank"
-                        rel="noopener">tg</a>
-                </div>
-            </div>
+          <!-- Опционально: подзаголовки и дополнительные разделы -->
+          <!--
+          <h2>Подзаголовок раздела</h2>
+          <p>Текст раздела.</p>
+          -->
         </div>
-    </footer>
 
-    <!-- JavaScript Files -->
-    <script src="js/mobile-menu.js"></script>
-    <script src="js/animations.js"></script>
+        <div class="news-article__share">
+          <span>Поделиться:</span>
+          <div class="share-links">
+            <a href="https://vk.com/share.php?url=http://philosophymuseum.ru/[SLUG].html&title=[ЗАГОЛОВОК НОВОСТИ] — Музей философии"
+               target="_blank" rel="noopener" class="share-link">VK</a>
+            <a href="https://t.me/share/url?url=http://philosophymuseum.ru/[SLUG].html&text=[ЗАГОЛОВОК НОВОСТИ] — Музей философии"
+               target="_blank" rel="noopener" class="share-link">Telegram</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38"
+          loading="lazy">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <div class="footer-right">
+        <span class="muted"></span>
+        <div class="socials">
+          <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
+            rel="noopener">vk</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
+          <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank"
+            rel="noopener">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
 </body>
 
 </html>
