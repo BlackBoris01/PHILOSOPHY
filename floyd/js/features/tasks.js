@@ -10,6 +10,37 @@ const monthMeta = window.App.date.monthMeta;
 const mondayOfWeek = window.App.date.mondayOfWeek;
 const getTodayISO = window.App.date.getTodayISO;
 const MONTH_GENITIVE = window.App.date.MONTH_GENITIVE;
+const fromLocalISO = window.App.date.fromLocalISO;
+
+var TG_PREFIX = "[TG] ";
+var TG_RUBRICS = [
+  { theme: "Отдых или мягкое напоминание", hint: "по ситуации" },
+  { theme: "Факт или миф?", hint: "вовлечение" },
+  { theme: "Вкус недели", hint: "продукт через эмоцию" },
+  { theme: "Инфо / инструкция", hint: "доверие" },
+  { theme: "Дудка недели", hint: "основная продажа недели" },
+  { theme: "Гибкий день", hint: "новинки / поставки / акции" },
+  { theme: "Лёгкий контент", hint: "закулисье / вкус / остатки" },
+];
+var TG_WEEKDAY_NAMES =
+  "Воскресенье Понедельник Вторник Среда Четверг Пятница Суббота".split(" ");
+var TG_WEEKDAY_SHORT = "Вс Пн Вт Ср Чт Пт Сб".split(" ");
+
+function isTelegramTaskId(id) {
+  return typeof id === "string" && id.indexOf("telegram-") === 0;
+}
+
+function telegramTaskIdForIso(iso) {
+  return "telegram-" + iso;
+}
+
+function buildTelegramTitleForIso(iso) {
+  var d = fromLocalISO(iso);
+  var dow = d.getDay();
+  var r = TG_RUBRICS[dow];
+  var w = TG_WEEKDAY_NAMES[dow];
+  return TG_PREFIX + w + " — " + r.theme;
+}
 
 function initTasks(today) {
   const todayISO = toLocalISO(today);
@@ -137,6 +168,10 @@ function initTasks(today) {
     });
     if (!task || task.dateISO === targetIso) return;
     task.dateISO = targetIso;
+    if (isTelegramTaskId(task.id)) {
+      task.id = telegramTaskIdForIso(targetIso);
+      task.title = buildTelegramTitleForIso(targetIso);
+    }
     saveTasks();
     renderCalendar();
     if (document.getElementById("day-dialog").open) {
@@ -165,9 +200,180 @@ function initTasks(today) {
     return label;
   }
 
+  function ensureTelegramTodayTask() {
+    var iso = getTodayISO();
+    var id = telegramTaskIdForIso(iso);
+    var title = buildTelegramTitleForIso(iso);
+    var t = tasks.find(function (x) {
+      return x.id === id;
+    });
+    if (!t) {
+      tasks.push({ id: id, dateISO: iso, title: title, done: false });
+      saveTasks();
+      return;
+    }
+    var changed = false;
+    if (t.dateISO !== iso) {
+      t.dateISO = iso;
+      changed = true;
+    }
+    if (t.title !== title) {
+      t.title = title;
+      changed = true;
+    }
+    if (changed) saveTasks();
+  }
+
+  function renderTelegramTodayBlock() {
+    var host = document.getElementById("telegram-today-block");
+    if (!host) return;
+    host.innerHTML = "";
+    var iso = getTodayISO();
+    var d = fromLocalISO(iso);
+    var dow = d.getDay();
+    var rub = TG_RUBRICS[dow];
+    var wname = TG_WEEKDAY_NAMES[dow];
+    var task = tasks.find(function (x) {
+      return x.id === telegramTaskIdForIso(iso);
+    });
+    if (!task) ensureTelegramTodayTask();
+    task = tasks.find(function (x) {
+      return x.id === telegramTaskIdForIso(iso);
+    });
+    if (!task) {
+      host.hidden = true;
+      return;
+    }
+    host.hidden = false;
+    host.className = "telegram-today";
+
+    var main = document.createElement("div");
+    main.className = "telegram-today-main";
+    var kick = document.createElement("p");
+    kick.className = "telegram-today-kicker";
+    kick.textContent = "Сегодня на канал";
+    var th = document.createElement("p");
+    th.className = "telegram-today-theme";
+    th.textContent = wname + " — " + rub.theme;
+    var hi = document.createElement("p");
+    hi.className = "telegram-today-hint";
+    hi.textContent = "→ " + rub.hint;
+    main.appendChild(kick);
+    main.appendChild(th);
+    main.appendChild(hi);
+
+    var check = createCalStyleCheckbox(
+      task.done,
+      task.done ? "Снять «выложил»" : "Отметить «выложил»",
+      function () {
+        var input = check.querySelector(".cal-task-check-input");
+        task.done = input.checked;
+        saveTasks();
+        renderCalendar();
+        if (document.getElementById("day-dialog").open) {
+          openDayDialog(dialogDayISO);
+        }
+      }
+    );
+
+    host.appendChild(main);
+    host.appendChild(check);
+  }
+
+  function renderTelegramWeek() {
+    var grid = document.getElementById("telegram-week-grid");
+    if (!grid) return;
+    grid.innerHTML = "";
+    var mon = mondayOfWeek(startOfDay(new Date()));
+    var todayIso = getTodayISO();
+    var todayStart = startOfDay(new Date()).getTime();
+
+    for (var i = 0; i < 7; i++) {
+      var d = new Date(mon.getTime() + i * MS_DAY);
+      var iso = toLocalISO(d);
+      var dow = d.getDay();
+      var rub = TG_RUBRICS[dow];
+      var wshort = TG_WEEKDAY_SHORT[dow];
+      var dayNum = d.getDate();
+      var monAbbr = MONTH_GENITIVE[d.getMonth()].slice(0, 3);
+
+      var cell = document.createElement("div");
+      cell.className = "telegram-day";
+      cell.setAttribute("role", "listitem");
+      if (iso === todayIso) cell.classList.add("is-today");
+      if (d.getTime() > todayStart) cell.classList.add("is-future");
+
+      var lab = document.createElement("div");
+      lab.className = "telegram-day-label";
+      lab.textContent = wshort + " " + dayNum + " " + monAbbr;
+
+      var theme = document.createElement("div");
+      theme.className = "telegram-day-theme";
+      theme.textContent = rub.theme;
+
+      var hint = document.createElement("div");
+      hint.className = "telegram-day-hint";
+      hint.textContent = "→ " + rub.hint;
+
+      var tid = telegramTaskIdForIso(iso);
+      var t = tasks.find(function (x) {
+        return x.id === tid;
+      });
+      var done = t ? !!t.done : false;
+
+      var row = document.createElement("div");
+      row.className = "telegram-day-actions";
+
+      var cb = createCalStyleCheckbox(
+        done,
+        done ? "Снять отметку" : "Выложил",
+        function () {
+          var inp = cb.querySelector(".cal-task-check-input");
+          var checked = inp.checked;
+          var ex = tasks.find(function (x) {
+            return x.id === tid;
+          });
+          if (!ex) {
+            tasks.push({
+              id: tid,
+              dateISO: iso,
+              title: buildTelegramTitleForIso(iso),
+              done: checked,
+            });
+          } else {
+            ex.done = checked;
+            if (ex.dateISO !== iso) ex.dateISO = iso;
+            if (ex.title !== buildTelegramTitleForIso(iso)) {
+              ex.title = buildTelegramTitleForIso(iso);
+            }
+          }
+          saveTasks();
+          renderCalendar();
+          if (document.getElementById("day-dialog").open) {
+            openDayDialog(dialogDayISO);
+          }
+        }
+      );
+
+      row.appendChild(cb);
+      cell.appendChild(lab);
+      cell.appendChild(theme);
+      cell.appendChild(hint);
+      cell.appendChild(row);
+      grid.appendChild(cell);
+    }
+
+    renderTelegramTodayBlock();
+  }
+
   function openTaskEdit(task) {
     editingTaskId = task.id;
-    document.getElementById("task-edit-title").value = task.title;
+    if (isTelegramTaskId(task.id)) {
+      var isoForTg = task.dateISO || task.id.slice("telegram-".length);
+      document.getElementById("task-edit-title").value = buildTelegramTitleForIso(isoForTg);
+    } else {
+      document.getElementById("task-edit-title").value = task.title;
+    }
     document.getElementById("task-edit-date").value = task.dateISO;
     document.getElementById("task-edit-dialog").showModal();
     document.getElementById("task-edit-title").focus();
@@ -175,6 +381,7 @@ function initTasks(today) {
   }
 
   function renderTodayPanel() {
+    ensureTelegramTodayTask();
     var iso = getTodayISO();
     var dateEl = document.getElementById("today-sidebar-date");
     if (dateEl) dateEl.textContent = formatTodaySidebarDate();
@@ -215,6 +422,9 @@ function initTasks(today) {
       sp.addEventListener("click", function () {
         openTaskEdit(t);
       });
+      if (isTelegramTaskId(t.id)) {
+        sp.classList.add("today-task-text--telegram");
+      }
       li.appendChild(check);
       li.appendChild(sp);
       ul.appendChild(li);
@@ -251,11 +461,18 @@ function initTasks(today) {
       return x.id === editingTaskId;
     });
     if (!task) return;
-    var title = document.getElementById("task-edit-title").value.trim();
     var dateISO = document.getElementById("task-edit-date").value || task.dateISO;
-    if (!title) return;
-    task.title = title;
-    task.dateISO = dateISO;
+    var title = document.getElementById("task-edit-title").value.trim();
+
+    if (isTelegramTaskId(task.id)) {
+      task.dateISO = dateISO;
+      task.id = telegramTaskIdForIso(dateISO);
+      task.title = buildTelegramTitleForIso(dateISO);
+    } else {
+      if (!title) return;
+      task.title = title;
+      task.dateISO = dateISO;
+    }
     saveTasks();
     document.getElementById("task-edit-dialog").close();
     editingTaskId = null;
@@ -463,6 +680,7 @@ function initTasks(today) {
     });
 
     renderTodayPanel();
+    renderTelegramWeek();
   }
 
   function openDayDialog(iso) {

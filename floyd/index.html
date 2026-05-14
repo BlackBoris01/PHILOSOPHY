@@ -291,6 +291,137 @@
       font-size: 0.85rem;
       padding: 8px 12px;
     }
+
+    .today-task-text--telegram {
+      border-left: 3px solid rgba(56, 189, 248, 0.55);
+      padding-left: 10px;
+    }
+
+    .card-telegram-week {
+      margin-bottom: 24px;
+    }
+
+    .telegram-week-head h2 {
+      margin: 0 0 8px;
+    }
+
+    .telegram-week-sub {
+      margin: 0 0 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .telegram-today {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 14px 20px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      background: rgba(30, 58, 138, 0.2);
+    }
+
+    .telegram-today.is-muted {
+      opacity: 0.75;
+    }
+
+    .telegram-today-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .telegram-today-kicker {
+      margin: 0 0 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(125, 211, 252, 0.95);
+    }
+
+    .telegram-today-theme {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .telegram-today-hint {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .telegram-today .cal-task-check {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .telegram-week-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .telegram-week-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .telegram-day {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 10px 8px;
+      background: var(--surface-2);
+      min-width: 0;
+    }
+
+    .telegram-day.is-today {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+    }
+
+    .telegram-day.is-future {
+      opacity: 0.72;
+    }
+
+    .telegram-day-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .telegram-day-theme {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .telegram-day-hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .telegram-day-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .telegram-day-actions .cal-task-check {
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -413,6 +544,17 @@
       <ul class="today-tasks-list" id="today-tasks-list"></ul>
     </aside>
     </div>
+
+    <section class="card card-telegram-week" aria-labelledby="telegram-week-title">
+      <div class="telegram-week-head">
+        <h2 id="telegram-week-title">Посты Telegram (вторая работа)</h2>
+        <p class="telegram-week-sub">
+          Рубрика по дням недели. Отметка «выложил» — это же дело в списке «Дела на сегодня» и в календаре (префикс <code>[TG]</code>).
+        </p>
+      </div>
+      <div class="telegram-today" id="telegram-today-block" hidden></div>
+      <div class="telegram-week-grid" id="telegram-week-grid" role="list"></div>
+    </section>
 
     <!-- ========== 2. Заметки ========== -->
     <section class="card" aria-labelledby="notes-title">
