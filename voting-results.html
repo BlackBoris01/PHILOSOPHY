@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
+
+  <title>Результаты голосования «Философ года — 2025» — Музей философии</title>
+  <meta name="description"
+    content="Результаты голосования за премию «Философ года — 2025». Следите за ходом голосования в реальном времени." />
+  <meta name="keywords"
+    content="философ года, результаты голосования, премия, Санкт-Петербург, философия" />
+  <meta name="author" content="Музей философии, АНО Центр философских институций" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* Results Page Specific Styles */
+    .results-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .results-header__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .results-header__subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .results-timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+
+    .results-timer--closed {
+      background: var(--muted);
+    }
+
+    .results-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .results-stat {
+      text-align: center;
+    }
+
+    .results-stat__value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .results-stat__label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .results-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .results-candidate {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .results-candidate:first-child {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, #fff 100%);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
+    }
+
+    .results-candidate:first-child .results-candidate__rank {
+      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+      color: #fff;
+    }
+
+    .results-candidate__header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .results-candidate__rank {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .results-candidate__info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .results-candidate__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+
+    .results-candidate__role {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .results-candidate__votes {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .results-candidate__count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .results-candidate__label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .results-candidate__progress {
+      height: 8px;
+      background: var(--surface);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .results-candidate__bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary) 0%, #3b82f6 100%);
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+
+    .results-candidate:first-child .results-candidate__bar {
+      background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+    }
+
+    .results-candidate__percentage {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: right;
+    }
+
+    .results-loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+
+    .results-loading__spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .results-error {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      color: #dc2626;
+    }
+
+    .results-footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .results-footer__update {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .results-vote-cta {
+      background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .results-vote-cta__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    .results-vote-cta__text {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    @media (max-width: 768px) {
+      .results-header__title {
+        font-size: 28px;
+      }
+
+      .results-stats {
+        gap: 24px;
+      }
+
+      .results-stat__value {
+        font-size: 36px;
+      }
+
+      .results-candidate {
+        padding: 20px;
+      }
+
+      .results-candidate__header {
+        flex-wrap: wrap;
+      }
+
+      .results-candidate__votes {
+        flex-basis: 100%;
+        text-align: left;
+        margin-top: 12px;
+        margin-left: 56px;
+      }
+
+      .results-candidate__name {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="about.html" class="nav__link">О музее</a>
+        <a href="exhibitions.html" class="nav__link">Экспозиции</a>
+        <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="news.html" class="nav__link">Новости</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <h1 class="page-title">Результаты голосования</h1>
+        <p class="lead">Премия «Философ года — 2025»</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="results-container">
+          <div class="results-loading">
+            <div class="results-loading__spinner"></div>
+            <p>Загрузка результатов...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
+        <span class="brand__text">Музей философии</span>
+      </a>
+      <div class="footer-right">
+        <span class="muted"></span>
+        <div class="socials">
+        <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank" rel="noopener">vk</a>
+        <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
+        <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile-menu.js" defer></script>
+  <script>
+    (function() {
+      'use strict';
+
+      const RESULTS_API = '/api/results.php';
+      const container = document.getElementById('results-container');
+
+      /**
+       * Pluralize Russian word for votes
+       */
+      function pluralizeVotes(count) {
+        const lastTwo = count % 100;
+        const lastOne = count % 10;
+        
+        if (lastTwo >= 11 && lastTwo <= 19) return 'голосов';
+        if (lastOne === 1) return 'голос';
+        if (lastOne >= 2 && lastOne <= 4) return 'голоса';
+        return 'голосов';
+      }
+
+      /**
+       * Format time remaining
+       */
+      function formatTime(time) {
+        if (!time) return 'Голосование завершено';
+        
+        const parts = [];
+        if (time.days > 0) {
+          const word = time.days === 1 ? 'день' : (time.days < 5 ? 'дня' : 'дней');
+          parts.push(`${time.days} ${word}`);
+        }
+        if (time.hours > 0) {
+          const word = time.hours === 1 ? 'час' : (time.hours < 5 ? 'часа' : 'часов');
+          parts.push(`${time.hours} ${word}`);
+        }
+        if (time.minutes > 0 && time.days === 0) {
+          const word = time.minutes === 1 ? 'минута' : (time.minutes < 5 ? 'минуты' : 'минут');
+          parts.push(`${time.minutes} ${word}`);
+        }
+        
+        return parts.length > 0 ? 'Осталось: ' + parts.join(' ') : 'Менее минуты';
+      }
+
+      /**
+       * Render results
+       */
+      function renderResults(data) {
+        const isOpen = data.votingOpen;
+        const timerClass = isOpen ? '' : ' results-timer--closed';
+
+        let html = `
+          <div class="results-header">
+            <h2 class="results-header__title">🏆 Текущие результаты</h2>
+            <p class="results-header__subtitle">Голосование за «Философа года — 2025»</p>
+            <div class="results-timer${timerClass}">
+              <span>⏱️</span>
+              <span>${formatTime(data.timeRemaining)}</span>
+            </div>
+          </div>
+
+          <div class="results-stats">
+            <div class="results-stat">
+              <div class="results-stat__value">${data.totalVotes}</div>
+              <div class="results-stat__label">${pluralizeVotes(data.totalVotes)} отдано</div>
+            </div>
+            <div class="results-stat">
+              <div class="results-stat__value">${data.results.length}</div>
+              <div class="results-stat__label">финалистов</div>
+            </div>
+          </div>
+
+          <div class="results-list">
+        `;
+
+        data.results.forEach((candidate, index) => {
+          html += `
+            <div class="results-candidate">
+              <div class="results-candidate__header">
+                <div class="results-candidate__rank">${index + 1}</div>
+                <div class="results-candidate__info">
+                  <h3 class="results-candidate__name">${candidate.name}</h3>
+                  <p class="results-candidate__role">${candidate.role}</p>
+                </div>
+                <div class="results-candidate__votes">
+                  <div class="results-candidate__count">${candidate.votes}</div>
+                  <div class="results-candidate__label">${pluralizeVotes(candidate.votes)}</div>
+                </div>
+              </div>
+              <div class="results-candidate__progress">
+                <div class="results-candidate__bar" style="width: ${candidate.percentage}%"></div>
+              </div>
+              <div class="results-candidate__percentage">${candidate.percentage}%</div>
+            </div>
+          `;
+        });
+
+        html += '</div>';
+
+        if (isOpen) {
+          html += `
+            <div class="results-vote-cta">
+              <h3 class="results-vote-cta__title">🗳️ Ещё не голосовали?</h3>
+              <p class="results-vote-cta__text">Поддержите своего кандидата до 11 января!</p>
+              <a href="news-philosopher-finalists.html" class="btn">Проголосовать</a>
+            </div>
+          `;
+        }
+
+        html += `
+          <div class="results-footer">
+            <p class="results-footer__update">Последнее обновление: ${data.lastUpdated}</p>
+            <p style="margin-top: 8px;">
+              <a href="news-philosopher-finalists.html">← Вернуться к новости о финалистах</a>
+            </p>
+          </div>
+        `;
+
+        container.innerHTML = html;
+      }
+
+      /**
+       * Show error
+       */
+      function showError(message) {
+        container.innerHTML = `
+          <div class="results-error">
+            <p><strong>Ошибка загрузки результатов</strong></p>
+            <p>${message}</p>
+            <button class="btn" onclick="location.reload()" style="margin-top: 16px;">Попробовать снова</button>
+          </div>
+        `;
+      }
+
+      /**
+       * Load results from server
+       */
+      async function loadResults() {
+        try {
+          const response = await fetch(RESULTS_API);
+          
+          if (!response.ok) {
+            throw new Error('Сервер вернул ошибку');
+          }
+          
+          const data = await response.json();
+          
+          if (data.success) {
+            renderResults(data);
+          } else {
+            showError(data.message || 'Неизвестная ошибка');
+          }
+        } catch (error) {
+          console.error('Failed to load results:', error);
+          showError('Не удалось загрузить результаты. Проверьте подключение к интернету.');
+        }
+      }
+
+      // Load results on page load
+      loadResults();
+
+      // Auto-refresh every 30 seconds
+      setInterval(loadResults, 30000);
+    })();
+  </script>
+  <script src="js/site-stats-tracker.js" defer></script>
+</body>
+
+</html>
+

@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
 
-  <!-- SEO Meta Tags -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
+
   <title>Новости — Музей философии</title>
   <meta name="description"
     content="Актуальные новости Музея философии: новые экспозиции, анонсы мероприятий, интервью с философами, культурные проекты и события." />
@@ -20,15 +20,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/pages/news/news.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <button class="mobile-menu-toggle" aria-label="Открыть меню">
@@ -36,14 +35,17 @@
         <span></span>
         <span></span>
       </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
       <nav class="nav">
         <a href="index.html" class="nav__link">Главная</a>
         <a href="about.html" class="nav__link">О музее</a>
         <a href="exhibitions.html" class="nav__link">Экспозиции</a>
         <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
         <a href="news.html" class="nav__link is-active">Новости</a>
         <a href="contacts.html" class="nav__link">Контакты</a>
       </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -61,125 +63,167 @@
 
           <article class="news-archive-item">
             <div class="news-archive__date">
-              <span class="day">10</span>
-              <span class="month">июля</span>
-              <span class="year">2025</span>
-            </div>
-            <div class="news-archive__content">
-              <h2><a href="news-1.html">В Петербурге состоялось учредительное собрание первого в России музея
-                  философии</a></h2>
-              <p class="news-archive__meta">3 мин чтения</p>
-              <p>
-                8 июля 2025 года в музейно-выставочном центре «Петербургский художник» состоялось важное событие для
-                культурной жизни города — круглый стол и учредительное собрание первого в России музея философии.
-              </p>
-              <p>
-                Петербург — одна из интеллектуальных столиц России. Создание устойчивой площадки, объединяющей
-                исследователей, художников, кураторов и горожан, позволит развивать просветительские программы и
-                выставочные проекты.
-              </p>
-              <a href="news-1.html" class="btn btn-small">Читать далее</a>
-            </div>
-          </article>
-
-          <article class="news-archive-item">
-            <div class="news-archive__date">
-              <span class="day">8</span>
+              <span class="day">11</span>
               <span class="month">сентября</span>
-              <span class="year">2025</span>
+              <span class="year">2026</span>
             </div>
             <div class="news-archive__content">
               <div class="news-archive__image">
-                <img
-                  src="media/discus-thrower-sculpture.jpg"
-                  alt="Античная скульптура дисконоса" />
+                <img src="media/optika-obraza-poster.png" alt="Афиша кураторской программы «Оптика образа»" width="600" height="338" loading="lazy" />
               </div>
-              <h2><a href="news-2.html">Новый экспонат в коллекции — античная скульптура дисконоса</a></h2>
-              <p class="news-archive__meta">3 мин чтения</p>
-              <p>
-                В фондах музея появился значимый экспонат — копия знаменитой древнегреческой скульптуры
-                атлета‑дисконоса. Он будет представлен в рамках специальной экспозиции, посвящённой эстетике античности.
-              </p>
-              <p>
-                Образ атлета стал символом гармонии телесного и духовного. Мы готовим цикл публичных лекций и экскурсии
-                о роли спорта и состязаний в античном мире.
-              </p>
-              <a href="news-2.html" class="btn btn-small">Читать далее</a>
-            </div>
-          </article>
-
-          <!-- Дополнительные новости для демонстрации -->
-          <article class="news-archive-item">
-            <div class="news-archive__date">
-              <span class="day">25</span>
-              <span class="month">августа</span>
-              <span class="year">2025</span>
-            </div>
-            <div class="news-archive__content">
-              <h2><a href="#">Партнёрство с философским факультетом СПбГУ</a></h2>
+              <span class="badge badge--primary">📌 Анонс</span>
+              <h2><a href="news-optika-obraza.html">«Оптика образа»: от поэзии садов к экологии зрения</a></h2>
               <p class="news-archive__meta">2 мин чтения</p>
               <p>
-                Музей философии заключил соглашение о сотрудничестве с философским факультетом Санкт-Петербургского
-                государственного университета. Совместные проекты включают образовательные программы, научные
-                конференции и студенческие практики.
+                13 сентября в 15:00 — кураторская программа Музея философии: выставка, воспоминания о Лихачёве и киноавангард. Галерея «Петербургский художник».
               </p>
-              <p>
-                Планируется создание совместных курсов по истории русской философии и современным философским
-                направлениям.
-              </p>
-              <a href="#" class="btn btn-small">Читать далее</a>
+              <a href="news-optika-obraza.html" class="btn btn-small">Читать далее</a>
             </div>
           </article>
 
           <article class="news-archive-item">
             <div class="news-archive__date">
-              <span class="day">12</span>
-              <span class="month">августа</span>
-              <span class="year">2025</span>
+              <span class="day">03</span>
+              <span class="month">сентября</span>
+              <span class="year">2026</span>
             </div>
             <div class="news-archive__content">
               <div class="news-archive__image">
-                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format&fit=crop"
-                  alt="Первые посетители музея" />
+                <img src="media/poetry-gardens-likhachev/1.jpg" alt="Пресс-конференция фестиваля «Поэзия садов академика Лихачёва»" width="600" height="338" loading="lazy" />
               </div>
-              <h2><a href="#">Первые экскурсии и обратная связь посетителей</a></h2>
+              <span class="badge badge--primary">🌿 Фестиваль</span>
+              <h2><a href="news-poeziya-sadov-lihacheva.html">Музей философии выступил соорганизатором фестиваля «Поэзия садов академика Лихачёва»</a></h2>
               <p class="news-archive__meta">4 мин чтения</p>
               <p>
-                Музей провёл первые пробные экскурсии для групп студентов и преподавателей. Посетители высоко оценили
-                концепцию и интерактивные элементы экспозиции.
+                16 августа в усадьбе Марьино состоялось торжественное открытие Международного фестиваля «Поэзия садов академика Лихачёва». Одним из соорганизаторов выступил Музей философии.
               </p>
-              <p>
-                Собраны ценные предложения по улучшению экскурсионных программ и адаптации контента для разных
-                возрастных групп.
-              </p>
-              <a href="#" class="btn btn-small">Читать далее</a>
+              <a href="news-poeziya-sadov-lihacheva.html" class="btn btn-small">Читать далее</a>
             </div>
           </article>
 
           <article class="news-archive-item">
             <div class="news-archive__date">
-              <span class="day">28</span>
-              <span class="month">июля</span>
+              <span class="day">20</span>
+              <span class="month">апреля</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <div class="news-archive__image">
+                <img src="media/petar-boyanich-report-1.png" alt="Доклад Петара Боянича в Выставочном центре «Петербургский Художник»" width="600" height="338" loading="lazy" />
+              </div>
+              <span class="badge badge--primary">🎓 Доклад</span>
+              <h2><a href="news-petar-boyanich-pobedonosnyi-razum.html">Доклад Петара Боянича «Победоносный разум»</a></h2>
+              <p class="news-archive__meta">3 мин чтения</p>
+              <p>
+                18 апреля в Выставочном центре «Петербургский Художник» состоялся доклад сербского философа Петара Боянича. Встреча стала ведущим событием философско-просветительской программы музея.
+              </p>
+              <a href="news-petar-boyanich-pobedonosnyi-razum.html" class="btn btn-small">Читать далее</a>
+            </div>
+          </article>
+
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">05</span>
+              <span class="month">марта</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <div class="news-archive__image">
+                <img src="media/rozhdenie-rukotvornoi-eksistencii.png" alt="Фрагменты онлайн-экспозиции «Рождение рукотворной экзистенции»" width="600" height="338" loading="lazy" />
+              </div>
+              <span class="badge badge--primary">🌐 Онлайн-экспозиция</span>
+              <h2><a href="news-rozhdenie-rukotvornoi-eksistencii.html">Рождение рукотворной экзистенции</a></h2>
+              <p class="news-archive__meta">2 мин чтения</p>
+              <p>
+                Что мы ощущаем, когда всматриваемся в объект, созданный человеком? В рамках онлайн-экспозиции
+                «Рождение рукотворной экзистенции» мы постараемся взглянуть на объект, чьим демиургом является человек,
+                через призму трансцендентного, наделив его душой.
+              </p>
+              <a href="news-rozhdenie-rukotvornoi-eksistencii.html" class="btn btn-small">Читать далее</a>
+            </div>
+          </article>
+
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">24</span>
+              <span class="month">февраля</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <div class="news-archive__image">
+                <img src="media/KonstAzarov.jpg" alt="Константин Азаров" width="600" height="338" loading="lazy" />
+              </div>
+              <span class="badge badge--primary">📖 Риддинг</span>
+              <h2><a href="news-reading-azarov.html">Риддинг: «Философия музея в музее философии: рождение русского музейного постмодернизма в философии»</a></h2>
+              <p class="news-archive__meta">2 мин чтения</p>
+              <p>
+                С <strong>Константином Азаровым</strong> — философом и преподавателем СПбГУ, исследователем философии музея и современного искусства. Стартуем 1 марта — весенний цикл риддингов в Музее философии.
+              </p>
+              <p style="font-size: 14px; color: var(--muted);">Фото: Ника Шахназарова</p>
+              <a href="news-reading-azarov.html" class="btn btn-small">Подробнее</a>
+            </div>
+          </article>
+
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">13</span>
+              <span class="month">января</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <div class="news-archive__image">
+                <img src="media/ceremony-1.jpg" alt="Церемония вручения премии «Философ года — 2025»" width="600" height="338" loading="lazy" />
+              </div>
+              <span class="badge badge--primary">🏆 Церемония</span>
+              <h2><a href="news-ceremony-completed-2025.html">В Санкт-Петербурге состоялась первая церемония вручения премии «Философ года — 2025»</a></h2>
+              <p class="news-archive__meta">5 мин чтения</p>
+              <p>
+                12 января в культурно-образовательном пространстве Doctrina et Nobiles состоялась первая торжественная церемония вручения премии «Философ года — 2025». Лауреатом стал <strong>Артём Евгеньевич Радеев</strong>.
+              </p>
+              <a href="news-ceremony-completed-2025.html" class="btn btn-small">Читать далее</a>
+            </div>
+          </article>
+
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">09</span>
+              <span class="month">января</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="news-archive__content">
+              <div class="news-archive__image">
+                <img src="media/photo_1_2026-01-08_20-24-49.jpg" alt="Пресс-конференция премии «Философ года — 2025»" width="600" height="338" loading="lazy" />
+              </div>
+              <span class="badge badge--primary">🏆 Премия</span>
+              <h2><a href="news-philosopher-finalists.html">«Философ года — 2025»: определены финалисты премии</a></h2>
+              <p class="news-archive__meta">4 мин чтения</p>
+              <p>
+                В музейно-выставочном центре «Петербургский художник» прошла пресс-конференция. Члены жюри представили шорт-лист из пяти финалистов.
+              </p>
+              <a href="news-philosopher-finalists.html" class="btn btn-small">Читать далее и проголосовать</a>
+            </div>
+          </article>
+
+          <article class="news-archive-item">
+            <div class="news-archive__date">
+              <span class="day">23</span>
+              <span class="month">декабря</span>
               <span class="year">2025</span>
             </div>
             <div class="news-archive__content">
-              <h2><a href="#">Запуск образовательной программы для школьников</a></h2>
-              <p class="news-archive__meta">3 мин чтения</p>
+              <span class="badge badge--primary">🏆 Конкурс</span>
+              <h2><a href="news-philosopher-year.html">Объявлен конкурс на соискание премии «Философ года – 2025»</a></h2>
+              <p class="news-archive__meta">5 мин чтения</p>
               <p>
-                Разработана специальная программа знакомства с философией для школьников 14-17 лет. Программа включает
-                интерактивные занятия, философские диалоги и творческие мастерские.
+                Санкт-Петербургский Музей философии объявляет открытый конкурс на звание «Философ года – 2025»,
+                призванный актуализировать фигуру философа как активного деятеля культурного полиса.
               </p>
-              <p>
-                Первые занятия планируются на сентябрь 2025 года. Заявки на участие уже принимаются от образовательных
-                учреждений Санкт-Петербурга.
-              </p>
-              <a href="#" class="btn btn-small">Читать далее</a>
+              <a href="news-philosopher-year.html" class="btn btn-small">Читать далее</a>
             </div>
           </article>
 
         </div>
 
-        <!-- Пагинация -->
         <div class="pagination">
           <a href="#" class="pagination__link pagination__link--disabled">← Предыдущая</a>
           <span class="pagination__current">Страница 1 из 1</span>
@@ -192,7 +236,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <div class="footer-right">
@@ -200,17 +244,15 @@
         <div class="socials">
           <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
             rel="noopener">vk</a>
-          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
-            rel="noopener">dzen</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
           <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript Files -->
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
 </body>
 
 </html>

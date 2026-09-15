@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Личный сайт</title>
+  <!-- По умолчанию данные в localStorage; при настройке синхронизации — копия на вашем сервере (см. блок ниже). -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <style>
+    .password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(94, 234, 212, 0.18) 0%, transparent 55%),
+        radial-gradient(900px 500px at 90% 110%, rgba(167, 139, 250, 0.16) 0%, transparent 50%),
+        linear-gradient(165deg, #0c1220 0%, #141a2e 42%, #0f172a 100%);
+    }
+    .password-gate[hidden] {
+      display: none !important;
+    }
+    .password-gate__box {
+      width: min(92vw, 400px);
+      padding: 28px 26px 24px;
+      border-radius: 18px;
+      background: rgba(24, 32, 52, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.06) inset,
+        0 24px 56px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .password-gate__eyebrow {
+      margin: 0 0 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(148, 231, 255, 0.75);
+    }
+    .password-gate__title {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #f1f5f9;
+    }
+    .password-gate__lead {
+      margin: 0 0 22px;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: rgba(203, 213, 225, 0.88);
+    }
+    .password-gate__row {
+      display: flex;
+      gap: 10px;
+    }
+    .password-gate__row input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid rgba(100, 116, 139, 0.45);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      color: #f8fafc;
+      background: rgba(15, 23, 42, 0.55);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .password-gate__row input::placeholder {
+      color: rgba(148, 163, 184, 0.65);
+    }
+    .password-gate__row input:focus {
+      border-color: rgba(45, 212, 191, 0.55);
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.18);
+    }
+    .password-gate__row button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #0f172a;
+      background: linear-gradient(135deg, #5eead4 0%, #38bdf8 100%);
+      box-shadow: 0 8px 22px rgba(56, 189, 248, 0.28);
+      transition: filter 0.15s, transform 0.1s;
+    }
+    .password-gate__row button:hover {
+      filter: brightness(1.06);
+    }
+    .password-gate__row button:active {
+      transform: translateY(1px);
+    }
+    .password-gate__error {
+      margin: 12px 0 0;
+      min-height: 20px;
+      font-size: 0.88rem;
+      color: #fecaca;
+    }
+
+    .secret-stats {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 16px;
+      margin: 0 0 20px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.12) 0%, rgba(30, 41, 59, 0.55) 100%);
+      font-size: 0.82rem;
+      color: rgba(226, 232, 240, 0.9);
+    }
+    .secret-stats__label {
+      font-weight: 600;
+      color: rgba(153, 246, 228, 0.9);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    .secret-stats__nums {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      align-items: baseline;
+      color: rgba(203, 213, 225, 0.95);
+    }
+    .secret-stats__nums strong {
+      font-variant-numeric: tabular-nums;
+      color: #f0fdfa;
+      font-weight: 700;
+    }
+
+    .public-stats {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 16px;
+      margin: 0 0 20px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(251, 191, 36, 0.22);
+      background: linear-gradient(135deg, rgba(120, 53, 15, 0.2) 0%, rgba(30, 41, 59, 0.55) 100%);
+      font-size: 0.82rem;
+      color: rgba(254, 243, 199, 0.92);
+    }
+    .public-stats__label {
+      font-weight: 600;
+      color: rgba(253, 224, 71, 0.95);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    .public-stats__nums {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      align-items: baseline;
+      color: rgba(253, 230, 138, 0.95);
+    }
+    .public-stats__nums strong {
+      font-variant-numeric: tabular-nums;
+      color: #fffbeb;
+      font-weight: 700;
+    }
+
+    .public-stats-error {
+      margin: 8px 0 0;
+      font-size: 0.78rem;
+      color: #fecaca;
+      line-height: 1.35;
+    }
+
+    .public-stats-clients {
+      margin: 0 0 20px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(251, 191, 36, 0.18);
+      background: rgba(15, 23, 42, 0.45);
+    }
+
+    .public-stats-clients summary {
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(253, 224, 71, 0.95);
+    }
+
+    .public-stats-clients-token {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin: 12px 0 10px;
+    }
+
+    .public-stats-clients-token input {
+      flex: 1;
+      min-width: 180px;
+      border-radius: 10px;
+      border: 1px solid rgba(100, 116, 139, 0.45);
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      color: #f8fafc;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    .public-stats-clients-meta {
+      font-size: 0.75rem;
+      color: rgba(203, 213, 225, 0.75);
+      margin: 0 0 8px;
+    }
+
+    .public-stats-clients-error {
+      font-size: 0.78rem;
+      color: #fecaca;
+      margin: 0 0 8px;
+      min-height: 1.2em;
+    }
+
+    .public-stats-clients-scroll {
+      overflow: auto;
+      max-height: min(52vh, 420px);
+      border-radius: 8px;
+      border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+
+    .public-stats-clients table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.92);
+    }
+
+    .public-stats-clients th,
+    .public-stats-clients td {
+      padding: 8px 10px;
+      text-align: left;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+      vertical-align: top;
+    }
+
+    .public-stats-clients th {
+      position: sticky;
+      top: 0;
+      background: rgba(30, 41, 59, 0.98);
+      z-index: 1;
+      font-weight: 600;
+      color: rgba(253, 224, 71, 0.88);
+      white-space: nowrap;
+    }
+
+    .public-stats-clients tr.is-online td:first-child {
+      color: #6ee7b7;
+      font-weight: 600;
+    }
+
+    .public-stats-clients td:nth-child(7) {
+      max-width: 220px;
+      word-break: break-word;
+    }
+
+    .public-stats-clients td:last-child {
+      max-width: 140px;
+      word-break: break-all;
+      font-family: ui-monospace, monospace;
+      font-size: 0.68rem;
+    }
+
+    .page-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .page-title-row h1 {
+      margin: 0;
+    }
+
+    .gate-lock-btn {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+    }
+
+    .today-task-text--telegram {
+      border-left: 3px solid rgba(56, 189, 248, 0.55);
+      padding-left: 10px;
+    }
+
+    .card-telegram-week {
+      margin-bottom: 24px;
+    }
+
+    .telegram-week-head h2 {
+      margin: 0 0 8px;
+    }
+
+    .telegram-week-sub {
+      margin: 0 0 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .telegram-today {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 14px 20px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      background: rgba(30, 58, 138, 0.2);
+    }
+
+    .telegram-today.is-muted {
+      opacity: 0.75;
+    }
+
+    .telegram-today-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .telegram-today-kicker {
+      margin: 0 0 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(125, 211, 252, 0.95);
+    }
+
+    .telegram-today-theme {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .telegram-today-hint {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .telegram-today .cal-task-check {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .telegram-week-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .telegram-week-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .telegram-day {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 10px 8px;
+      background: var(--surface-2);
+      min-width: 0;
+    }
+
+    .telegram-day.is-today {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+    }
+
+    .telegram-day.is-future {
+      opacity: 0.72;
+    }
+
+    .telegram-day-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .telegram-day-theme {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .telegram-day-hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .telegram-day-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .telegram-day-actions .cal-task-check {
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="password-gate" id="password-gate">
+    <form class="password-gate__box" id="password-form" autocomplete="off">
+      <p class="password-gate__eyebrow">Доступ</p>
+      <h2 class="password-gate__title">Личный раздел</h2>
+      <p class="password-gate__lead">Введите пароль, чтобы открыть страницу. Данные остаются в браузере, пока вы их не сотрёте.</p>
+      <div class="password-gate__row">
+        <input id="password-input" type="password" placeholder="Пароль" required />
+        <button type="submit">Войти</button>
+      </div>
+      <p class="password-gate__error" id="password-error"></p>
+    </form>
+  </div>
+
+  <div class="page" id="app-content" hidden>
+    <header class="page-title-row">
+      <h1>Личный сайт</h1>
+      <button type="button" class="btn btn-secondary gate-lock-btn" id="gate-lock-btn" title="Снова показать ввод пароля на этом устройстве">
+        Заблокировать
+      </button>
+    </header>
+
+    <div id="secret-stats" class="secret-stats" aria-live="polite" hidden>
+      <span class="secret-stats__label">Скрытая страница</span>
+      <div class="secret-stats__nums">
+        <span title="Все открытия страницы (сервер)">Всего: <strong id="secret-stats-total">—</strong></span>
+        <span title="Открытия за сегодня по времени сервера">За день: <strong id="secret-stats-today">—</strong></span>
+        <span title="Вкладки с активностью за последние 5 минут">Сейчас: <strong id="secret-stats-online">—</strong></span>
+      </div>
+    </div>
+
+    <div id="public-stats" class="public-stats" aria-live="polite" hidden>
+      <span class="public-stats__label">Основной сайт музея</span>
+      <div class="public-stats__nums">
+        <span title="Все загрузки страниц с трекером">Всего: <strong id="public-stats-total">—</strong></span>
+        <span title="За сегодня по времени сервера">За день: <strong id="public-stats-today">—</strong></span>
+        <span title="Вкладки основного сайта за последние 5 минут">Сейчас: <strong id="public-stats-online">—</strong></span>
+      </div>
+      <p id="public-stats-error" class="public-stats-error" aria-live="polite"></p>
+    </div>
+
+    <details id="public-stats-clients" class="public-stats-clients">
+      <summary>Посетители основного сайта: IP, локация, устройство (полный список сессий)</summary>
+      <p class="sync-hint" style="margin-top:10px;font-size:0.8rem;color:rgba(203,213,225,0.85)">
+        Доступ по секрету: файл <code>api/data/site-stats-admin-secret.txt</code> или тот же секрет, что в
+        <code>floyd-sync-secret.txt</code>. Токен хранится в браузере только на этом устройстве.
+      </p>
+      <div class="public-stats-clients-token">
+        <input type="password" id="site-stats-token-input" autocomplete="new-password" placeholder="Токен детальной статистики" />
+        <button type="button" class="btn btn-secondary" id="site-stats-token-save">Сохранить токен</button>
+        <button type="button" class="btn" id="site-stats-clients-refresh">Обновить список</button>
+      </div>
+      <p id="public-stats-clients-error" class="public-stats-clients-error" role="status"></p>
+      <p id="public-stats-clients-meta" class="public-stats-clients-meta"></p>
+      <div class="public-stats-clients-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Онлайн</th>
+              <th>Последняя активность</th>
+              <th>Первая фиксация</th>
+              <th>IP</th>
+              <th>Локация</th>
+              <th>Язык</th>
+              <th>Устройство (UA)</th>
+              <th>Сессия</th>
+            </tr>
+          </thead>
+          <tbody id="public-stats-clients-body"></tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sync-panel">
+      <summary>Синхронизация между устройствами</summary>
+      <p class="sync-hint">
+        На сервере в папке <code>api/data/</code> создайте файл <code>floyd-sync-secret.txt</code>
+        (одна строка секрета; образец — <code>floyd-sync-secret.sample.txt</code>).
+        Сюда вставьте тот же секрет; данные будут подтягиваться при открытии страницы и сохраняться после изменений.
+      </p>
+      <div class="sync-row">
+        <input type="password" id="sync-token-input" autocomplete="new-password" placeholder="Секрет синхронизации" />
+        <button type="button" class="btn btn-secondary" id="sync-token-save">Сохранить</button>
+        <button type="button" class="btn" id="sync-push-now">Отправить сейчас</button>
+      </div>
+      <p id="sync-status" class="sync-status" role="status"></p>
+    </details>
+
+    <div class="dashboard-top">
+    <!-- ========== 1. Трекер дней кода ========== -->
+    <section class="card card-tracker-square" aria-labelledby="code-title">
+      <div class="code-header">
+        <h2 id="code-title">Дни, когда писал код</h2>
+        <span class="streak" id="code-streak">Серия: …</span>
+      </div>
+      <div class="code-panel">
+        <div class="code-nav">
+          <button type="button" class="btn btn-secondary" id="code-cal-prev" aria-label="Предыдущий месяц">←</button>
+          <strong id="code-cal-label"></strong>
+          <button type="button" class="btn btn-secondary" id="code-cal-next" aria-label="Следующий месяц">→</button>
+        </div>
+        <div class="code-weekday-row" aria-hidden="true">
+          <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+        </div>
+        <div id="code-grid" aria-label="Календарь прогресса по месяцам"></div>
+        <p class="code-msg" id="code-msg" role="status"></p>
+      </div>
+    </section>
+
+    <aside class="card dashboard-today" aria-labelledby="today-panel-title">
+      <h2 id="today-panel-title" class="dashboard-today-heading">Сегодня</h2>
+      <p class="today-date-line" id="today-sidebar-date"></p>
+      <div class="today-countdown-wrap">
+        <p class="today-countdown-label">До конца дня</p>
+        <p class="today-countdown" id="today-countdown" aria-live="polite">--:--:--</p>
+      </div>
+      <h3 class="today-tasks-heading">Дела на сегодня</h3>
+      <ul class="today-tasks-list" id="today-tasks-list"></ul>
+    </aside>
+    </div>
+
+    <section class="card card-telegram-week" aria-labelledby="telegram-week-title">
+      <div class="telegram-week-head">
+        <h2 id="telegram-week-title">Посты Telegram (вторая работа)</h2>
+        <p class="telegram-week-sub">
+          Рубрика по дням недели. Отметка «выложил» — это же дело в списке «Дела на сегодня» и в календаре (префикс <code>[TG]</code>).
+        </p>
+      </div>
+      <div class="telegram-today" id="telegram-today-block" hidden></div>
+      <div class="telegram-week-grid" id="telegram-week-grid" role="list"></div>
+    </section>
+
+    <!-- ========== 2. Заметки ========== -->
+    <section class="card" aria-labelledby="notes-title">
+      <div class="notes-head">
+        <h2 id="notes-title" style="margin:0">Заметки</h2>
+        <div class="tools">
+          <input type="search" id="notes-search" placeholder="Поиск" autocomplete="off" />
+          <label style="margin:0;font-size:0.85rem;color:var(--muted);display:flex;align-items:center;gap:6px" aria-label="Сортировка заметок">
+            <select id="notes-sort">
+              <option value="created-desc">Сначала новые</option>
+              <option value="created-asc">Сначала старые</option>
+              <option value="dated-desc">По дате дня: позже → раньше</option>
+              <option value="dated-asc">По дате дня: раньше → позже</option>
+              <option value="text-az">По тексту А → Я</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="notes-form">
+        <textarea id="note-text" rows="4"></textarea>
+        <div class="notes-form-footer">
+          <label style="margin:0;display:flex;align-items:center;gap:8px">
+            <input type="date" id="note-date" />
+          </label>
+          <div class="color-swatches">
+            <span>Рамка</span>
+            <button type="button" class="color-swatch is-active" data-note-color="blue" style="background:#2563eb" aria-label="Синий"></button>
+            <button type="button" class="color-swatch" data-note-color="green" style="background:#059669" aria-label="Зелёный"></button>
+            <button type="button" class="color-swatch" data-note-color="red" style="background:#dc2626" aria-label="Красный"></button>
+          </div>
+          <button type="button" class="btn" id="note-save">Сохранить</button>
+        </div>
+      </div>
+      <div class="notes-board" id="notes-list"></div>
+    </section>
+
+    <!-- ========== 3. Календарь задач ========== -->
+    <section class="card card-calendar" aria-labelledby="cal-title">
+      <h2 id="cal-title" class="cal-sr-only">Календарь задач</h2>
+      <div class="cal-shell">
+        <div class="cal-nav">
+          <strong id="cal-label" class="cal-month-title"></strong>
+          <div class="cal-nav-actions">
+            <button type="button" class="cal-btn cal-btn--ghost" id="cal-today">Сегодня</button>
+            <div class="cal-nav-arrows">
+              <button type="button" class="cal-btn" id="cal-prev" aria-label="Предыдущий месяц">←</button>
+              <button type="button" class="cal-btn" id="cal-next" aria-label="Следующий месяц">→</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cal-week-nav cal-week-nav--top">
+          <button type="button" class="cal-btn" id="cal-week-prev-top" aria-label="Предыдущая неделя">↑</button>
+        </div>
+
+        <div class="cal-grid-scroll" role="region" aria-label="Календарь задач">
+          <div class="cal-grid-fixed">
+            <div class="cal-weekdays">
+              <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
+          </div>
+        </div>
+
+        <div class="cal-week-nav cal-week-nav--bottom">
+          <button type="button" class="cal-btn" id="cal-week-next-bottom" aria-label="Следующая неделя">↓</button>
+        </div>
+
+        <div class="task-add-block">
+          <h3>Новая задача</h3>
+          <div class="row">
+            <input type="text" id="task-new-title" placeholder="Задача" style="flex:1; min-width:160px" />
+            <input type="date" id="task-new-date" />
+            <button type="button" class="btn" id="task-add">Добавить</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Окно одного дня: все задачи на выбранную дату -->
+  <dialog id="day-dialog">
+    <div class="dialog-inner">
+      <h3 id="day-dialog-title">День</h3>
+      <ul class="dialog-tasks" id="day-dialog-tasks"></ul>
+      <div class="dialog-add">
+        <label class="dialog-add-label" for="day-dialog-new">Новая задача</label>
+        <input type="text" id="day-dialog-new" class="dialog-add-input" placeholder="Текст задачи" />
+        <div class="dialog-add-actions">
+          <button type="button" class="btn" id="day-dialog-add">Добавить</button>
+          <button type="button" class="btn btn-secondary" id="day-dialog-close">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="task-edit-dialog">
+    <form class="task-edit-form" id="task-edit-form">
+      <h3>Редактировать задачу</h3>
+      <div class="task-edit-field">
+        <label for="task-edit-title">Текст</label>
+        <input type="text" id="task-edit-title" autocomplete="off" />
+      </div>
+      <div class="task-edit-field">
+        <label for="task-edit-date">Дата</label>
+        <input type="date" id="task-edit-date" />
+      </div>
+      <div class="task-edit-actions">
+        <button type="button" class="btn btn-secondary" id="task-edit-cancel">Отмена</button>
+        <button type="submit" class="btn" id="task-edit-save">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    (function () {
+      var PASSWORD = "floyd1973";
+      var TRUST_KEY = "floyd-gate-trusted-v1";
+
+      var form = document.getElementById("password-form");
+      var input = document.getElementById("password-input");
+      var error = document.getElementById("password-error");
+      var gate = document.getElementById("password-gate");
+      var app = document.getElementById("app-content");
+      var lockBtn = document.getElementById("gate-lock-btn");
+
+      function readTrust() {
+        try {
+          return localStorage.getItem(TRUST_KEY);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function setTrust() {
+        try {
+          localStorage.setItem(TRUST_KEY, PASSWORD);
+        } catch (e) {
+          /* приватный режим / запрет storage — просто не запоминаем */
+        }
+      }
+
+      function clearTrust() {
+        try {
+          localStorage.removeItem(TRUST_KEY);
+        } catch (e) {
+          /* ignore */
+        }
+      }
+
+      function isTrusted() {
+        return readTrust() === PASSWORD;
+      }
+
+      function showApp() {
+        gate.hidden = true;
+        gate.style.display = "none";
+        app.hidden = false;
+        try {
+          window.dispatchEvent(new CustomEvent("floyd-app-visible"));
+        } catch (e) {
+          /* ignore */
+        }
+      }
+
+      function showGate() {
+        app.hidden = true;
+        gate.hidden = false;
+        gate.style.display = "";
+        if (error) error.textContent = "";
+        if (input) {
+          input.value = "";
+          input.focus();
+        }
+      }
+
+      if (isTrusted()) {
+        showApp();
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (input.value.trim() === PASSWORD) {
+          setTrust();
+          showApp();
+          return;
+        }
+        error.textContent = "Неверный пароль.";
+        input.value = "";
+        input.focus();
+      });
+
+      if (lockBtn) {
+        lockBtn.addEventListener("click", function () {
+          clearTrust();
+          showGate();
+        });
+      }
+    })();
+  </script>
+
+  <script defer src="./js/core/constants.js"></script>
+  <script defer src="./js/core/storage.js"></script>
+  <script defer src="./js/core/date.js"></script>
+  <script defer src="./js/core/sync.js"></script>
+  <script defer src="./js/features/tracker.js"></script>
+  <script defer src="./js/features/notes.js"></script>
+  <script defer src="./js/features/tasks.js"></script>
+  <script defer src="./js/main.js"></script>
+  <script defer src="./js/secret-stats.js"></script>
+</body>
+</html>

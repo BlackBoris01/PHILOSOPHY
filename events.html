@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
 
   <!-- SEO Meta Tags -->
   <title>Проекты и мероприятия — Музей философии</title>
@@ -20,15 +22,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/pages/events/events.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <button class="mobile-menu-toggle" aria-label="Открыть меню">
@@ -36,14 +37,17 @@
         <span></span>
         <span></span>
       </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
       <nav class="nav">
         <a href="index.html" class="nav__link">Главная</a>
         <a href="about.html" class="nav__link">О музее</a>
         <a href="exhibitions.html" class="nav__link">Экспозиции</a>
         <a href="events.html" class="nav__link is-active">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
         <a href="news.html" class="nav__link">Новости</a>
         <a href="contacts.html" class="nav__link">Контакты</a>
       </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -55,22 +59,162 @@
       </div>
     </section>
 
+    <!-- Видео-арт-фест + риддинг -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Ближайшие мероприятия</h2>
+
+        <article class="card card--project fade-in">
+          <div class="card__header">
+            <h2 class="card__title">🎬 Видео-арт-фест Музея философии</h2>
+            <div class="project-status">
+              <span class="badge badge--status badge--active">17 мая 2026</span>
+            </div>
+          </div>
+
+          <div class="card__content">
+            <div class="project-card__intro">
+              <img src="media/photo_2026-05-13_20-48-11.jpg" alt="Видео-арт-фест Музея философии" width="200" height="200" loading="lazy" />
+              <div class="project-card__intro-text">
+                <p class="lead">
+                  Ночь музеев в пространстве <strong>Golyj Wood</strong>: видео-арт <strong>Билла Виолы</strong>, показ работ выпускников факультета свободных искусств и наук СПбГУ, лекция «Билл Виола как видеохудожник».
+                </p>
+                <p>Старт программы в 19:30. Вход и регистрация — по информации площадки в Telegram.</p>
+              </div>
+            </div>
+            <div class="banner banner--cta" style="margin-top: 16px;">
+              <p class="banner__title">Страница мероприятия</p>
+              <a href="event-video-art-fest-2026.html" class="banner__link">Расписание и описание →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card--project fade-in" style="margin-top: 28px;">
+          <div class="card__header">
+            <h2 class="card__title">📖 Риддинг: «Философия музея в музее философии»</h2>
+            <div class="project-status">
+              <span class="badge badge--status badge--active">1 марта</span>
+            </div>
+          </div>
+
+          <div class="card__content">
+            <div class="project-card__intro">
+              <img src="media/KonstAzarov.jpg" alt="Константин Азаров" width="200" height="200" loading="lazy" />
+              <div class="project-card__intro-text">
+                <p class="lead">
+                  «Философия музея в музее философии: рождение русского музейного постмодернизма в философии» — с <strong>Константином Азаровым</strong>, философом и преподавателем СПбГУ, исследователем философии музея и современного искусства.
+                </p>
+                <p>Старт весеннего цикла риддингов — первая встреча пройдёт 1 марта.</p>
+                <p class="project-card__photo-credit">Фото: Ника Шахназарова</p>
+              </div>
+            </div>
+            <div class="banner banner--cta" style="margin-top: 16px;">
+              <p class="banner__title">Подробнее о риддинге</p>
+              <a href="news-reading-azarov.html" class="banner__link">Читать новость →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Премия "Философ года" (церемония состоялась) -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Прошедшие мероприятия</h2>
+        
+        <article class="card card--project fade-in">
+          <div class="card__header">
+            <h2 class="card__title">🏆 Премия «Философ года — 2025»</h2>
+            <div class="project-status">
+              <span class="badge badge--status badge--active">12 января</span>
+            </div>
+          </div>
+
+          <div class="card__content">
+            <p class="lead">
+              Первая торжественная церемония вручения премии «Философ года — 2025». Событие призвано закрепить статус Петербурга как интеллектуальной столицы и вывести академическую мысль в пространство публичного диалога.
+            </p>
+
+            <div class="dates-block" style="margin: 24px 0;">
+              <div class="dates-block__item">
+                <span class="dates-block__label">📅 Дата и время:</span>
+                <span class="dates-block__value">12 января 2026 года, 18:00</span>
+              </div>
+              <div class="dates-block__item">
+                <span class="dates-block__label">📍 Место:</span>
+                <span class="dates-block__value">Doctrina et Nobiles (Шведский пер., 2, СПб)</span>
+              </div>
+            </div>
+
+            <h3>Финалисты премии</h3>
+            <ul class="feature-list">
+              <li><strong>Виктор Мазин</strong> — психоаналитик, основатель Музея сновидений Зигмунда Фрейда</li>
+              <li><strong>Алла Митрофанова</strong> — идеолог синтеза философии и актуального искусства</li>
+              <li><strong>Александр Погребняк</strong> — автор проекта «Архитекторы смысла»</li>
+              <li><strong>Артём Радеев</strong> — создатель событийной карты петербургской мысли</li>
+              <li><strong>Александр Секацкий</strong> — публичный интеллектуал и медиа-философ</li>
+            </ul>
+
+            <h3>Программа вечера</h3>
+            <div class="grid grid--steps">
+              <div class="step">
+                <div class="step__number">☕</div>
+                <div class="step__content">
+                  <h4>18:00 — Welcome-кофе</h4>
+                  <p>Регистрация участников</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__number">🎬</div>
+                <div class="step__content">
+                  <h4>18:45 — Кинопоказ</h4>
+                  <p>«Философский маршрут»</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__number">🏆</div>
+                <div class="step__content">
+                  <h4>19:00 — Церемония</h4>
+                  <p>Награждение лауреата</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__number">🎤</div>
+                <div class="step__content">
+                  <h4>19:30 — Лекция</h4>
+                  <p>Слово Лауреата</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="banner banner--cta" style="margin-top: 24px;">
+              <p class="banner__title">Регистрация на церемонию</p>
+              <a href="mailto:philosopher.year@philosophymuseum.ru" class="banner__link">philosopher.year@philosophymuseum.ru</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- Наши проекты -->
     <section class="section">
       <div class="container">
         <h2 class="section-title">Наши проекты</h2>
+        <p class="lead" style="max-width: 800px; margin-bottom: 32px;">
+          Это будущие проекты Музея философии, которые находятся в разработке. Мы делимся рабочими идеями и направлениями, над которыми уже идёт работа.
+        </p>
         <div class="project-details">
 
           <!-- Комиксы о русских философах -->
-          <article class="project-detail fade-in">
-            <div class="project-detail__header">
-              <h2 class="section-title">Комиксы о русских философах</h2>
+          <article class="card card--project fade-in">
+            <div class="card__header">
+              <h2 class="card__title">Комиксы о русских философах</h2>
               <div class="project-status">
-                <span class="status-badge status-active">В разработке</span>
+                <span class="badge badge--status badge--active">В разработке</span>
               </div>
             </div>
 
-            <div class="project-detail__content">
+            <div class="card__content">
               <p class="lead">
                 Мы создаём серию иллюстрированных комиксов, посвящённых жизни и идеям русских мыслителей — от Василия
                 Розанова до Николая Бердяева.
@@ -93,33 +237,33 @@
               </ul>
 
               <h3>Планируемые выпуски</h3>
-              <div class="comics-grid">
-                <div class="comic-preview">
-                  <h4>«Розанов: философия повседневности»</h4>
-                  <p>История о том, как Василий Розанов превращал бытовые мелочи в философские размышления</p>
+              <div class="grid grid--auto">
+                <div class="card card--comic">
+                  <h4 class="card__title">«Розанов: философия повседневности»</h4>
+                  <p class="card__content">История о том, как Василий Розанов превращал бытовые мелочи в философские размышления</p>
                 </div>
-                <div class="comic-preview">
-                  <h4>«Бердяев: бунт против необходимости»</h4>
-                  <p>Путешествие через идеи свободы, творчества и человеческого достоинства</p>
+                <div class="card card--comic">
+                  <h4 class="card__title">«Бердяев: бунт против необходимости»</h4>
+                  <p class="card__content">Путешествие через идеи свободы, творчества и человеческого достоинства</p>
                 </div>
-                <div class="comic-preview">
-                  <h4>«Соловьёв: поиски всеединства»</h4>
-                  <p>Философские искания Владимира Соловьёва и его мечта о духовном единстве мира</p>
+                <div class="card card--comic">
+                  <h4 class="card__title">«Соловьёв: поиски всеединства»</h4>
+                  <p class="card__content">Философские искания Владимира Соловьёва и его мечта о духовном единстве мира</p>
                 </div>
               </div>
             </div>
           </article>
 
           <!-- QR-боты -->
-          <article class="project-detail fade-in delay-1">
-            <div class="project-detail__header">
-              <h2 class="section-title">QR-боты на мемориальных табличках</h2>
+          <article class="card card--project fade-in delay-1">
+            <div class="card__header">
+              <h2 class="card__title">QR-боты на мемориальных табличках</h2>
               <div class="project-status">
-                <span class="status-badge status-active">В разработке</span>
+                <span class="badge badge--status badge--active">В разработке</span>
               </div>
             </div>
 
-            <div class="project-detail__content">
+            <div class="card__content">
               <p class="lead">
                 Каждая мемориальная табличка философу в Петербурге и других городах получает QR-код. Перейдя по нему,
                 можно попасть в диалог с «чат-ботом-философом».
@@ -131,24 +275,24 @@
               </p>
 
               <h3>Как это работает</h3>
-              <div class="process-steps">
+              <div class="grid grid--steps">
                 <div class="step">
-                  <div class="step-number">1</div>
-                  <div class="step-content">
+                  <div class="step__number">1</div>
+                  <div class="step__content">
                     <h4>Находите табличку</h4>
                     <p>Обнаруживаете мемориальную табличку философу в городе</p>
                   </div>
                 </div>
                 <div class="step">
-                  <div class="step-number">2</div>
-                  <div class="step-content">
+                  <div class="step__number">2</div>
+                  <div class="step__content">
                     <h4>Сканируете QR-код</h4>
                     <p>Наводите камеру на QR-код и переходите в чат-бот</p>
                   </div>
                 </div>
                 <div class="step">
-                  <div class="step-number">3</div>
-                  <div class="step-content">
+                  <div class="step__number">3</div>
+                  <div class="step__content">
                     <h4>Общаетесь с философом</h4>
                     <p>Задаёте вопросы и получаете ответы в стиле мыслителя</p>
                   </div>
@@ -156,24 +300,24 @@
               </div>
 
               <h3>Доступные боты</h3>
-              <div class="bots-grid">
-                <div class="bot-card">
-                  <h4>🤔 Василий Розанов</h4>
-                  <p>Специализируется на вопросах семьи, брака и повседневной жизни</p>
+              <div class="grid grid--auto">
+                <div class="card card--bot">
+                  <h4 class="card__title">🤔 Василий Розанов</h4>
+                  <p class="card__content">Специализируется на вопросах семьи, брака и повседневной жизни</p>
                 </div>
-                <div class="bot-card">
-                  <h4>⚡ Николай Бердяев</h4>
-                  <p>Готов обсуждать свободу, творчество и смысл существования</p>
+                <div class="card card--bot">
+                  <h4 class="card__title">⚡ Николай Бердяев</h4>
+                  <p class="card__content">Готов обсуждать свободу, творчество и смысл существования</p>
                 </div>
-                <div class="bot-card">
-                  <h4>🌍 Владимир Соловьёв</h4>
-                  <p>Расскажет о всеединстве, любви и духовном развитии</p>
+                <div class="card card--bot">
+                  <h4 class="card__title">🌍 Владимир Соловьёв</h4>
+                  <p class="card__content">Расскажет о всеединстве, любви и духовном развитии</p>
                 </div>
               </div>
 
               <div class="project-note">
-                <h4>💡 Инновационный подход</h4>
-                <p>
+                <h4 class="project-note__title">💡 Инновационный подход</h4>
+                <p class="project-note__text">
                   Проект объединяет традиционные мемориальные практики с современными технологиями,
                   создавая новый формат взаимодействия с философским наследием прямо в городском пространстве.
                 </p>
@@ -190,7 +334,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
         <span class="brand__text">Музей философии</span>
       </a>
       <div class="footer-right">
@@ -198,8 +342,7 @@
         <div class="socials">
           <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
             rel="noopener">vk</a>
-          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
-            rel="noopener">dzen</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
           <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
         </div>
       </div>
@@ -207,9 +350,10 @@
   </footer>
 
   <!-- JavaScript Files -->
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/events-filter.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/events-filter.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/site-stats-tracker.js" defer></script>
 </body>
 
 </html>

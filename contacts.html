@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
 
   <!-- SEO Meta Tags -->
   <title>Контакты — Музей философии</title>
@@ -20,15 +22,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/pages/contacts/contacts.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <button class="mobile-menu-toggle" aria-label="Открыть меню">
@@ -36,14 +37,17 @@
         <span></span>
         <span></span>
       </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
       <nav class="nav">
         <a href="index.html" class="nav__link">Главная</a>
         <a href="about.html" class="nav__link">О музее</a>
         <a href="exhibitions.html" class="nav__link">Экспозиции</a>
         <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
         <a href="news.html" class="nav__link">Новости</a>
         <a href="contacts.html" class="nav__link is-active">Контакты</a>
       </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -57,83 +61,26 @@
 
     <section class="section">
       <div class="container">
-        <div class="contacts-grid">
+        <div class="grid grid--contacts">
 
           <div class="contact-info">
             <h2 class="section-title">Как нас найти</h2>
 
-            <div class="contact-item">
-              <h3>📍 Адрес</h3>
-              <p>
-                г. Санкт-Петербург, Невский проспект, д. 28<br>
-                м. Невский проспект (3 минуты пешком)<br>
-                м. Гостиный двор (7 минут пешком)
-              </p>
-            </div>
-
-            <div class="contact-item">
-              <h3>📞 Телефоны</h3>
-              <p>
-                <strong>Справочная:</strong> +7 (812) 234-56-78<br>
-                <strong>Экскурсии:</strong> +7 (812) 234-56-79<br>
-                <strong>Мероприятия:</strong> +7 (812) 234-56-80
-              </p>
-            </div>
-
-            <div class="contact-item">
-              <h3>✉️ Email</h3>
-              <p>
-                <strong>Общие вопросы:</strong> info@philmuseum.ru<br>
-                <strong>Экскурсии:</strong> tours@philmuseum.ru<br>
-                <strong>Пресс-служба:</strong> press@philmuseum.ru
-              </p>
-            </div>
-
-            <div class="contact-item">
-              <h3>🕒 Часы работы</h3>
-              <div class="schedule-table">
-                <div class="schedule-row">
-                  <span>Вторник — Четверг</span>
-                  <span>10:00 — 20:00</span>
-                </div>
-                <div class="schedule-row">
-                  <span>Пятница — Воскресенье</span>
-                  <span>10:00 — 22:00</span>
-                </div>
-                <div class="schedule-row">
-                  <span>Понедельник</span>
-                  <span>Выходной</span>
-                </div>
-              </div>
-              <p class="muted">Последний вход за час до закрытия</p>
-            </div>
-
-            <div class="contact-item">
-              <h3>🎫 Стоимость билетов</h3>
-              <div class="price-table">
-                <div class="price-row">
-                  <span>Взрослый билет</span>
-                  <span>400 ₽</span>
-                </div>
-                <div class="price-row">
-                  <span>Льготный билет</span>
-                  <span>200 ₽</span>
-                </div>
-                <div class="price-row">
-                  <span>Студенческий билет</span>
-                  <span>150 ₽</span>
-                </div>
-                <div class="price-row">
-                  <span>Детский билет (до 16 лет)</span>
-                  <span>Бесплатно</span>
-                </div>
+            <!-- Временный баннер вместо контактной информации -->
+            <div class="banner banner--coming-soon">
+              <span class="banner__icon">🏛️</span>
+              <h3 class="banner__title">Музей готовится к открытию</h3>
+              <p class="banner__text">Информация о расположении, часах работы и стоимости билетов появится после официального открытия музея</p>
+              <div class="banner__contact">
+                <span>✉️ Напишите нам:</span>
+                <a href="mailto:philosopher.year@philosophymuseum.ru">philosopher.year@philosophymuseum.ru</a>
               </div>
             </div>
           </div>
 
           <div class="contact-form-section">
             <h2 class="section-title">Напишите нам</h2>
-            <form class="contact-form" action="#" method="post" style="opacity: 0.6; pointer-events: none;">
+            <form class="card card--form" action="#" method="post" style="opacity: 0.6; pointer-events: none;">
               <div class="form-group">
                 <label for="name">Ваше имя *</label>
                 <input type="text" id="name" name="name" required disabled>
@@ -180,7 +127,7 @@
             </form>
             <p style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 8px; text-align: center;">
               <strong>Форма временно недоступна.</strong><br>
-              Пожалуйста, свяжитесь с нами по телефону или email.
+              Пожалуйста, свяжитесь с нами по email: philosopher.year@philosophymuseum.ru
             </p>
           </div>
 
@@ -188,52 +135,7 @@
       </div>
     </section>
 
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Как добраться</h2>
-
-        <div class="transport-info">
-          <div class="transport-item">
-            <h3>🚇 На метро</h3>
-            <p>
-              <strong>Невский проспект:</strong> выход к Казанскому собору, 3 минуты пешком по Невскому проспекту<br>
-              <strong>Гостиный двор:</strong> выход №1, 7 минут пешком по Невскому проспекту в сторону Адмиралтейства
-            </p>
-          </div>
-
-          <div class="transport-item">
-            <h3>🚌 На автобусе</h3>
-            <p>
-              Автобусы №3, №7, №22, №27 до остановки «Казанский собор»<br>
-              Троллейбус №1, №7, №10 до остановки «Невский проспект»
-            </p>
-          </div>
-
-          <div class="transport-item">
-            <h3>🚗 На автомобиле</h3>
-            <p>
-              Парковка в центре города ограничена<br>
-              Рекомендуем платные парковки на Малой Конюшенной и наб. канала Грибоедова
-            </p>
-          </div>
-        </div>
-
-        <div class="map-container">
-          <h3>Музей на карте</h3>
-          <div class="yandex-map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A8c5c8f5d8f5d8f5d8f5d8f5d&amp;source=constructor"
-              width="100%" height="400" frameborder="0" title="Музей философии на карте">
-            </iframe>
-          </div>
-          <div class="map-links">
-            <a href="https://yandex.ru/maps/?text=Философская%20улица%2042%20Москва" target="_blank"
-              class="btn">Яндекс.Карты</a>
-            <a href="https://maps.google.com/?q=Философская+улица+42+Москва" target="_blank" class="btn">Google Maps</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Секция "Как добраться" скрыта до открытия музея -->
 
     <section class="section">
       <div class="container">
@@ -253,8 +155,7 @@
               <p>Ежедневные философские цитаты и быстрые новости</p>
             </div>
           </a>
-          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" class="social-link" target="_blank"
-            rel="noopener">
+          <a href="go-yandex-platform.html" class="social-link">
             <span class="social-icon">🖼️</span>
             <div>
               <h3>Дзен</h3>
@@ -265,80 +166,13 @@
       </div>
     </section>
 
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Реквизиты организации</h2>
-        <div class="requisites-grid">
-          <div class="requisites-card">
-            <h3>Основные реквизиты</h3>
-            <div class="requisites-info">
-              <p><strong>Полное наименование:</strong><br>
-                Автономная некоммерческая организация «Музей философии»</p>
-
-              <p><strong>Сокращённое наименование:</strong><br>
-                АНО «Музей философии»</p>
-
-              <p><strong>ИНН:</strong> 7701234567<br>
-                <strong>КПП:</strong> 770101001<br>
-                <strong>ОГРН:</strong> 1234567890123
-              </p>
-
-              <p><strong>Юридический адрес:</strong><br>
-                191186, г. Санкт-Петербург, Невский проспект, д. 28</p>
-            </div>
-          </div>
-
-          <div class="requisites-card">
-            <h3>Банковские реквизиты</h3>
-            <div class="requisites-info">
-              <p><strong>Расчётный счёт:</strong><br>
-                40703810123456789012</p>
-
-              <p><strong>Банк:</strong><br>
-                ПАО «Философский банк»</p>
-
-              <p><strong>БИК:</strong> 044525123<br>
-                <strong>Корр. счёт:</strong> 30101810200000000123
-              </p>
-
-              <p><strong>Назначение платежа:</strong><br>
-                Пожертвование на уставную деятельность</p>
-            </div>
-          </div>
-
-          <div class="requisites-card">
-            <h3>Руководство</h3>
-            <div class="requisites-info">
-              <p><strong>Директор:</strong><br>
-                Философова Анна Сократовна</p>
-
-              <p><strong>Главный бухгалтер:</strong><br>
-                Счетова Мария Ивановна</p>
-
-              <p><strong>Действует на основании:</strong><br>
-                Устава АНО «Музей философии»</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="support-info">
-          <h3>Поддержите музей</h3>
-          <p>Музей философии — некоммерческая организация. Ваши пожертвования помогают нам развивать экспозиции,
-            проводить бесплатные лекции и образовательные программы.</p>
-          <div class="support-methods">
-            <a href="#" class="btn btn-primary">Сделать пожертвование</a>
-            <a href="#" class="btn">Стать волонтёром</a>
-            <a href="#" class="btn">Корпоративное партнёрство</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Секция реквизитов и пожертвований скрыта -->
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
         <span class="brand__text">Музей философии</span>
       </a>
       <div class="footer-right">
@@ -346,8 +180,7 @@
         <div class="socials">
           <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
             rel="noopener">vk</a>
-          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
-            rel="noopener">dzen</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
           <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
         </div>
       </div>
@@ -365,8 +198,9 @@
   </script>
 
   <!-- JavaScript Files -->
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/site-stats-tracker.js" defer></script>
 </body>
 
 </html>

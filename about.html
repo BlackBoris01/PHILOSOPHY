@@ -5,12 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
 
   <!-- SEO Meta Tags -->
   <title>О музее — Музей философии</title>
   <meta name="description"
-    content="Узнайте о первой философской институции музейного типа в России. Наша миссия, ценности, команда и партнёры. Философия как диалог, практика и культурный мост." />
+    content="Узнайте о первой философской институции музейного типа в России: национальная культурная институция, миссия, ценности, команда и партнёры. Экспозиция — вокруг вопросов и практик мышления, философия как диалог, практика и культурный мост." />
   <meta name="keywords"
     content="о музее философии, миссия музея, философская институция, научный совет, партнёры музея, АНО Центр философских институций" />
   <meta name="author" content="Музей философии, АНО Центр философских институций" />
@@ -20,15 +22,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/pages/about/about.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <button class="mobile-menu-toggle" aria-label="Открыть меню">
@@ -36,14 +37,17 @@
         <span></span>
         <span></span>
       </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
       <nav class="nav">
         <a href="index.html" class="nav__link">Главная</a>
         <a href="about.html" class="nav__link is-active">О музее</a>
         <a href="exhibitions.html" class="nav__link">Экспозиции</a>
         <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
         <a href="news.html" class="nav__link">Новости</a>
         <a href="contacts.html" class="nav__link">Контакты</a>
       </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -57,7 +61,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="content-grid">
+        <div class="grid grid--content">
           <div class="content-main">
             <h2 class="section-title">О музее</h2>
             <p>
@@ -68,6 +72,14 @@
             <p>
               Наша миссия — создать диалог между философией и современным обществом, соединяя наследие русской и мировой
               мысли с актуальными гуманитарными практиками.
+            </p>
+
+            <h2 class="section-title">Институция и экспозиция</h2>
+            <p>
+              Музей философии в России — это национальная культурная институция, представляющая философию как живую форму памяти мышления и общественного самопонимания.
+            </p>
+            <p>
+              Его экспозиция строится не вокруг биографий мыслителей и вещественных артефактов, а вокруг больших вопросов, интеллектуальных конфликтов, моральных норм и практик мышления — в связи с которыми российская и мировая философия влияла на человека, общество, язык, науку, религию и образ будущего.
             </p>
 
             <blockquote class="quote">
@@ -101,48 +113,38 @@
             </ul>
 
             <h2 class="section-title">Что мы объединяем</h2>
-            <div class="activities-grid">
-              <div class="activity-card fade-in">
-                <div class="activity-icon">🎨</div>
-                <h3>Экспозиции и мультимедиа</h3>
-                <p>Античная философия, 12 месяцев русской философии и другие мультимедийные инсталляции</p>
+            <div class="grid grid--activities">
+              <div class="card card--activity fade-in">
+                <span class="card__icon">🎨</span>
+                <h3 class="card__title">Экспозиции и мультимедиа</h3>
+                <p class="card__content">Античная философия, 12 месяцев русской философии и другие мультимедийные инсталляции</p>
               </div>
-              <div class="activity-card fade-in delay-1">
-                <div class="activity-icon">🎯</div>
-                <h3>Культурные проекты</h3>
-                <p>Философские квесты, комиксы, чат-боты, премии «Философ года» и «Философская инициатива года»</p>
+              <div class="card card--activity fade-in delay-1">
+                <span class="card__icon">🎯</span>
+                <h3 class="card__title">Культурные проекты</h3>
+                <p class="card__content">Философские квесты, комиксы, чат-боты, премии «Философ года» и «Философская инициатива года»</p>
               </div>
-              <div class="activity-card fade-in delay-2">
-                <div class="activity-icon">📱</div>
-                <h3>Медиаплатформа</h3>
-                <p>«Философский маршрут»: статьи, эссе, интервью, подкасты</p>
+              <div class="card card--activity fade-in delay-2">
+                <span class="card__icon">📱</span>
+                <h3 class="card__title">Медиаплатформа</h3>
+                <p class="card__content">«Философский маршрут»: статьи, эссе, интервью, подкасты</p>
               </div>
-              <div class="activity-card fade-in delay-3">
-                <div class="activity-icon">🤝</div>
-                <h3>Партнёрские программы</h3>
-                <p>Сотрудничество с университетами, культурными центрами и издательствами</p>
+              <div class="card card--activity fade-in delay-3">
+                <span class="card__icon">🤝</span>
+                <h3 class="card__title">Партнёрские программы</h3>
+                <p class="card__content">Сотрудничество с университетами, культурными центрами и издательствами</p>
               </div>
             </div>
           </div>
 
           <aside class="content-sidebar">
-            <div class="info-card">
-              <h3>Часы работы</h3>
-              <p>Вторник — Воскресенье<br>10:00 — 20:00</p>
-              <p>Понедельник — выходной</p>
-            </div>
-
-            <div class="info-card">
-              <h3>Стоимость билетов</h3>
-              <p>Взрослый: 400 ₽<br>
-                Льготный: 200 ₽<br>
-                Студенческий: 150 ₽</p>
-            </div>
-
-            <div class="info-card">
-              <h3>Контакты</h3>
-              <p>+7 (495) 123-45-67<br>
-                info@philmuseum.ru</p>
+            <div class="banner banner--sidebar">
+              <span class="banner__icon">🏛️</span>
+              <h3 class="banner__title">Музей готовится к открытию</h3>
+              <p class="banner__text">Информация о часах работы, стоимости билетов и контактах появится после официального открытия</p>
+              <div class="banner__contact">
+                <a href="mailto:philosopher.year@philosophymuseum.ru">philosopher.year@philosophymuseum.ru</a>
+              </div>
             </div>
           </aside>
         </div>
@@ -156,26 +158,26 @@
           Организационная структура и руководящий состав центра
         </p>
 
-        <div class="leadership-grid">
-          <div class="leadership-member fade-in">
-            <div class="avatar-placeholder">ДА</div>
-            <h3>Дмитриев Анатолий Владимирович</h3>
-            <p class="role">Секретарь научного совета</p>
-            <p>директор центра фил.институций, главред "Философского маршрута"</p>
+        <div class="grid grid--leadership">
+          <div class="card card--team fade-in">
+            <div class="card__avatar">ДА</div>
+            <h3 class="card__title">Дмитриев Анатолий Владимирович</h3>
+            <p class="card__role">Директор центра философских институций</p>
+            <p class="card__content">Главный редактор медиапроекта «Философский маршрут»</p>
           </div>
 
-          <div class="leadership-member fade-in delay-1">
-            <div class="avatar-placeholder">СВ</div>
-            <h3>Савчук Валерий Владимирович</h3>
-            <p class="role">Заместитель директора по науке АНО</p>
-            <p>Доктор философских наук, профессор, директор Центра медиафилософии ИФ СПбГУ</p>
+          <div class="card card--team fade-in delay-1">
+            <div class="card__avatar">СВ</div>
+            <h3 class="card__title">Савчук Валерий Владимирович</h3>
+            <p class="card__role">Заместитель директора по науке</p>
+            <p class="card__content">Доктор философских наук, профессор, директор Центра медиафилософии ИФ СПбГУ</p>
           </div>
 
-          <div class="leadership-member fade-in delay-2">
-            <div class="avatar-placeholder">БВ</div>
-            <h3>Байков Владимир Борисович</h3>
-            <p class="role">Заместитель директора по развитию</p>
-            <p>Специалист по стратегическому развитию культурных институций</p>
+          <div class="card card--team fade-in delay-2">
+            <div class="card__avatar">БВ</div>
+            <h3 class="card__title">Бойков Владимир Борисович</h3>
+            <p class="card__role">Заместитель директора по развитию</p>
+            <p class="card__content">Специалист по стратегическому развитию культурных институций</p>
           </div>
         </div>
       </div>
@@ -190,92 +192,77 @@
           ценность проектов.
         </p>
 
-        <div class="team-member fade-in" style="max-width: 600px; margin: 0 auto 40px;">
-          <div class="avatar-placeholder">СВ</div>
-          <h3>Савчук Валерий Владимирович</h3>
-          <p class="role">Заместитель директора по науке АНО</p>
-          <p>Доктор философских наук, профессор, директор Центра медиафилософии ИФ СПбГУ</p>
+        <div class="card card--team fade-in" style="max-width: 600px; margin: 0 auto 40px;">
+          <div class="card__avatar">СВ</div>
+          <h3 class="card__title">Савчук Валерий Владимирович</h3>
+          <p class="card__role">Заместитель директора по науке</p>
+          <p class="card__content">Доктор философских наук, профессор, директор Центра медиафилософии ИФ СПбГУ</p>
         </div>
 
         <h3 style="text-align: center; margin: 40px 0 30px;">Члены совета</h3>
-        <div class="team-grid">
-          <div class="team-member fade-in">
-            <div class="avatar-placeholder">МА</div>
-            <h3>Малинов Алексей Валерьевич</h3>
-            <p class="role">Член совета</p>
-            <p>Доктор философских наук, профессор, главный редактор журнала Философский полилог.</p>
+        <div class="grid grid--team">
+          <div class="card card--team fade-in">
+            <div class="card__avatar">МА</div>
+            <h3 class="card__title">Малинов Алексей Валерьевич</h3>
+            <p class="card__role">Член совета</p>
+            <p class="card__content">Доктор философских наук, профессор, главный редактор журнала Философский полилог.</p>
           </div>
-          <div class="team-member fade-in delay-1">
-            <div class="avatar-placeholder">ГА</div>
-            <h3>Грякалов Алексей Алексеевич</h3>
-            <p class="role">Член совета</p>
-            <p>Доктор философских наук, профессор, руководитель Научно-образовательного центра «Философия современности и стратегии гуманитарной экспертизы».</p>
+          <div class="card card--team fade-in delay-1">
+            <div class="card__avatar">ГА</div>
+            <h3 class="card__title">Грякалов Алексей Алексеевич</h3>
+            <p class="card__role">Член совета</p>
+            <p class="card__content">Доктор философских наук, профессор, руководитель Научно-образовательного центра «Философия современности и стратегии гуманитарной экспертизы».</p>
           </div>
-          <div class="team-member fade-in delay-2">
-            <div class="avatar-placeholder">КД</div>
-            <h3>Кузнецов Дмитрий Иванович</h3>
-            <p class="role">Член совета</p>
-            <p>Доктор философских наук, заведующий кафедрой гуманитарных наук Академического университета им. Ж.И. Алфёрова, профессор СПбПУ, член Союза писателей России.</p>
+          <div class="card card--team fade-in delay-2">
+            <div class="card__avatar">КД</div>
+            <h3 class="card__title">Кузнецов Дмитрий Иванович</h3>
+            <p class="card__role">Член совета</p>
+            <p class="card__content">Доктор философских наук, заведующий кафедрой гуманитарных наук Академического университета им. Ж.И. Алфёрова, профессор СПбПУ, член Союза писателей России.</p>
           </div>
         </div>
 
-        <div class="team-grid" style="margin-top: 30px;">
-          <div class="team-member fade-in">
-            <div class="avatar-placeholder">ФС</div>
-            <h3>Фокин Сергей Леонидович</h3>
-            <p class="role">Член совета</p>
-            <p>Доктор филологических наук, профессор СПбГЭУ, литературовед и переводчик.</p>
+        <div class="grid grid--team" style="margin-top: 30px;">
+          <div class="card card--team fade-in">
+            <div class="card__avatar">ФС</div>
+            <h3 class="card__title">Фокин Сергей Леонидович</h3>
+            <p class="card__role">Член совета</p>
+            <p class="card__content">Доктор филологических наук, профессор СПбГЭУ, литературовед и переводчик.</p>
           </div>
-          <div class="team-member fade-in delay-1">
-            <div class="avatar-placeholder">ХА</div>
-            <h3>Хлобыстин Андрей Леонидович</h3>
-            <p class="role">Член совета</p>
-            <p>Искусствовед, член Союза художников и Союза писателей СПб, эксперт Минкульта РФ.</p>
+          <div class="card card--team fade-in delay-1">
+            <div class="card__avatar">ХА</div>
+            <h3 class="card__title">Хлобыстин Андрей Леонидович</h3>
+            <p class="card__role">Член совета</p>
+            <p class="card__content">Искусствовед, член Союза художников и Союза писателей СПб, эксперт Минкульта РФ.</p>
           </div>
-          <div class="team-member fade-in delay-2">
-            <div class="avatar-placeholder">ПР</div>
-            <h3>Пархоменко Роман Олегович</h3>
-            <p class="role">Член совета</p>
-            <p>Композитор, дирижёр, член Союза композиторов Татарстана, лауреат международных конкурсов.</p>
+          <div class="card card--team fade-in delay-2">
+            <div class="card__avatar">КА</div>
+            <h3 class="card__title">Константин Азаров</h3>
+            <p class="card__role">Член совета, хранитель виртуальной коллекции</p>
+            <p class="card__content">Философ, преподаватель СПбГУ, исследователь философии музея и современного искусства.</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
       <div class="container">
         <h2 class="section-title">Наши партнёры</h2>
-        <div class="partners-grid">
-          <div class="partner-card fade-in">
-            <div class="avatar-placeholder partner-avatar">МГУ</div>
-            <h3>МГУ им. М.В. Ломоносова</h3>
-            <p>Философский факультет</p>
+        <div class="grid grid--partners-centered">
+          <div class="card card--partner fade-in">
+            <div class="card__avatar">ЦМФ</div>
+            <h3 class="card__title">Центр Медиафилософии</h3>
+            <p class="card__content">Исследовательский центр ИФ СПбГУ</p>
           </div>
-          <div class="partner-card fade-in delay-1">
-            <div class="avatar-placeholder partner-avatar">РАН</div>
-            <h3>Российская академия наук</h3>
-            <p>Институт философии РАН</p>
+          <div class="card card--partner fade-in delay-1">
+            <div class="card__avatar">РТСРК</div>
+            <h3 class="card__title">РТСРК</h3>
+            <p class="card__content">Российский творческий союз работников культуры</p>
           </div>
-          <div class="partner-card fade-in delay-2">
-            <div class="avatar-placeholder partner-avatar">РГБ</div>
-            <h3>РГБ</h3>
-            <p>Российская государственная библиотека</p>
-          </div>
-          <div class="partner-card fade-in delay-3">
-            <div class="avatar-placeholder partner-avatar">ПКТ</div>
-            <h3>Центр «Пунктум»</h3>
-            <p>Культурно-просветительский центр</p>
-          </div>
-          <div class="partner-card fade-in delay-4">
-            <div class="avatar-placeholder partner-avatar">ЛГС</div>
-            <h3>Издательство «Логос»</h3>
-            <p>Философская литература</p>
-          </div>
-          <div class="partner-card fade-in delay-5">
-            <div class="avatar-placeholder partner-avatar">GI</div>
-            <h3>Гёте-институт</h3>
-            <p>Немецкий культурный центр</p>
+          <div class="card card--partner fade-in delay-2">
+            <div class="card__avatar">ФРГТ</div>
+            <h3 class="card__title">Фонд развития гуманитарных технологий</h3>
+            <p class="card__content">Поддержка гуманитарных инициатив</p>
           </div>
         </div>
       </div>
@@ -285,7 +272,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
         <span class="brand__text">Музей философии</span>
       </a>
       <div class="footer-right">
@@ -293,8 +280,7 @@
         <div class="socials">
           <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
             rel="noopener">vk</a>
-          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
-            rel="noopener">dzen</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
           <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
         </div>
       </div>
@@ -302,8 +288,9 @@
   </footer>
 
   <!-- JavaScript Files -->
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/site-stats-tracker.js" defer></script>
 </body>
 
 </html>

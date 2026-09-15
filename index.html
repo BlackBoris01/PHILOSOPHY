@@ -5,9 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
 
-  <!-- SEO Meta Tags -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
+  <link rel="preload" as="image" href="media/backgroundHome.jfif" fetchpriority="high">
+
   <title>Музей философии — Первая философская институция музейного типа в России</title>
   <meta name="description"
     content="Музей философии — пространство, где мысль обретает форму. Экспозиции, лекции, философские маршруты и мероприятия. Делаем философию доступной и живой для всех." />
@@ -15,22 +16,19 @@
     content="музей философии, философия, культура, образование, лекции, экспозиции, философские маршруты, русская философия, античная философия" />
   <meta name="author" content="Музей философии, АНО Центр философских институций" />
 
-
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/pages/home/home.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <button class="mobile-menu-toggle" aria-label="Открыть меню">
@@ -38,20 +36,23 @@
         <span></span>
         <span></span>
       </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
       <nav class="nav">
         <a href="index.html" class="nav__link is-active">Главная</a>
         <a href="about.html" class="nav__link">О музее</a>
         <a href="exhibitions.html" class="nav__link">Экспозиции</a>
         <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
         <a href="news.html" class="nav__link">Новости</a>
         <a href="contacts.html" class="nav__link">Контакты</a>
       </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="hero" class="hero section fade-in">
+
+    <section id="hero" class="hero section section-alt fade-in">
       <div class="container hero__grid">
         <div class="hero__text">
           <p class="eyebrow">Первая философская институция музейного типа</p>
@@ -63,57 +64,127 @@
           <a href="#about" class="btn">Узнать больше</a>
         </div>
         <div class="hero__media">
-          <img src="media/backgroundHome.jfif" alt="Библиотека философии" />
+          <img src="media/backgroundHome.jfif" alt="Библиотека философии" width="600" height="480" fetchpriority="high" />
         </div>
       </div>
     </section>
 
-    <!-- Последние новости -->
     <section id="news" class="section news">
       <div class="container">
         <h2 class="section-title">Последние новости</h2>
 
-        <article class="news-card slide-up">
-          <h3>В Петербурге состоялось учредительное собрание первого в России музея философии <span class="meta">— 10
-              июля</span></h3>
-          <p>
-            8 июля 2025 года в музейно-выставочном центре «Петербургский художник» состоялось важное событие для
-            культурной жизни города — круглый стол и учредительное собрание первого в России музея философии.
-          </p>
-          <p>
-            Петербург — одна из интеллектуальных столиц России. Создание устойчивой площадки, объединяющей
-            исследователей, художников, кураторов и горожан, позволит развивать просветительские программы и выставочные
-            проекты.
-          </p>
-          <a href="news-1.html" class="btn btn-small">Читать далее</a>
-        </article>
+        <article class="card card--news card--featured slide-up">
+          <div class="card__header">
+            <span class="badge badge--primary">📌 Анонс</span>
+            <span class="card__meta">11 сентября 2026</span>
+          </div>
 
-        <article class="news-card with-image slide-up delay-1">
-          <h3>Новый экспонат в коллекции — античная скульптура дисконоса <span class="meta">— 8 сентября</span></h3>
-          <div class="news-card__grid">
-            <div>
+          <div class="card--news__intro">
+            <img src="media/optika-obraza-poster.png" alt="Афиша кураторской программы «Оптика образа»" width="160" height="160" loading="lazy" />
+            <div class="card--news__intro-text">
+              <h3>«Оптика образа»: от поэзии садов к экологии зрения</h3>
               <p>
-                В фондах музея появился значимый экспонат — копия знаменитой древнегреческой скульптуры
-                атлета‑дисконоса. Он будет представлен в рамках специальной экспозиции, посвящённой эстетике античности.
+                13 сентября в 15:00 — кураторская программа Музея философии в рамках фестиваля «Поэзия садов академика Лихачёва». Галерея «Петербургский художник».
               </p>
-              <p>
-                Образ атлета стал символом гармонии телесного и духовного. Мы готовим цикл публичных лекций и экскурсии
-                о роли спорта и состязаний в античном мире, а также специальные занятия для школьников и студентов.
-              </p>
-              <a href="news-2.html" class="btn btn-small">Читать далее</a>
             </div>
-            <figure class="news-card__media">
-              <img
-                src="media/discus-thrower-sculpture.jpg"
-                alt="Античная скульптура дисконоса" />
-              <figcaption>Новый экспонат в музее</figcaption>
-            </figure>
+          </div>
+
+          <div class="card__footer">
+            <a href="news-optika-obraza.html" class="btn">Читать новость</a>
           </div>
         </article>
+
+        <article class="card card--news card--featured slide-up">
+          <div class="card__header">
+            <span class="badge badge--primary">🌿 Фестиваль</span>
+            <span class="card__meta">3 сентября 2026</span>
+          </div>
+
+          <div class="card--news__intro">
+            <img src="media/poetry-gardens-likhachev/1.jpg" alt="Пресс-конференция фестиваля «Поэзия садов академика Лихачёва»" width="160" height="160" loading="lazy" />
+            <div class="card--news__intro-text">
+              <h3>Музей философии выступил соорганизатором фестиваля «Поэзия садов академика Лихачёва»</h3>
+              <p>
+                16 августа в усадьбе Марьино открылся Международный фестиваль «Поэзия садов академика Лихачёва».
+                Центральным событием стало открытие цикла философских бесед «Сад как модель мироздания».
+              </p>
+            </div>
+          </div>
+
+          <div class="card__footer">
+            <a href="news-poeziya-sadov-lihacheva.html" class="btn">Читать новость</a>
+          </div>
+        </article>
+
+        <article class="card card--news card--featured slide-up">
+          <div class="card__header">
+            <span class="badge badge--primary">🎓 Доклад</span>
+            <span class="card__meta">20 апреля 2026</span>
+          </div>
+
+          <div class="card--news__intro">
+            <img src="media/petar-boyanich-report-1.png" alt="Доклад Петара Боянича в Выставочном центре «Петербургский Художник»" width="160" height="160" loading="lazy" />
+            <div class="card--news__intro-text">
+              <h3>Доклад Петара Боянича «Победоносный разум»</h3>
+              <p>
+                Встреча состоялась 18 апреля в Выставочном центре «Петербургский Художник» и стала ведущим событием
+                философско-просветительской программы Музея философии.
+              </p>
+            </div>
+          </div>
+
+          <div class="card__footer">
+            <a href="news-petar-boyanich-pobedonosnyi-razum.html" class="btn">Читать новость</a>
+          </div>
+        </article>
+
+        <article class="card card--news card--featured slide-up">
+          <div class="card__header">
+            <span class="badge badge--primary">🌐 Онлайн-экспозиция</span>
+            <span class="card__meta">5 марта 2026</span>
+          </div>
+
+          <div class="card--news__intro">
+            <img src="media/rozhdenie-rukotvornoi-eksistencii.png" alt="Фрагменты онлайн-экспозиции «Рождение рукотворной экзистенции»" width="160" height="160" loading="lazy" />
+            <div class="card--news__intro-text">
+              <h3>Рождение рукотворной экзистенции</h3>
+              <p>
+                Что мы ощущаем, когда всматриваемся в объект, созданный человеком? В рамках онлайн-экспозиции
+                «Рождение рукотворной экзистенции» мы постараемся взглянуть на объект, чьим демиургом является человек,
+                через призму трансцендентного, наделив его душой.
+              </p>
+            </div>
+          </div>
+
+          <div class="card__footer">
+            <a href="exhibition-rozhdenie-rukotvornoy-ekzistentsii.html" class="btn">Открыть онлайн-экспозицию</a>
+          </div>
+        </article>
+
+        <article class="card card--news card--featured slide-up">
+          <div class="card__header">
+            <span class="badge badge--primary">📖 Риддинг</span>
+            <span class="card__meta">24 февраля 2026</span>
+          </div>
+
+          <div class="card--news__intro">
+            <img src="media/KonstAzarov.jpg" alt="Константин Азаров" width="160" height="160" loading="lazy" />
+            <div class="card--news__intro-text">
+              <h3>Риддинг: «Философия музея в музее философии: рождение русского музейного постмодернизма в философии»</h3>
+              <p>
+                С <strong>Константином Азаровым</strong> — философом и преподавателем СПбГУ, исследователем философии музея и современного искусства. Стартуем 1 марта: начинаем весну с риддингов — успей записаться!
+              </p>
+            </div>
+          </div>
+          <p class="card--news__photo-credit">Фото: Ника Шахназарова</p>
+          <div class="card__footer">
+            <a href="news-reading-azarov.html" class="btn">Подробнее и запись</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- Краткие сведения -->
     <section id="about" class="section facts section-alt">
       <div class="container">
         <h2 class="section-title">Наша миссия</h2>
@@ -121,101 +192,52 @@
           Создание новой культурной институции, где философия становится доступной, понятной и живой частью общественной
           жизни.
         </p>
-        <div class="facts__grid">
-          <div class="fact fade-in">
-            <div class="fact__icon">💭</div>
-            <h3>Философия как диалог</h3>
-            <p>Создаём площадку для общения философов, студентов, школьников и широкой аудитории.</p>
+        <div class="grid grid--facts">
+          <div class="card card--fact fade-in">
+            <div class="card__icon">💭</div>
+            <h3 class="card__title">Философия как диалог</h3>
+            <p class="card__content">Создаём площадку для общения философов, студентов, школьников и широкой аудитории.</p>
           </div>
-          <div class="fact fade-in delay-1">
-            <div class="fact__icon">🎯</div>
-            <h3>Философия как практика</h3>
-            <p>Лекции, дискуссии, квесты и мультимедийные проекты позволяют проживать философские идеи.</p>
+          <div class="card card--fact fade-in delay-1">
+            <div class="card__icon">🎯</div>
+            <h3 class="card__title">Философия как практика</h3>
+            <p class="card__content">Лекции, дискуссии, квесты и мультимедийные проекты позволяют проживать философские идеи.</p>
           </div>
-          <div class="fact fade-in delay-2">
-            <div class="fact__icon">🌉</div>
-            <h3>Философия как культурный мост</h3>
-            <p>Соединяем русскую философскую традицию с современными гуманитарными технологиями.</p>
+          <div class="card card--fact fade-in delay-2">
+            <div class="card__icon">🌉</div>
+            <h3 class="card__title">Философия как культурный мост</h3>
+            <p class="card__content">Соединяем русскую философскую традицию с современными гуманитарными технологиями.</p>
           </div>
-          <div class="fact fade-in delay-3">
-            <div class="fact__icon">🏛️</div>
-            <h3>Философия как память</h3>
-            <p>Увековечиваем имена мыслителей через таблички, маршруты и мультимедийные проекты.</p>
+          <div class="card card--fact fade-in delay-3">
+            <div class="card__icon">🏛️</div>
+            <h3 class="card__title">Философия как память</h3>
+            <p class="card__content">Увековечиваем имена мыслителей через таблички, маршруты и мультимедийные проекты.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Анонсы событий -->
-    <section id="events" class="section events">
-      <div class="container">
-        <h2 class="section-title">Анонсы событий</h2>
-        <div class="events-preview">
-          <div class="event-preview slide-up">
-            <div class="event-preview__date">
-              <span class="day">22</span>
-              <span class="month">окт</span>
-            </div>
-            <div class="event-preview__info">
-              <h3>Лекция «Пещера Платона в цифровую эпоху»</h3>
-              <p class="event-preview__time">19:00</p>
-              <p>Как древняя аллегория помогает понять современные медиа</p>
-            </div>
-          </div>
-
-          <div class="event-preview slide-up delay-1">
-            <div class="event-preview__date">
-              <span class="day">15-17</span>
-              <span class="month">окт</span>
-            </div>
-            <div class="event-preview__info">
-              <h3>Московский фестиваль философии</h3>
-              <p class="event-preview__time">Весь день</p>
-              <p>Трёхдневный фестиваль с участием ведущих философов</p>
-            </div>
-          </div>
-
-          <div class="event-preview slide-up delay-2">
-            <div class="event-preview__date">
-              <span class="day">28</span>
-              <span class="month">окт</span>
-            </div>
-            <div class="event-preview__info">
-              <h3>Мастер-класс по критическому мышлению</h3>
-              <p class="event-preview__time">14:00</p>
-              <p>Практические навыки анализа информации</p>
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 32px;">
-          <a href="events.html" class="btn">Все мероприятия</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Социальные сети -->
     <section class="section social-section">
       <div class="container">
         <h2 class="section-title">Следите за нами</h2>
         <p class="lead" style="text-align: center; margin-bottom: 40px;">
           Присоединяйтесь к нашему сообществу в социальных сетях
         </p>
-        <div class="social-links">
-          <a href="https://vk.com/philosophical_museum" class="social-link" target="_blank" rel="noopener">
-            <div class="social-icon">📘</div>
-            <span class="social-name">ВКонтакте</span>
-            <span class="social-desc">Новости и обсуждения</span>
+        <div class="grid grid--social">
+          <a href="https://vk.com/philosophical_museum" class="card card--social" target="_blank" rel="noopener">
+            <span class="card__icon">📘</span>
+            <span class="card__title">ВКонтакте</span>
+            <p class="card__content">Новости и обсуждения</p>
           </a>
-          <a href="https://t.me/MuseumofPhilosophy" class="social-link" target="_blank" rel="noopener">
-            <div class="social-icon">💬</div>
-            <span class="social-name">Telegram</span>
-            <span class="social-desc">Новости и обсуждения</span>
+          <a href="https://t.me/MuseumofPhilosophy" class="card card--social" target="_blank" rel="noopener">
+            <span class="card__icon">💬</span>
+            <span class="card__title">Telegram</span>
+            <p class="card__content">Новости и обсуждения</p>
           </a>
-          <a href="https://dzen.ru/filosofskiy_marshrut" class="social-link" target="_blank" rel="noopener noreferrer">
-            <div class="social-icon">📰</div>
-            <span class="social-name">Яндекс Дзен</span>
-            <span class="social-desc">Философский маршрут</span>
+          <a href="go-yandex-platform.html" class="card card--social">
+            <span class="card__icon">📰</span>
+            <span class="card__title">Яндекс Дзен</span>
+            <p class="card__content">Философский маршрут</p>
           </a>
         </div>
       </div>
@@ -225,7 +247,7 @@
   <footer id="contacts" class="site-footer">
     <div class="container footer-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
         <span class="brand__text">Музей философии</span>
       </a>
       <div class="footer-right">
@@ -233,18 +255,16 @@
         <div class="socials">
           <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
             rel="noopener">vk</a>
-          <a href="https://dzen.ru/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
-            rel="noopener">dzen</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
           <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript Files -->
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/home-navigation.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/home-navigation.js" defer></script>
+  <script src="js/animations.js" defer></script>
 </body>
 
 </html>

@@ -1,0 +1,452 @@
+{
+    "5bb567dbcbe8dc5170e9330e904c53434301d51aaec181b4f07fd3f52e42dbfe": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 15:42:48",
+        "ip_hash": "cedf8dbe119d2374aff55c378ba100023579ee0f0e2a6d7ea4cc6ae42f4a0388"
+    },
+    "f09d7a1b812d51eaaf58b5aba9612e6b619d46c4b1ff092be820249c4d5e190c": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:51:47",
+        "ip_hash": "33bebbe1d01f811be2ed597bb763bf631d9111ebd0b7d1001bed9e38e6d35de7"
+    },
+    "1d2b46a66551466afd7350b1b4ff057a89ebcd8e33b14fbe3c7f0bb4dc7e7c0f": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:51:59",
+        "ip_hash": "c724d80c31ea82e41153c39ee6a42b3174018fcd2ca705198d134c5460c25460"
+    },
+    "03a806c59aa61bff9ceec463455c751de95d414b61f91725fe68e92761b71e3b": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:52:38",
+        "ip_hash": "42c17986504fe070660c556f9f6cfdf61a76bc0742bd6621c4b751cab80d35b4"
+    },
+    "ebdac5efcfdcf25ef73d427289be9e00175e206be24d84affdec3e5a4c77ed91": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:54:13",
+        "ip_hash": "efa2e08ab92070ae567d9d62a6d95140274b75a3a74589f103e1f657422d6163"
+    },
+    "7d059f0f7029a3b17dccb4b66234ee3c01c08a37ed4c22dc698a10473fbeee54": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:56:47",
+        "ip_hash": "9ab1ecf3a4cad6ed29106ac8a7538c6d5ff30cc73470c6beceb59caa63d6a1b8"
+    },
+    "d9e5a8a36b2a309a554c59459f17ab931618c179b0a7a0ba2d181e4515079707": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:57:19",
+        "ip_hash": "67b61499833ba367a5b64ef918ed79e925514544ba001e9306380a849e64f6ce"
+    },
+    "8e78189f542e8caca0c2c47de1690f6d52d9ee15a6bb9f77d638aaf8c568463c": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:58:27",
+        "ip_hash": "554656a23250fbce3b23b5d3d79956b1fe39e27dce3f62553baf8c6c6f831a42"
+    },
+    "3ab920f37f91d6353d00e347677df0285d946b115b854cd7df125b8923684619": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-09 15:58:46",
+        "ip_hash": "91a7409b31ed5e9dcfd920021e94246c967e3407b516d7bd71083016b9d4fdda"
+    },
+    "6943faa1618dd2b750eabc950b9134d85386c77dadf53d1e5b7bf2959e1914f4": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 15:58:58",
+        "ip_hash": "31f80850c6e5a4e4442fd47a751a65a6e34759b75785d03f5a7e8f275143996c"
+    },
+    "61cbf10b6cbe13ca32fb25e5fe437e37c56121776308295fe5da804aff7ef714": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:00:14",
+        "ip_hash": "2a836f8887b07e569855fd112fd4f2893310c7456b4b55f3022ec0a119093238"
+    },
+    "3ff5fecb40eb1b77052743bb3b22d4383952cb31ae7699a94111e65640047480": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:01:01",
+        "ip_hash": "be6945e45bd96a37d107a407aa1363d8752a9fdd2f74fec0dd6c5baf0c42fcbf"
+    },
+    "7a6b0e753547aba4e335de0dbe7eae7a5bd1a4a1d2d2cee7f163d65d99e3a6d7": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:01:13",
+        "ip_hash": "96518465b9853d79bcaaba5e1bad7221cd0e1de2bbb6bb1c2755b4e3c87eb625"
+    },
+    "79363640cff0611ecda20a235f6088484403867e6c8260b53f81282060a58db9": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:05:55",
+        "ip_hash": "a79bab4847f2b6538beb7c2342bcbf37345735810e38c09d6f0cd035008bf5c9"
+    },
+    "56738597056ce4049c539e3c7dafba1986d313ecdb91e350dd66d1bdd76d2212": {
+        "candidate": "sekatskiy",
+        "timestamp": "2026-01-09 16:11:01",
+        "ip_hash": "0adcae808de30ae6ae120717d2d8a2b991f48cd90616b1710e9733c1757c48ce"
+    },
+    "05866bafb176fa24f1ae44b4b9e87fe967fbd4a7c0c80b761e7f875efbd5616c": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 16:12:00",
+        "ip_hash": "4c8221a62889944f66ee792237a0c94bdc8a9b78ed49adfbe5b3ecd06a2f5f3a"
+    },
+    "dca7e9a0b07257001fde6e4df99c58ccf055462f80503680025b41f626e25c10": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:13:19",
+        "ip_hash": "f49ac8d2326d9fa8f549c04641aea547c8b333744941c67a82ad912450d93d01"
+    },
+    "e8d6a5e891e38598069270df317041a6522e4f607a9e0e1c6a64b41a8d3cbb0a": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 16:19:58",
+        "ip_hash": "38a87f0b7e5c67e569f54c2a10271e7ee488ea4b845f68106d07e3d265fe7bb4"
+    },
+    "1c7f0f97f383a24cb6e54a6b08241631ae94f8f55aafd8c3c9cab75009c4170b": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:30:09",
+        "ip_hash": "ed71cc7075e562309219ae1fb04a0c01381163a62fcd5fde7292e22398783739"
+    },
+    "26abbfc8a0df6bccaf4d7f96ca7a689b0c26843304dba0eda93d6d558633d2fb": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:30:16",
+        "ip_hash": "ea6d6473bfa6525a2a17adaa91d28c2f2d88698a966a9973a4a1ad1a72697736"
+    },
+    "a22f9023c27a041af1edfd80379ac4eef8eaec4d717cdec79535f6dd0de081b0": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 16:31:42",
+        "ip_hash": "dc4a7430131392b6649e37fe2749541bad69f775b716b4f727124a518945370e"
+    },
+    "b0689f0e82cdd3930d92b6fae03b1e0d5440a248bf74b4fb75c1cfbff711d234": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:51:41",
+        "ip_hash": "f768892071b0ae732bd80d0be578660a4ce1a92d5513d4f54dd175aaaaf2aee1"
+    },
+    "39a0ce5025aff587f505982d5fd786df1dca23d4d25c284bc4ebcce3ac7a7ce4": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 16:55:17",
+        "ip_hash": "14d71939ff7b63eb9b7cd45aadb0145137714a3555d35aebb719b472a4448b90"
+    },
+    "e7c3795cceeeab9c597b057ef6953396babbaeb2f0bcc4b77bc00bbad307efe7": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 16:58:48",
+        "ip_hash": "71961075f78b1067789951fc78e1c3deed893e09f17b1028d6e159c9e16b1592"
+    },
+    "e1303295ec67c291bc2369cfb0a82e366017111bea23f124ff3bc882b3d4be32": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 17:04:24",
+        "ip_hash": "5c215911b2be701c37130ac315b6e1560c9ca049b137dbe9679b5744843a7def"
+    },
+    "5e1e5b2c96ef403d4e6e4098a5652bebf523c83732b79be7cd45d86adc46f247": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 17:07:09",
+        "ip_hash": "449166c2c913a2cb47467cb660bbac55a8aa2e8c69b5c0307ba3f482d4a17586"
+    },
+    "6a743ff2c07a27773851c39636b57083a83fedbcc20b33729f8c51db95fbc5f4": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 17:14:19",
+        "ip_hash": "a1ef43567411eaa47aa6d3904eec0f6b53e89ed4f1cb8d6ab5c4823938e98a04"
+    },
+    "aad12280dae2d2856d0c5752d7163e3abc07f22db45b507399865dc98c37b30e": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 17:16:56",
+        "ip_hash": "8dd86270e091669847c2a0d7138318baf31e1b253f9ef60a51cbfe31cc2cb7d9"
+    },
+    "8983bc6484a4cd13f4b8fd4efcbe12ecd50a4ea66e89d4e39f9a1b392a1b5915": {
+        "candidate": "sekatskiy",
+        "timestamp": "2026-01-09 17:22:10",
+        "ip_hash": "fc0e48d21a392326f7e9bc5831d8619142e9e5e68791a095b643f7cb845962e3"
+    },
+    "fba9681c16a9034755c06f0c47e8a0be09815df0415434e9e4947fe8e16b423f": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 17:22:12",
+        "ip_hash": "0183828a7734e95659b001fa43975d74356f53f87a94e3a88e37486232c3f542"
+    },
+    "5254e400bfe689efb26bcbb60d6898951f1d4e31e97398264ff6b7ba54ffca9e": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 17:31:10",
+        "ip_hash": "d31e3c347da333aba34f3d31883057822dd9ee7b52ac859caaae0ab487184730"
+    },
+    "70276b0b1d5d85e9dcc20563cdbcda8deeb747e0886f55d220d2a6310ec24067": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 17:36:21",
+        "ip_hash": "17879646a6c0971d9febcde002089ae4cb2f300615fbaa989586354981718481"
+    },
+    "69e3a9c640fd6e18c07df202d8a72b0c08535bd8d239cb0a4cd4f69e3e5ba33c": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 17:36:37",
+        "ip_hash": "46eebcca946624107d0494218c7dd9037b5691183b5c4e15d185c662e4eac8d4"
+    },
+    "b23ebadb25e56530191f75f7d8df669b55d2c25918b9aa4aa1ec31790d790369": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 17:42:34",
+        "ip_hash": "045ae81454572a3edcf83029bc59088d0e48a579c352dd8fe704774f34391950"
+    },
+    "e0b8fcaafb19925ff054b4359d45d3d93225251a299817d00ee2e178027704fc": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 17:45:08",
+        "ip_hash": "e42d797bd4c46770a10351fc48e53cbe2c5fe7b53c0358470e9a6b59e0be3e3d"
+    },
+    "4934c42d6a30edd30e59bd58b5a0252c4b7d6d955e6aa52f0246dcc234028d96": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 17:47:38",
+        "ip_hash": "75ebee20b409dee26dde660c4d230601fa4570f7a218904b17bea7a738d75f2f"
+    },
+    "20eda76925f5effe5cfe71e3619c23b8b80dc60f059c9c3b98576897c68b5608": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 17:50:40",
+        "ip_hash": "c093f0754ca8a8fc7d1c7797957b301052a294b3a3322f00ab37d9b2789b6044"
+    },
+    "f64bedeb3c9131aff82f66fa912813cf56524052b5958a772596ebf064e3c457": {
+        "candidate": "sekatskiy",
+        "timestamp": "2026-01-09 18:00:11",
+        "ip_hash": "7c53e08d2e8e14815fb4582be01a80bc02dc5a0309e55de86b3fd564fa6e4ad3"
+    },
+    "5dcbb8a3835a0c30451f3963cefe6a17769c843260ecc79ce8322be50178a2ee": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 18:02:34",
+        "ip_hash": "38a87f0b7e5c67e569f54c2a10271e7ee488ea4b845f68106d07e3d265fe7bb4"
+    },
+    "fed16efdda3345657040c8b9087d73df6b7235e1279468aaf5c5725627ba251f": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:06:20",
+        "ip_hash": "416e3eee1501762622b44488c94d1fe44ccff63595279ff2aa6626694d4a3f99"
+    },
+    "9e74d71754c445becf496b81ab4946cec19d4fbcd471efffda909e17c20e3d5e": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:12:16",
+        "ip_hash": "6fea187647fc643f72e639deeebd6cfcfdb67ff1a37d171a662529ee44031843"
+    },
+    "48abcc8d48f4e9ace5eb0fb1a6699301583d8b58813ae5cf3daf3674df6559ee": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 18:14:25",
+        "ip_hash": "d28f393e8d22165f69c99088008e34598ec257ceea4087860904bf4c42f3a48b"
+    },
+    "5cb3353323b99906699c7467b06a377a3fc02ab3895c1c2c6402723f190c57ec": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:17:32",
+        "ip_hash": "ac7f48730ea342408a74f81d8569269c4d2a18aa84fa80711ce95ba31093c247"
+    },
+    "f78c7da15f2e5c34086a115d394eccc2980e64b6e2cf3d727a9b04faad68c6cb": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 18:20:09",
+        "ip_hash": "2d1a8a14b746ba4570f5347f61584f530aa6e11e52124e2ecf09424d4c831245"
+    },
+    "cc9fcbad8304a81a875c9e3ddce2b57f1004d1b82d3c8f82346e52c1877f4989": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:22:53",
+        "ip_hash": "363ef039642a658b56ba614cce63e5790d646034b612fa6ca3dab594f27d6fa6"
+    },
+    "0fb0570f5ace8eca290c33aefa7591597821c89df55e78a82f3dcc4d4d3e3812": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:33:23",
+        "ip_hash": "b2448ed8370a9c162a0005742829669b7538465396fdd467df85d9580e80e042"
+    },
+    "011d0790fd511515b3c504d26531f36b9ac2d7ae41bf91c3e7df5c443c169bf3": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:44:53",
+        "ip_hash": "2917e37ada5716cc5376214df5066f5f2136d4c52a355359128816f456a8092c"
+    },
+    "9ad94082ed6e3a85f829fe1c771a23816d0e9255722b77d07653b87c9abf960a": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 18:59:41",
+        "ip_hash": "c67635ffa7f96f4b5fd73f528c3f3382f2d23070efa7d44963e33a44c1d2c31e"
+    },
+    "9975619319f84493a7cf1fb6f661a41e3cd8f1c562b8800dc953159e422a9c26": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 19:49:26",
+        "ip_hash": "1581bdbc895424cb3fc2c3106f12dde422d04d0fc87d537de48ea6a03f4c0246"
+    },
+    "7a3f2470a41d3372eeb54292cad514945b3cd21573ca602d26687ccdff24cf82": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 20:04:26",
+        "ip_hash": "e6f603181450926d71e5b456304b5be003663a64e15f15301ef8e11cc9834c06"
+    },
+    "521c6b19edb2f29f22e8fa603cfe02fc8a5ec05ea5f2f8c559fab52d6be679f8": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 20:32:58",
+        "ip_hash": "244460df4c9cb04a7f36b4eac9e50a93715c68bf474ca06a2e666950bcc579dc"
+    },
+    "a0349f09826ce6fca6c68db5e3304989342f3f434ef02a7e8dec809b637b0f2b": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 20:34:03",
+        "ip_hash": "b1b278ecf606db091a7afd6bf118669a107244e61091bc2ffd1e44d7037cbc65"
+    },
+    "1ec4dd851a179f697f060b355ee08b5b301a47041469b17b1551ed863ffc1562": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-09 20:37:51",
+        "ip_hash": "7e4205ec2efe558abc88aea9113e4bfc8b781d61d2d6b6ef58f71ba5a42e4592"
+    },
+    "9688d0f942821d1bdbc29db3c4717f95df4058f261bd0766045c0c4074c36d1c": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 20:45:53",
+        "ip_hash": "392a7836345085044acb66b3c9e86461b7e7695efd1431aeb8214330b6eedffb"
+    },
+    "748f03564955f96d97cda17621756657f33b3411482ffeae6939cdb691720384": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-09 20:46:47",
+        "ip_hash": "1211826baa3a7a6ce34f476d8b4abd00852d98dedba36d6a23d59c1bdc71cf91"
+    },
+    "66e5152876974a45774be8f5535738fcb6f0a5355c793dd1d56d8145ee5e69f3": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 20:48:51",
+        "ip_hash": "dcab7c713d393f2ba47d056563ce9f8662e8d39e4f4f3cae37a7529c0a416c80"
+    },
+    "5f43448b55d168aa739a318c40be41885c4e18472292cdb870666008da0ab8e6": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-09 20:53:52",
+        "ip_hash": "e0b23860837458dad37de9cf9f79b6a158e4481dbeb801c878d5992179fa5af8"
+    },
+    "50c18329d40da768f391a72d539288de08bcb7431d5bc18f931507ccd63486aa": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 20:55:14",
+        "ip_hash": "328f3ba839a080d2d8cd8459d8fd7c61d1b36e031f288f62fee8f53ebaf1eb0a"
+    },
+    "7a040bf351b5794c1e57e6e640a73aff9fa5bbd3b4cd668bc729cb5f4361d9d0": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-09 21:01:28",
+        "ip_hash": "6eb4e63678a3c34bd52cae03bf839def0ad4e033e9f1273c263360a7d035be8c"
+    },
+    "93733d4c709b2961339939ec515024efd62b656148d4cb6bd2b54d14a007475a": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 21:23:50",
+        "ip_hash": "6c815bb211e3f18a3dbb4102a9c342a763ee6ae3a2b6fe864c7ddc1bb63e9a4f"
+    },
+    "e2c21ecdb0bbd3f0f4c6003dc5abbbb6ec72bbdbd8da27a2aa30be32dbf84881": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 21:31:43",
+        "ip_hash": "f06315cb1b8b72f43a0959ec20546136769b2f08ef34d35436fe2c12798cb438"
+    },
+    "8e942ac5df4a1b4bbbaa7113d65f5009375ac1aba02a6ee9fe497c7efb5b749c": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-09 21:46:11",
+        "ip_hash": "a25f7d72c70ec9c541e0df76e864c38e72221019bac04b8f9ed73c6d842271cb"
+    },
+    "4bc3a59174dc03f101dab309fc8acad872bf5c4c5d8da9bf6424c266c6456e56": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 22:11:20",
+        "ip_hash": "195654b56f2fec5f9b77d2e1af66cc9a0591be5e7736a5e217c91b6c7d6f4641"
+    },
+    "bb1e64d958e48413d123e15b975ee9409e976441ad7e16d11a64779415ea43d6": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-09 22:56:36",
+        "ip_hash": "50ef5b3888d29c0b90481b326832a9650c2010110698e4f7a65c1efa3ef463bf"
+    },
+    "705482282baac58cd18c375d078db6e639a6966dc069d851d1679f537c8528d7": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-10 00:20:10",
+        "ip_hash": "1e9959588c413b629f7bc13dc44f651507a05bfa992d47ea9744af720edcb0d1"
+    },
+    "b9b8f7363b5b94ab43d45deed97f4a220e24f2e6ed9818fd1a2dc1c066cb8704": {
+        "candidate": "sekatskiy",
+        "timestamp": "2026-01-10 00:44:01",
+        "ip_hash": "7afb14ea795901ea2a57ed8c399ce36b2166bbeb5234eaf4d535820d0449a5e1"
+    },
+    "8f032b1928b338b57628a59d3a55f393a67d5dad83a81db88081de6539138d5b": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-10 00:57:24",
+        "ip_hash": "da5d5c11a5f73e461886b6b0c12ae76c2ce0e1fc5da92c5e0aa4484f7666ec15"
+    },
+    "e94eb07a661761ff9970d3b2e6531667f6e73780f34f0e858e2ed1853647bd75": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-10 01:25:34",
+        "ip_hash": "854af81eb0e08904e485f1f45992a2eba7357686dae36324b0d070654435eb53"
+    },
+    "7af2e4139dee689b96647f23fee96b9ebb4c5979de08ae4eff3c599195c216bb": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-10 01:54:38",
+        "ip_hash": "38a87f0b7e5c67e569f54c2a10271e7ee488ea4b845f68106d07e3d265fe7bb4"
+    },
+    "bf326058e77f8f6cf6ac8baec4a7736f568e6c824747bf0639aee5d8004bbb37": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-10 02:52:48",
+        "ip_hash": "1e2402d43393e98bc32de1560b35cb1a8b60e684b61cd1ce2adad9a7b337917d"
+    },
+    "9db852e5af63b00c8d63f6cd8510dfdb5be1109f884dc5183f32b88aa2f3e8c4": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-10 07:46:56",
+        "ip_hash": "9576be21776b56ae7b62ce4009f00faed3bf5e5f41afa9c3c00e75709dea139b"
+    },
+    "1720446684d6d7641dc3feadeda6bb6d969101acc614367ef8259b99880dfd6a": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-10 10:51:01",
+        "ip_hash": "cb3aae9e792b64e01d058d927be3fbbe606039fa3d609fa0bb5f525c6f6424cd"
+    },
+    "86f91a6b04a58e7c9f37b74747ff58cbf81eb4b367529a23ea55ce4bc5875577": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-10 11:20:53",
+        "ip_hash": "9cae768fe6d0430d48bb3506bb775eb3546d210706ec79c49e4cfedd44727bc1"
+    },
+    "05fa7c74a00d3751e99f68a2d4f8606031cdeb5679d70ab2fc169793bf8e2770": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-10 11:59:28",
+        "ip_hash": "a6da304ec4e1ee562bad6c77b79c27e73fa6582ea4b7f9e02a1c8aa7805afd33"
+    },
+    "c641ed5dc6a8427ac7e468efc14200bb22fd97e4a4c01c661da4ce7d5ded37ac": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-10 12:25:36",
+        "ip_hash": "58018548612186e547f656505b7bcc628cdaa61b0011790a098a9c9adbfb3835"
+    },
+    "8a7e844193f0f8aa7cd1bd362e2a53880451815d3d713c0b2f7e0b7107aa7102": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-10 15:46:54",
+        "ip_hash": "e42d797bd4c46770a10351fc48e53cbe2c5fe7b53c0358470e9a6b59e0be3e3d"
+    },
+    "4563b1d6addca08df5afdaa705ec339be4b79144a203a252ec82830fcd7e2984": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-10 23:37:13",
+        "ip_hash": "d42e8801463bc5df92ecb069aeef9159385805cdb8185130606e6c2d9341f81f"
+    },
+    "acba1e05b55359375ac48c58f3ecdd0b707d9bebc7a7591754ea5a8723c36ad3": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-10 23:38:48",
+        "ip_hash": "04f31a9bf59069118dfecd879b5c6641f433abf0c061621fcc096514a4ce304d"
+    },
+    "7a84da29f8f67c9072928e43ad9a396d111add2ec28daaaad4896974b6a6fd4b": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-10 23:39:51",
+        "ip_hash": "d42e8801463bc5df92ecb069aeef9159385805cdb8185130606e6c2d9341f81f"
+    },
+    "f356b12d1b0d50a4864311795a38d02524417db9b49bd15e3de43b771e591211": {
+        "candidate": "mitrofanova",
+        "timestamp": "2026-01-11 01:42:39",
+        "ip_hash": "d42e8801463bc5df92ecb069aeef9159385805cdb8185130606e6c2d9341f81f"
+    },
+    "2eae4bdabd308360f39bc8f31854dd0dbe742804e46feb2087b4553b07a47ab8": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-11 10:55:14",
+        "ip_hash": "aa333257ca5cc896b5f070bff08b926f69f8158aaac72db7b417f118d5f2fbc2"
+    },
+    "2615bba3eb83f9b11e47b2e2abf9de706278057043e97b3cb76ec5e34a305617": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-11 11:20:50",
+        "ip_hash": "57b502b76d097a3fcf67da07ff5d9f8af563410b93a52d21265320e00855c9f6"
+    },
+    "cb5ebc8e7210c2c8f7013eb8b57a542359d053acd30dbeb6c3ec655d48ef20e3": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-11 11:54:57",
+        "ip_hash": "6337ba6f35026d7ff49f85bc9ab43cfe61d3b82f059c5c905d502d0e4fe49e82"
+    },
+    "4676afaf0ddcb59c1de30b5d139f4d47d9febff5f21971ec0cfb5fe6b3cb41d6": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-11 13:26:51",
+        "ip_hash": "6a69cb7b40bd0bb523a9d861c4651fd6f9e43c0bd9972c14cd142ed70f415a4e"
+    },
+    "57345c2a9a7832b9b62e6de4893fadb1a2fdc42bf03a305e28c675677ea71dbb": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-11 14:40:37",
+        "ip_hash": "5dc9a295d9de942f3c8f355fd1c6c7b5699a6b100668da85eaf9ae52fcff6fff"
+    },
+    "8721517b87c4af830387a7cc9c209e2d5ea0574cf6d3d0c01ddf0c03476cba98": {
+        "candidate": "sekatskiy",
+        "timestamp": "2026-01-11 14:47:21",
+        "ip_hash": "bc8239f8d932fa7bb32236026dce54f975e029886b7fc0e1bfe6ba68c1ab604e"
+    },
+    "c998a6f32887afc88608421caf5a655dda7988538e940409f0342ed4f0f1e688": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-11 15:01:49",
+        "ip_hash": "49c21b03da87fb9a0499f042b57710430f8164a4140a40bddd40d102c9b4098a"
+    },
+    "5d219cd99680db32808e945a6f18bb0a8a6f978b20ce714fe35906ebdea9c72e": {
+        "candidate": "radeev",
+        "timestamp": "2026-01-11 20:52:59",
+        "ip_hash": "427acb4f287e803f3d1407afcd86df71611c307ee92356380ffd23d6ea963e1b"
+    },
+    "74ddc2c8203094661b98e68d6af4a3b79701ec27af27980841a6c148b3a86258": {
+        "candidate": "mazin",
+        "timestamp": "2026-01-11 22:23:18",
+        "ip_hash": "612416b609bd640db59762cec0bf0074a96d3cd47c12af7f3ad65aeb5565f686"
+    },
+    "c9113598ba801aff05fe196dd334a0b772ad1f4c7ee7d163997dfccde61228cb": {
+        "candidate": "pogrebnyak",
+        "timestamp": "2026-01-11 23:38:03",
+        "ip_hash": "38a87f0b7e5c67e569f54c2a10271e7ee488ea4b845f68106d07e3d265fe7bb4"
+    }
+}

@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="media/philosophy-museum-logo.png">
 
   <!-- SEO Meta Tags -->
   <title>Экспозиции — Музей философии</title>
@@ -20,15 +22,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/pages/exhibitions/exhibitions.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" fetchpriority="high">
         <span class="brand__text">Музей философии</span>
       </a>
       <button class="mobile-menu-toggle" aria-label="Открыть меню">
@@ -36,14 +37,17 @@
         <span></span>
         <span></span>
       </button>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
       <nav class="nav">
         <a href="index.html" class="nav__link">Главная</a>
         <a href="about.html" class="nav__link">О музее</a>
         <a href="exhibitions.html" class="nav__link is-active">Экспозиции</a>
         <a href="events.html" class="nav__link">Проекты и мероприятия</a>
+        <a href="streams.html" class="nav__link">Трансляции</a>
         <a href="news.html" class="nav__link">Новости</a>
         <a href="contacts.html" class="nav__link">Контакты</a>
       </nav>
+      <div class="header-inner__spacer" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -55,28 +59,55 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
       <div class="container">
-        <!-- Coming Soon Section -->
-        <div class="coming-soon-simple">
-          <h2 class="section-title">Экспозиции в разработке</h2>
-          <p class="lead">
-            Мы работаем над созданием уникальных экспозиций, которые представят философскую мысль через века и культуры.
-            Следите за обновлениями на сайте и в наших социальных сетях.
-          </p>
-          <div class="coming-soon-info">
-            <div class="info-item">
-              <h3>Что нас ждёт</h3>
-              <ul>
-                <li>Интерактивные экспозиции по истории философии</li>
-                <li>Мультимедийные инсталляции</li>
-                <li>Тематические выставки</li>
-                <li>Образовательные программы</li>
-              </ul>
+        <article id="exp-rozhdenie-rukotvornoy-ekzistentsii"
+          class="card card--project exhibition-card fade-in">
+          <div class="exhibition-card__layout">
+            <a href="exhibition-rozhdenie-rukotvornoy-ekzistentsii.html"
+              class="exhibition-card__media-link"
+              aria-label="Открыть виртуальную экспозицию «Рождение рукотворной экзистенции»">
+              <figure class="exhibition-card__media">
+                <img src="media/rozhdenie-rukotvornoi-eksistencii.png" width="640" height="800"
+                  alt="Коллаж фрагментов онлайн-экспозиции «Рождение рукотворной экзистенции»" loading="lazy"
+                  decoding="async">
+              </figure>
+            </a>
+            <div class="exhibition-card__body">
+              <div class="card__header">
+                <div>
+                  <div class="exhibition-card__badge-row">
+                    <span class="badge badge--primary">Виртуальная экспозиция</span>
+                    <span class="badge badge--status badge--active">Только онлайн</span>
+                  </div>
+                  <h2 class="exhibition-card__title">
+                    <a href="exhibition-rozhdenie-rukotvornoy-ekzistentsii.html">Рождение рукотворной экзистенции</a>
+                  </h2>
+                  <p class="exhibition-card__meta">Куратор: Алиса Томилина</p>
+                </div>
+              </div>
+              <div class="card__content exhibition-card__content">
+                <p>
+                  Онлайн-экспозиция «Рождение рукотворной экзистенции» приглашает всмотреться в объект, созданный
+                  человеком, и задать себе простые и неудобные вопросы: есть ли у рукотворного «тела» душа, способен ли
+                  предмет выражать любовь и заботу — или даже боль?
+                </p>
+                <p>
+                  В экспозиции мы пробуем посмотреть на привычные вещи через призму трансцендентного — как на носителей
+                  переживаний и смыслов, которые мы сами в них вкладываем.
+                </p>
+                <p>
+                  При участии Линды Берг и Романа Ходырева (группа «Паразит»), группы «Гренки» и других художников.
+                </p>
+              </div>
+              <div class="exhibition-card__actions">
+                <a href="exhibition-rozhdenie-rukotvornoy-ekzistentsii.html" class="btn btn-primary">Открыть
+                  онлайн-экспозицию</a>
+                <p class="exhibition-card__hint">Фотографии работ, пояснения к экспонатам и полный текст онлайн.</p>
+              </div>
             </div>
           </div>
-        </div>
-
+        </article>
       </div>
     </section>
 
@@ -85,7 +116,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a href="index.html" class="brand">
-        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo">
+        <img src="media/philosophy-museum-logo.png" alt="Логотип музея философии" class="brand__logo" width="38" height="38" loading="lazy">
         <span class="brand__text">Музей философии</span>
       </a>
       <div class="footer-right">
@@ -93,8 +124,7 @@
         <div class="socials">
           <a href="https://vk.com/philosophical_museum?from=groups" aria-label="VK" target="_blank"
             rel="noopener">vk</a>
-          <a href="https://dzen.ru/profile/editor/filosofskiy_marshrut" aria-label="Яндекс Дзен" target="_blank"
-            rel="noopener">dzen</a>
+          <a href="go-yandex-platform.html" aria-label="Яндекс Дзен">dzen</a>
           <a href="https://t.me/MuseumofPhilosophy" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
         </div>
       </div>
@@ -102,9 +132,10 @@
   </footer>
 
   <!-- JavaScript Files -->
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/site-stats-tracker.js" defer></script>
 </body>
 
 </html>

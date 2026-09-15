@@ -1,6 +1,3 @@
-/* Exhibitions Page Styles */
-
-/* Coming Soon Section - Simple */
 .coming-soon-simple {
   max-width: 800px;
   margin: 0 auto;
@@ -11,49 +8,562 @@
   margin-top: 40px;
 }
 
-.info-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: var(--shadow);
-}
-
-.info-item h3 {
-  margin: 0 0 20px;
-  font-size: 1.4rem;
-  color: var(--text);
-}
-
-.info-item ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.info-item li {
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--muted);
-}
-
-.info-item li:last-child {
-  border-bottom: none;
-}
-
-/* Exhibitions Page Responsive Styles */
 @media (max-width: 768px) {
   .coming-soon-simple {
     padding: 0 20px;
   }
-  
-  .info-item {
-    padding: 24px 20px;
+}
+
+.exhibition-card {
+  --exhibition-card-accent: #1e3a5f;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #f4f7fb 0%, #fff 38%, #fafbfc 100%);
+  box-shadow: var(--shadow);
+}
+
+.exhibition-card:hover {
+  border-color: rgba(30, 58, 95, 0.22);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+}
+
+.exhibition-card__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.exhibition-card__media-link {
+  display: block;
+  min-height: 240px;
+  height: 100%;
+  outline: none;
+}
+
+.exhibition-card__media-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.exhibition-card__media {
+  height: 100%;
+  min-height: 240px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.exhibition-card__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.exhibition-card__media-link:hover .exhibition-card__media img,
+.exhibition-card__media-link:focus-visible .exhibition-card__media img {
+  transform: scale(1.04);
+}
+
+.exhibition-card__body {
+  padding: 28px 32px 30px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.exhibition-card .card__header {
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+
+.exhibition-card__badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 12px;
+}
+
+.exhibition-card__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(30, 58, 95, 0.18);
+}
+
+.exhibition-card__title a {
+  color: var(--exhibition-card-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.exhibition-card__title a:hover {
+  color: var(--primary);
+}
+
+.exhibition-card__meta {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.exhibition-card__content {
+  flex: 1;
+}
+
+.exhibition-card__content p {
+  margin: 0 0 14px;
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 1.02rem;
+}
+
+.exhibition-card__content p:last-child {
+  margin-bottom: 0;
+}
+
+.exhibition-card__actions {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.exhibition-card__actions .btn {
+  margin-top: 0;
+}
+
+.exhibition-card__hint {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 22em;
+}
+
+@media (max-width: 900px) {
+  .exhibition-card__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .exhibition-card__media-link,
+  .exhibition-card__media,
+  .exhibition-card__media img {
+    min-height: 200px;
+    max-height: 280px;
+  }
+
+  .exhibition-card__body {
+    padding: 22px 20px 26px;
+  }
+
+  .exhibition-card .card__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .exhibition-card__hint {
+    max-width: none;
+  }
+}
+
+.exhibition-page {
+  --exhibition-accent: #1e3a5f;
+  --exhibition-wash: #f0f3f8;
+
+  --exhibition-photo-max: min(48vh, 400px);
+}
+
+.exhibition-show {
+  padding-bottom: 64px;
+}
+
+.exhibition-page .page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.exhibition-page .page-hero .back-link {
+  position: relative;
+  z-index: 2;
+}
+
+.exhibition-page .page-hero .exhibition-page-hero__eyebrow {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--exhibition-accent);
+  margin: 0 0 12px;
+}
+
+.exhibition-show .container {
+  padding-inline: 20px;
+}
+
+.exhibition-intro {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.exhibition-section {
+  padding: 48px 0;
+}
+
+.exhibition-essay {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 30px;
+}
+
+.exhibition-essay__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  margin: 0 0 16px;
+  color: var(--exhibition-accent);
+}
+
+.exhibition-essay p {
+  margin: 0 0 14px;
+  line-height: 1.75;
+}
+
+.exhibition-essay p:last-child {
+  margin-bottom: 0;
+}
+
+.exhibition-section--gallery {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 18%);
+}
+
+.exhibition-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.exhibition-piece {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: 0;
+  align-items: start;
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.exhibition-piece__figure {
+  margin: 0;
+  padding: 20px 16px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  border-right: 1px solid var(--border);
+}
+
+.exhibition-piece__figure img {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: var(--exhibition-photo-max);
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  cursor: zoom-in;
+}
+
+.exhibition-piece__figure img:focus-visible {
+  outline: 2px solid var(--primary, #2563eb);
+  outline-offset: 3px;
+}
+
+.exhibition-piece__figure--dual {
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.exhibition-piece__figure--dual img {
+  max-height: min(30vh, 200px);
+}
+
+.exhibition-piece__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.28;
+  color: var(--exhibition-accent);
+  margin: 0 0 10px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid rgba(30, 58, 95, 0.22);
+  letter-spacing: -0.02em;
+}
+
+.exhibition-piece__body {
+  padding: 24px 28px 28px 32px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.exhibition-piece__body h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.exhibition-piece__meta {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-style: italic;
+}
+
+.exhibition-piece__body p {
+  margin: 0 0 12px;
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+.exhibition-piece__body p:last-child {
+  margin-bottom: 0;
+}
+
+.exhibition-piece__body ul {
+  margin: 12px 0 0;
+  padding-left: 1.2em;
+}
+
+.exhibition-piece__body li {
+  margin: 6px 0;
+}
+
+.exhibition-lightbox {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background: transparent;
+  inset: 0;
+  box-sizing: border-box;
+}
+
+.exhibition-lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+.exhibition-lightbox::backdrop {
+  background: rgba(12, 14, 18, 0.88);
+}
+
+.exhibition-lightbox__panel {
+  position: relative;
+  z-index: 1;
+  width: min(96vw, 1320px);
+  max-width: min(96vw, 1320px);
+  max-height: 94vh;
+  margin: 0 auto;
+  padding: 44px 12px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.exhibition-lightbox__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: var(--radius, 4px);
+  opacity: 0.92;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.exhibition-lightbox__close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.exhibition-lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(94vh - 72px);
+  max-height: min(calc(94vh - 72px), calc(100dvh - 72px));
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+}
+
+.exhibition-lightbox__caption {
+  margin: 0;
+  max-width: 42em;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.4;
+}
+
+.exhibition-vis-placeholder {
+  width: 100%;
+  min-height: min(160px, var(--exhibition-photo-max));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--surface),
+    var(--surface) 12px,
+    #e8ecf2 12px,
+    #e8ecf2 24px
+  );
+  color: var(--muted);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 900px) {
+  .exhibition-page {
+    --exhibition-photo-max: min(40vh, 300px);
+  }
+
+  .exhibition-section {
+    padding: 36px 0;
+  }
+
+  .exhibition-grid {
+    gap: 28px;
+  }
+
+  .exhibition-piece {
+    grid-template-columns: 1fr;
+  }
+
+  .exhibition-piece__figure {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+  }
+
+  .exhibition-piece__body {
+    padding: 20px 20px 28px;
+  }
+
+  .exhibition-essay {
+    padding: 22px 20px;
+  }
+
+  .exhibition-piece__figure--dual img {
+    max-height: min(34vh, 220px);
+  }
+
+  .exhibition-lightbox__panel {
+    padding: 48px 10px 24px;
+    max-height: min(94vh, 100dvh);
+  }
+
+  .exhibition-lightbox__caption {
+    font-size: 1.05rem;
+    padding: 0 8px;
   }
 }
 
 @media (max-width: 480px) {
-  .info-item {
-    padding: 20px 16px;
+  .exhibition-page .page-hero .exhibition-page-hero__eyebrow {
+    font-size: 12px;
+  }
+
+  .exhibition-page .page-hero .page-title {
+    margin-bottom: 16px;
+  }
+
+  .exhibition-intro {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+
+  .exhibition-section {
+    padding: 28px 0;
+  }
+
+  .exhibition-show {
+    padding-bottom: 48px;
+  }
+
+  .exhibition-grid {
+    gap: 22px;
+  }
+
+  .exhibition-piece__body {
+    padding: 18px 16px 24px;
+  }
+
+  .exhibition-essay {
+    padding: 18px 16px;
+  }
+
+  .exhibition-piece__title {
+    padding-bottom: 12px;
+  }
+
+  .exhibition-piece__figure--dual img {
+    max-height: min(32vh, 200px);
+  }
+
+  .exhibition-lightbox__close {
+    width: 48px;
+    height: 48px;
+    font-size: 1.75rem;
   }
 }
